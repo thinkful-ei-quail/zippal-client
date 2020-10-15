@@ -46,7 +46,7 @@ class Header extends Component {
         : this.renderLoginLink()}
 
         <h1 id="header_text">
-          <Link to='/'>
+          <Link to='/homepage'>
             Zip Pal
           </Link>
         </h1>

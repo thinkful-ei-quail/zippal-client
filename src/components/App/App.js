@@ -6,6 +6,7 @@ import PublicRoute from '../PublicRoute/PublicRoute'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
+import HomePage from '../HomePage/HomePage'
 
 class App extends Component {
   state = {hasError: false}
@@ -35,6 +36,10 @@ class App extends Component {
             <PublicRoute
               path={'/registration'}
               component={RegistrationRoute}
+            />
+            <PublicRoute
+              path={'/'}
+              component={HomePage}
             />
             <Route
               component={NotFoundRoute}
