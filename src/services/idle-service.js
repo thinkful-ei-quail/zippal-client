@@ -15,7 +15,7 @@ const IdleService = {
     _idleCallback = idleCallback
   },
   resetIdleTime(ev){
-    clearTimeout(_timeoutId))
+    clearTimeout(_timeoutId)
     _timeoutId = setTimeout(_idleCallback,_FIVE_MINUTES_IN_MS)
   },
   registerIdleTimerResets(){

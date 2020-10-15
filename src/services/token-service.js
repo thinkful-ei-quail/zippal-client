@@ -22,18 +22,18 @@ const TokenService = {
     return jwtDecode(jwt)
   },
   parseAuthToken() {
-    const authToken = tokenService.getAuthToken()
+    const authToken = TokenService.getAuthToken()
     if(authToken)
-      return tokenService.parseJwt(authToken)
+      return TokenService.parseJwt(authToken)
     else
       return undefined
   },
   _getMsUntilExpiry(payload){
-    return payload.exp * 1000) - Date.now()
+    return (payload.exp * 1000) - Date.now()
   },
   queueCallbackBeforeExpiry(callback){
-    const msUntilExpiry = tokenService._getMsUntilExpiry(
-      tokenService.parseAuthToken()
+    const msUntilExpiry = TokenService._getMsUntilExpiry(
+      TokenService.parseAuthToken()
     )
     _timeoutId = setTimeout(callback, msUntilExpiry - _TEN_SECONDS_IN_MS)
   },
