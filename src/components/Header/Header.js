@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import TokenService from '../../services/token-service.js'
-//import userContext from '../../context/UserContext'
 import UserContext from '../../context/UserContext'
+import quill from '../../images/quill.png'
 
 class Header extends Component {
   static contextType = UserContext
@@ -29,7 +29,7 @@ class Header extends Component {
           <span>        
             <h1 id="header_text">
             <Link to='/dashboard'>
-              Zip Pal
+              <img className='quill'  alt='zip pal' src={quill}/>
             </Link>
             </h1>
           </span>
@@ -48,7 +48,7 @@ class Header extends Component {
         <span>
           <h1 id="header_text">
             <Link to='/'>
-              Zip Pal
+              <img className='quill'  alt='zip pal' src={quill}/>
             </Link>
           </h1>
         </span>

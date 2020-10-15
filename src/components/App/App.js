@@ -32,7 +32,7 @@ class App extends Component {
               component={Profile}
             />
             <PrivateRoute
-              exact path={'/dashboard'}
+              path={'/dashboard'}
               component={DashboardRoute}
             />
             <PublicRoute
@@ -44,7 +44,7 @@ class App extends Component {
               component={RegistrationRoute}
             />
             <PublicRoute
-              path={'/'}
+              exact path={'/'}
               component={HomePage}
             />
             <Route
