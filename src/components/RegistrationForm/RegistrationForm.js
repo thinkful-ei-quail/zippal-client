@@ -15,8 +15,8 @@ class RegistrationForm extends Component {
     ev.preventDefault()
     const {name,username,password} = ev.target
     AuthApiService.postUser({
-      name:name.value,
-      username:username.value,
+      display_name: name.value,
+      username: username.value,
       password: password.value,
     })
     .then(user => {
@@ -45,7 +45,7 @@ class RegistrationForm extends Component {
         </div>
         <div>
           <label htmlFor='registration-name-input'>
-            Enter your name
+            Display Name
           </label>
           <input
             ref={this.firstInput}
@@ -56,7 +56,7 @@ class RegistrationForm extends Component {
         </div>
         <div>
           <label htmlFor='registration-username-input'>
-            Choose a Username
+            Username
           </label>
           <input
             id='registration-username-input'
@@ -66,7 +66,7 @@ class RegistrationForm extends Component {
         </div>
         <div>
           <label htmlFor='registration-password-input'>
-            choose a password
+            Password
           </label>
           <input
             id='registration-password-input'
