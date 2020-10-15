@@ -23,18 +23,36 @@ class Header extends Component {
           to='/login'>
           Logout
           </Link>
+          {' ' }
+          <Link to='/profile'>Profile</Link>
         </nav>
+          <span>        
+            <h1 id="header_text">
+            <Link to='/dashboard'>
+              Zip Pal
+            </Link>
+            </h1>
+          </span>
       </div>
     )
   }
 
   renderLoginLink(){
     return (
+      <div>
       <nav className='nav'>
         <Link to='/login'>Login</Link>
         {' ' }
         <Link to='/registration'>Sign up</Link>
       </nav>
+        <span>
+          <h1 id="header_text">
+            <Link to='/'>
+              Zip Pal
+            </Link>
+          </h1>
+        </span>
+      </div>
     )
   }
 
@@ -44,12 +62,6 @@ class Header extends Component {
         {TokenService.hasAuthToken()
         ? this.renderLogoutLink()
         : this.renderLoginLink()}
-
-        <h1 id="header_text">
-          <Link to='/homepage'>
-            Zip Pal
-          </Link>
-        </h1>
       </header>
     );
   }
