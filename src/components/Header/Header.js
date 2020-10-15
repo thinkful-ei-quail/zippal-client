@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import TokenService from '../../services/token-service.js'
-import userContext from '../../context/UserContext'
+//import userContext from '../../context/UserContext'
 import UserContext from '../../context/UserContext'
 
 class Header extends Component {
@@ -33,7 +33,7 @@ class Header extends Component {
       <nav className='nav'>
         <Link to='/login'>Login</Link>
         {' ' }
-        <Link to='/register'>Sign up</Link>
+        <Link to='/registration'>Sign up</Link>
       </nav>
     )
   }
