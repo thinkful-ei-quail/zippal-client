@@ -17,7 +17,7 @@ const AuthApiService = {
       )
   },
   postLogin({username,password}){
-    return fetch(`${config.API_ENDPOINT}/auth/token`, {
+    return fetch(`${config.API_ENDPOINT}/api/auth/token`, {
       method:'POST',
       headers: {
         'content-type':'application/json',
@@ -31,7 +31,7 @@ const AuthApiService = {
       )
   },
   refreshToken() {
-    return fetch(`${config.API_ENDPOINT}/auth/Token`, {
+    return fetch(`${config.API_ENDPOINT}/api/auth/Token`, {
       method:'PUT',
       headers: {
         'authorization':`Bearer ${TokenService.getAuthToken()}`,
