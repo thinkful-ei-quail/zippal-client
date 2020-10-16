@@ -6,6 +6,13 @@ import TokenService from './token-service'
 const ConversationApiService = {
     getConversations(user){
         // route - get conversation
+        return fetch(`${config.API_ENDPOINT}/api/conversation`, {
+            headers: {
+                authorization: `bearer ${TokenService.getAuthToken()}`
+            }
+        }).then((res) => {
+            return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+        })
     },
 
     findNewPal(user){
@@ -16,6 +23,17 @@ const ConversationApiService = {
 
     startNewConversation(newPal){
         // route - post conversation
+        return fetch(`${config.API_ENDPOINT}/api/conversation`, {
+            headers: {
+                'content-type': 'application/json',
+                authorization: `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify({
+                user_2: newPal.user_2
+            })
+        }).then((res) => {
+            return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+        })
         // will create new conversation with "newPal"
         // will open/redirect to (open conversation) conversation/new_conversation_id 
     },
