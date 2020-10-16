@@ -15,8 +15,15 @@ const ConversationApiService = {
         })
     },
 
-    findNewPal(user){
+    findNewPal(conversationIds){
         // route - get conversation/find
+        return fetch(`${config.API_ENDPOINT}/api/conversation/find/${conversationIds}`,{
+            headers: {
+                authorization: `bearer ${TokenService.getAuthToken()}`
+            }
+        }).then((res) => {
+            return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+        })
         // will have option to open conversation with found "newPal"
         // option to find another Pal ??
     },
@@ -24,12 +31,13 @@ const ConversationApiService = {
     startNewConversation(newPal){
         // route - post conversation
         return fetch(`${config.API_ENDPOINT}/api/conversation`, {
+            method: 'POST',
             headers: {
                 'content-type': 'application/json',
                 authorization: `bearer ${TokenService.getAuthToken()}`
             },
             body: JSON.stringify({
-                user_2: newPal.user_2
+                user_2: newPal
             })
         }).then((res) => {
             return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
