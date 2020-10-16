@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
+import ProfileForm from '../../components/ProfileForm/ProfileForm'
 
 export default class Profile extends Component {
   render(){
     return (
       <section>
-        <h2>Profile</h2>
-        <p>this is the profile page</p>
+        <ProfileForm />
       </section>
     )
   }

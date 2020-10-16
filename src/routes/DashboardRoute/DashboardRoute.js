@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Dashboard from '../../components/Dashboard/Dashboard'
 
 export default class DashboardRoute extends Component {
   render(){
@@ -6,7 +7,7 @@ export default class DashboardRoute extends Component {
       <section>
         <div>
           <h2> welcome!</h2>
-          <p>this is the dashboard</p>
+          <Dashboard/>
         </div>
       </section>
 
