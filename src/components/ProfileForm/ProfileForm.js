@@ -14,7 +14,7 @@ export default class ProfileForm extends Component {
           {' ' }
           <label>Country:</label>
           <input id='country' placeholder='where are you from?'></input>
-          <button>submit</button>
+          <button>Submit</button>
         </form>
       </section>
 
