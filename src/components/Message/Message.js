@@ -7,9 +7,11 @@ import './Message.css';
 
 class Message extends Component {
     
-    state = {
-        content: 'Message in Progress ...',
-        sent: false
+    constructor(props) {
+        super(props)
+        this.state = {
+            pending_content: 'Message in Progress ...'
+        }
     }
 
     static contextType = UserContext;
@@ -21,8 +23,7 @@ class Message extends Component {
         MessageService.saveMessage(content.value)
             .then(() => {
                 this.setState({
-                    content: 'Message in Progress ...',
-                    sent: false
+                    pending_content: 'Message in Progress ...'
                 })
             })
             .catch(this.context.setError)
@@ -33,16 +34,12 @@ class Message extends Component {
 
         MessageService.sendMessage(content.value)
           .then(() => this.setState({
-              content: 'Message in Progress',
-              sent: true
+              pending_content: 'Message in Progress'
           }))
           .catch(this.context.setError)
 
     }
 
-    readMessageHandler = (e) => {
-        
-    }
 
     renderMessageForm() {
         return (
@@ -56,8 +53,8 @@ class Message extends Component {
                 type='text'
                 required
                 id='Message_Content'
-                value={this.state.content === 'Message in Progress ...' ? this.props.content : this.state.content }
-                onChange= {(e) => this.setState({context: e.target.value})}
+                value={this.state.content === 'Message in Progress ...' ? this.props.content : this.state.pending_content }
+                onChange= {(e) => this.setState({pending_context: e.target.value})}
                 />
             </div>
             <div className='Message_Buttons_Container'>
@@ -82,13 +79,27 @@ class Message extends Component {
 
     // so far we've considered the user sending the message
     // should we be checking for user so we can update message status?
+    // user data is stored in the context, (id, username, display_name)
 
     renderMessage() {
-
+        return (
+            <div className='Message_Read'>
+                <h3> Message {
+                this.context.id === this.props.sender_id
+                ? 'to '
+                : 'from '  
+                }
+                {this.props.pal}
+                </h3>
+                <p>
+                    {this.props.content}
+                </p>
+            </div>
+        ) 
     }
     
     render() {
-        return this.state.sent 
+        return this.props.sender_status === 'Sent'
         ? <this.renderMessage/>
         : <this.renderMessageForm/>
     }

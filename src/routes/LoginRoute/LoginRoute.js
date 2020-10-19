@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
+import UserContext from '../../context/UserContext'
 
 class LoginRoute extends Component {
   static defaultProps = {
@@ -8,6 +9,8 @@ class LoginRoute extends Component {
       push: () => { },
     },
   }
+
+  static contextType = UserContext;
 
   handleLoginSuccess = () => {
     const {location, history} = this.props
