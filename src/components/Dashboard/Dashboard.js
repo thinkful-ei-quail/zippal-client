@@ -1,10 +1,12 @@
 import React,{Component} from 'react'
 import ConversationService from '../../services/conversation-api-service'
+import FindNewPal from '../FindNewPal/FindNewPal'
 import ConversationBubble from '../ConversationBubble/ConversationBubble'
 
 export default class Dashboard extends Component{
 
   state = {
+    toggleFindNewPalPanel: false,
     foundUser: {},
     conversationsRendered: false,
     activeConversations: [],
@@ -39,17 +41,25 @@ export default class Dashboard extends Component{
       // pass that up
       // instantiate an array called userIds
       userIds = [...new Set(userIds)]
-      path = userIds.join('%20');
+      path = userIds.join('%20')
       console.log(path)
     }
 
-    ConversationService.findNewPal(path).then((pal) => {
-      
-      console.log(pal)
+    if(this.state.toggleFindNewPalPanel) {
       this.setState({
-        foundUser: pal
+        toggleFindNewPalPanel: !this.state.toggleFindNewPalPanel
       })
-    })
+    } else {
+      ConversationService.findNewPal(path).then((pal) => {
+        console.log(pal)
+        
+        this.setState({
+          toggleFindNewPalPanel: !this.state.toggleFindNewPalPanel,
+          foundUser: pal
+        })
+      })
+
+    }
   }
 
   handleNewConversation = (e) => {
@@ -70,10 +80,8 @@ export default class Dashboard extends Component{
   render() {
     return (
       <section className='dashboard'>
-        <section className='new_conversation'>
-          <button onClick={this.handleNewPal}>Find a new Pal</button>
-          <button onClick={this.handleNewConversation}>Start a new conversation</button>
-        </section>
+          <button onClick={this.handleNewPal}>{!this.state.toggleFindNewPalPanel ? 'Find new Pal' : 'cancel'}</button>
+       {this.state.toggleFindNewPalPanel ? <FindNewPal user={this.state.foundUser}/> : ''}
         <section className='Active_Conversations'>
           <p>new conversations go here</p>
           <ul>
