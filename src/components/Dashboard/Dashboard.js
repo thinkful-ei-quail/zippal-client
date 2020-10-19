@@ -7,7 +7,8 @@ export default class Dashboard extends Component{
   state = {
     foundUser: {},
     conversationsRendered: false,
-    activeConversations: {},
+    activeConversations: [],
+    messages: []
   }
 
   async componentDidMount() {
@@ -21,7 +22,7 @@ export default class Dashboard extends Component{
       })    
   }
 
-  handleNewPal = (e) => {
+  handleNewPal = () => {
     let path
 
     if(this.state.activeConversations.length === 0) {
