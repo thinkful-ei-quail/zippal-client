@@ -54,6 +54,8 @@ export default class Dashboard extends Component{
       })
     } else {
       ConversationService.findNewPal(path).then((pal) => {
+        console.log(pal)
+        
         this.setState({
           toggleFindNewPalPanel: !this.state.toggleFindNewPalPanel,
           foundUser: pal
