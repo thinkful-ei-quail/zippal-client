@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import TokenService from '../../services/token-service.js'
 import UserContext from '../../context/UserContext'
 import quill from '../../images/quill.png'
+import './Header.css'
 
 class Header extends Component {
   static contextType = UserContext
@@ -41,18 +42,19 @@ class Header extends Component {
   renderLoginLink(){
     return (
       <div>
+        <span>
+          <h1 id="header_text">
+            <Link to='/'>
+              <img className='quill'  alt='zip pal' src={quill}/>
+              Zip Pal
+            </Link>
+          </h1>
+        </span>
       <nav className='nav'>
         <Link to='/login'>Login</Link>
         {' ' }
         <Link to='/registration'>Sign up</Link>
       </nav>
-        <span>
-          <h1 id="header_text">
-            <Link to='/'>
-              <img className='quill'  alt='zip pal' src={quill}/>
-            </Link>
-          </h1>
-        </span>
       </div>
     )
   }
