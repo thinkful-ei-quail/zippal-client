@@ -36,7 +36,7 @@ export default class ConversationBubble extends Component {
       <section className={view}>
         {view === 'expanded' && <button onClick={this.shrinkBubble}>Close</button>}
         <button onClick={this.expandBubble}><h2>{this.props.palName}</h2></button>
-        {showForm === true && <LetterForm />}
+        {(showForm === true && view !== 'small') && <LetterForm />}
         {(view === 'expanded' && showForm === false) && <button onClick={this.toggleReplyForm}>Reply</button>}
         {(view === 'expanded' && showForm === true) && <button onClick={this.toggleReplyForm}>Back to message</button>}
       </section>
