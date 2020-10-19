@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import AuthApiService from '../../services/auth-api-service'
+import Required from '../Required/Required'
 
 class RegistrationForm extends Component {
   static defaultProps = {
@@ -41,11 +42,12 @@ class RegistrationForm extends Component {
         onSubmit={this.handleSubmit}
       >
         <div role='alert'>
-          {error && <p>{error}</p>}
+          {error && <p className='error'>{error}</p>}
         </div>
+        <p><Required /> indicates required field</p>
         <div>
           <label htmlFor='registration-name-input'>
-            Display Name
+            Display Name<Required />
           </label>
           <input
             ref={this.firstInput}
@@ -56,7 +58,7 @@ class RegistrationForm extends Component {
         </div>
         <div>
           <label htmlFor='registration-username-input'>
-            Username
+            Username<Required />
           </label>
           <input
             id='registration-username-input'
@@ -66,7 +68,7 @@ class RegistrationForm extends Component {
         </div>
         <div>
           <label htmlFor='registration-password-input'>
-            Password
+            Password<Required />
           </label>
           <input
             id='registration-password-input'

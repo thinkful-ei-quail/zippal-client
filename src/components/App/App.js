@@ -6,7 +6,7 @@ import PublicRoute from '../PublicRoute/PublicRoute'
 import NotFoundRoute from '../../routes/NotFoundRoute/NotFoundRoute'
 import LoginRoute from '../../routes/LoginRoute/LoginRoute'
 import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
-import HomePage from '../HomePage/HomePage'
+import HomePage from '../../routes/HomePage/HomePage'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
 import Profile from '../../routes/ProfileRoute/ProfileRoute'
 

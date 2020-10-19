@@ -1,3 +1,6 @@
+/* Bring in normalize.css styles */
+@import-normalize;
+
 body {
   background-position: fill;
   margin: 0;
@@ -11,4 +14,9 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.required,
+.error {
+  color: red;
 }
