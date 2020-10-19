@@ -63,6 +63,34 @@ export default class Dashboard extends Component{
     }
   }
 
+  handleDifferentPal = () => {
+    let path
+
+    if(this.state.activeConversations.length === 0) {
+      path = 'empty'
+    } else {
+      let userIds = [];
+      this.state.activeConversations.forEach((conversation) => {
+        userIds.push(conversation.user_1)
+        userIds.push(conversation.user_2)
+      })
+    
+      userIds = [...new Set(userIds)]
+      path = userIds.join('%20')
+      console.log(path)
+    }
+
+   
+      ConversationService.findNewPal(path).then((pal) => {
+        console.log(pal)
+        
+        this.setState({
+          foundUser: pal
+        })
+      })
+
+  }
+
   handleNewConversation = (e) => {
     console.log(this.state.foundUser.id)
     ConversationService.startNewConversation(this.state.foundUser.id)
@@ -94,8 +122,12 @@ export default class Dashboard extends Component{
   render() {
     return (
       <section className='dashboard'>
-          <button onClick={this.handleNewPal}>{!this.state.toggleFindNewPalPanel ? 'Find new Pal' : 'cancel'}</button>
-       {this.state.toggleFindNewPalPanel ? <FindNewPal user={this.state.foundUser}/> : ''}
+       {this.state.toggleFindNewPalPanel 
+       ? <FindNewPal 
+          handleNewConversation={this.handleNewConversation}
+          handleDifferentPal={this.handleDifferentPal}
+          user={this.state.foundUser}/> 
+       : ''}
         <section className='Active_Conversations'>
           <p>new conversations go here</p>
           {this.renderConversationBubbles()}

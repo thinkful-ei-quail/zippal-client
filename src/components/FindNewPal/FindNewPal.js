@@ -13,6 +13,8 @@ export default class FindNewPal extends Component {
       <p>name: {display_name}</p>
       <p>location: {location}</p>
       <p>bio: {bio}</p>
+      <button onClick={this.props.handleNewConversation}>Start New Conversation</button>
+      <button onClick={this.props.handleDifferentPal}>Find a different pal</button>
       </div>
     )
   }
