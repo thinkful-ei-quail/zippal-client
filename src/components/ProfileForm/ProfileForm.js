@@ -7,7 +7,7 @@ export default class ProfileForm extends Component {
         <div>
           <h3>Profile</h3>
         </div>
-        <form htmlfor='about'>
+        <form htmlFor='about'>
           <label>Tell us about yourself:</label>
           <textarea id='about'  placeholder='write a little about yourself...'>
           </textarea>
