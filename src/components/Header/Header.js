@@ -12,10 +12,11 @@ class Header extends Component {
   }
 
   renderLogoutLink(){
+    console.log(this.context.user)
     return (
       <div>
         <span>
-          {this.context.user.name}
+          {this.context.user.display_name}
         </span>
         <nav className='nav'>
           <Link 

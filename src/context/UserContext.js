@@ -24,8 +24,8 @@ export class UserProvider extends Component {
 
     if(jwtPayload)
       state.user = {
-        id: jwtPayload.user_id,
-        name: jwtPayload.name,
+        id: jwtPayload.id,
+        display_name: jwtPayload.display_name,
         username: jwtPayload.sub,
       }
 
