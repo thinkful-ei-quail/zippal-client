@@ -54,8 +54,6 @@ export default class Dashboard extends Component{
       })
     } else {
       ConversationService.findNewPal(path).then((pal) => {
-        console.log(pal)
-        
         this.setState({
           toggleFindNewPalPanel: !this.state.toggleFindNewPalPanel,
           foundUser: pal
@@ -97,7 +95,12 @@ export default class Dashboard extends Component{
     console.log(this.state.foundUser.id)
     ConversationService.startNewConversation(this.state.foundUser.id)
     .then((conversation) => {
-    console.log(conversation)
+      conversation.pal_name = this.state.foundUser.display_name
+      console.log(conversation)
+      this.setState({
+        activeConversations: [...this.state.activeConversations, conversation],
+        toggleFindNewPalPanel: false
+      })
     })
   }
 
@@ -118,6 +121,7 @@ export default class Dashboard extends Component{
         convoComponents.push(<button key={`button_${i}`} onClick={this.handleNewPal}>Find a new Pal</button>)
       }
     }
+    console.log(convoComponents)
     return convoComponents
   }
 
