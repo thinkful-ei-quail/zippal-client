@@ -51,7 +51,6 @@ class Message extends Component {
                 <textarea
                 name='Message_Content_Area'
                 type='text'
-                required
                 id='Message_Content'
                 value={this.state.content === 'Message in Progress ...' ? this.props.content : this.state.pending_content }
                 onChange= {(e) => this.setState({pending_context: e.target.value})}
