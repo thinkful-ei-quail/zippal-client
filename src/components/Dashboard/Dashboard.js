@@ -1,6 +1,8 @@
 import React,{Component} from 'react'
 import ConversationService from '../../services/conversation-api-service'
 import ConversationBubble from '../ConversationBubble/ConversationBubble'
+import Message from '../Message/Message'
+import MessageService from '../../services/message-api-service'
 
 export default class Dashboard extends Component{
 
