@@ -1,8 +1,12 @@
 import React,{Component} from 'react'
 import ConversationService from '../../services/conversation-api-service'
 import ConversationBubble from '../ConversationBubble/ConversationBubble'
+<<<<<<< HEAD
 import Message from '../Message/Message'
 import MessageService from '../../services/message-api-service'
+=======
+import './Dashboard.css'
+>>>>>>> 1f4a6581605120ce614a3f222f0a89ad4655ab91
 
 export default class Dashboard extends Component{
 
@@ -64,9 +68,22 @@ export default class Dashboard extends Component{
 
   renderConversationBubbles() {
     const {activeConversations} = this.state
-    return activeConversations.map((conversation) => (
-      <ConversationBubble key={conversation.id} conversation={conversation} />
-    ))
+    const convoComponents = []
+    for(let i = 0; i < 5; i++) {
+      if(activeConversations[i]) {
+        convoComponents.push(
+          <ConversationBubble 
+            key={activeConversations[i].id}
+            palName={activeConversations[i].pal_name}
+            dateCreated={activeConversations[i].date_created}
+
+          />
+        )
+      } else {
+        convoComponents.push(<button key={`button_${i}`} onClick={this.handleNewPal}>Find a new Pal</button>)
+      }
+    }
+    return convoComponents
   }
 
   render() {
@@ -78,9 +95,7 @@ export default class Dashboard extends Component{
         </section>
         <section className='Active_Conversations'>
           <p>new conversations go here</p>
-          <ul>
-            {this.state.conversationsRendered ? this.renderConversationBubbles() : ''}
-          </ul>
+          {this.renderConversationBubbles()}
         </section>
       </section>
     )
