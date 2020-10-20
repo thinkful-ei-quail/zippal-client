@@ -46,13 +46,14 @@ class Message extends Component {
         <form className='Message_Form'>
             <div className='Message_Container'>
                 <label htmlFor='Message_Content'>
-                    Create a new message for {this.props.pal}
+                    Create a new message for {this.props.convoData.pal_name}
                 </label>
                 <textarea
                 name='Message_Content_Area'
                 type='text'
                 id='Message_Content'
-                value={this.state.content === 'Message in Progress ...' ? this.props.content : this.state.pending_content }
+                value={this.state.pending_content === 'Message in Progress...' 
+                ? this.props.newMessage.content : this.state.pending_content }
                 onChange= {(e) => this.setState({pending_context: e.target.value})}
                 />
             </div>
@@ -60,16 +61,16 @@ class Message extends Component {
                 <button 
                 className='Message_Save_Btn' 
                 type='submit'
-                onSubmit={this.saveMessageHandler()}
+                onSubmit={(e) => this.saveMessageHandler(e)}
                 >
                     Save Message
                 </button>
                 <button 
                 className='Message_Send_Btn' 
                 type='submit'
-                onSubmit={this.sendMessageHandler()}
+                onSubmit={(e) => this.sendMessageHandler(e)}
                 >
-                    Send Message to {this.props.pal}
+                    Send Message to {this.props.convoData.pal_name}
                 </button>
             </div>
         </form>
@@ -99,8 +100,8 @@ class Message extends Component {
     
     render() {
         return this.props.sender_status === 'Sent'
-        ? <this.renderMessage/>
-        : <this.renderMessageForm/>
+        ? this.renderMessage()
+        : this.renderMessageForm()
     }
 }
 
