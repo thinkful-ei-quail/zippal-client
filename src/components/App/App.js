@@ -9,6 +9,11 @@ import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 import HomePage from '../../routes/HomePage/HomePage'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
 import Profile from '../../routes/ProfileRoute/ProfileRoute'
+import { library } from '@fortawesome/fontawesome-svg-core'
+//import individual icons here
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+//add them to library here to be used wherever
+library.add(faUserCircle)
 
 import './App.css'
 

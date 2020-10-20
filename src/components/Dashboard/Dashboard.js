@@ -113,15 +113,15 @@ export default class Dashboard extends Component{
   }
 
   renderConversationBubbles() {
-    const {activeConversations} = this.state
+    const { activeConversations, messages } = this.state
     const convoComponents = []
     for(let i = 0; i < 5; i++) {
       if(activeConversations[i]) {
         convoComponents.push(
           <ConversationBubble 
             key={activeConversations[i].id}
-            palName={activeConversations[i].pal_name}
-            dateCreated={activeConversations[i].date_created}
+            convoData={activeConversations[i]}
+            messageData={messages[i]}
 
           />
         )
