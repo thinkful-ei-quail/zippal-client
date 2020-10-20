@@ -1,3 +1,28 @@
+header {
+  background-color: khaki;
+  text-align: center;
+}
+
 img.quill {
   width: 75px;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+nav a {
+  margin: 0 20px;
+  font-size: 24px;
+}
+
+nav a:hover {
+  color: #9c27ca;
 }

@@ -16,7 +16,12 @@ class Header extends Component {
     return (
       <div>
         <span>
-          {this.context.user.display_name}
+          <h1 id="header_text">
+            <Link to='/dashboard'>
+              <img className='quill'  alt='zip pal' src={quill}/>
+              Zip Pal
+            </Link>
+          </h1>
         </span>
         <nav className='nav'>
           <Link 
@@ -27,13 +32,10 @@ class Header extends Component {
           {' ' }
           <Link to='/profile'>Profile</Link>
         </nav>
-          <span>        
-            <h1 id="header_text">
-            <Link to='/dashboard'>
-              <img className='quill'  alt='zip pal' src={quill}/>
-            </Link>
-            </h1>
-          </span>
+        <span>
+        Welcome, {this.context.user.display_name}! Write a message to your pals!
+        </span>
+       
       </div>
     )
   }
