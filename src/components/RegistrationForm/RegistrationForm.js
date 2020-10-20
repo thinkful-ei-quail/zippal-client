@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import AuthApiService from '../../services/auth-api-service'
+import UserContext from '../../context/UserContext';
 import Required from '../Required/Required'
 
 class RegistrationForm extends Component {
@@ -9,6 +10,8 @@ class RegistrationForm extends Component {
   }
 
   state = {error:null}
+
+  static contextType = UserContext
 
   firstInput = React.createRef()
 
@@ -20,11 +23,18 @@ class RegistrationForm extends Component {
       username: username.value,
       password: password.value,
     })
-    .then(user => {
-      name.value = ''
-      username.value = ''
-      password.value = ''
-      this.props.onRegistrationSuccess()
+    .then(() => {
+      AuthApiService.postLogin({
+        username: username.value,
+        password: password.value
+      }).then((res) => {
+        this.context.processLogin(res.authToken);
+      }).then(user => {
+        name.value = ''
+        username.value = ''
+        password.value = ''
+        this.props.onRegistrationSuccess()
+      })
     })
     .catch(res => {
       this.setState({error: res.error})
