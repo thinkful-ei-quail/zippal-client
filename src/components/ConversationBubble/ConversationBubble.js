@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Message from '../Message/Message'
 import'./ConversationBubble.css'
 
 export default class ConversationBubble extends Component {
@@ -7,7 +8,8 @@ export default class ConversationBubble extends Component {
     super(props)
     this.state = {
       view: 'small',
-      showForm: false
+      showForm: false,
+      newMessage: null
     }
   }
   
@@ -23,7 +25,15 @@ export default class ConversationBubble extends Component {
     })
   }
 
-  toggleReplyForm = () => {
+  toggleReplyForm = async (convo) => {
+    const newMessage = await this.props.newMessageHandler(convo)
+    await this.props.setNewMessage(newMessage)
+    this.setState({
+      showForm: !this.state.showForm
+    })
+  }
+
+  closeReplyForm = () => {
     this.setState({
       showForm: !this.state.showForm
     })
@@ -44,7 +54,7 @@ export default class ConversationBubble extends Component {
     message id as param and content as req body)
     (convo.user_1_turn === true && message.date_sent + 'specifiedTime' < now) return last message in array, render notification
   
-  3. it is user_2's turn; message unread by user_2 => user_1 sees the most recent message sent by them (last message or 2nd to last message. Sender_id matches user_1 id)
+  3. it is user_2's turn; message unread by user_2 => user_1 sees the most recent message sent by them (last message. Sender_id matches user_1 id)
     see current message status (sender_status) on small conversation bubble component
     (convo.user_1_turn === false && messages[messages.length - 1].sender_id === user_1.id) return messages[messages.length - 1] => status = message.receiver_status (sent?)
 
@@ -55,17 +65,27 @@ export default class ConversationBubble extends Component {
   5. it is user_1's turn(user_2 just sent message) => Go to option 1
   */
 
+  // renderLastMessage () {}
 
+  // responseSent () {}
+
+  // renderSecondToLastMessage () {}
+
+
+
+
+  
   render() {
+    console.log('conbubble', this.props)
     const { view, showForm } = this.state
     return (
       <section className={view}>
         {view === 'expanded' && <button onClick={this.shrinkBubble}>Close</button>}
         <button onClick={this.expandBubble}><h2>{this.props.convoData.pal_name}</h2></button>
-        <FontAwesomeIcon icon='user-circle'/>
-        {/* {(showForm === true && view !== 'small') && <LetterForm />} */}
-        {(view === 'expanded' && showForm === false) && <button onClick={this.toggleReplyForm}>Reply</button>}
-        {(view === 'expanded' && showForm === true) && <button onClick={this.toggleReplyForm}>Back to message</button>}
+        <FontAwesomeIcon icon={this.props.convoData.fa_icon}/>
+        {(showForm === true && view !== 'small') && <Message convoData={this.props.convoData} messageData={this.props.messageData} newMessage={this.state.newMessage}/>}
+        {(view === 'expanded' && showForm === false) && <button onClick={() => this.toggleReplyForm(this.props.convoData)}>Reply</button>}
+        {(view === 'expanded' && showForm === true) && <button onClick={this.closeReplyForm}>Back to message</button>}
       </section>
     )
   }

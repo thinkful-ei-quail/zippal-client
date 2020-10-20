@@ -14,10 +14,9 @@ const MessageApiService = {
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             },
             body: JSON.stringify({
-                conversation_id: conversation.id,
-                sender_id: conversation.user_1,
-                receiver_id: conversation.user_2,
-                content: "message in progress ..."
+                id: conversation.id,
+                user_1: conversation.user_1,
+                user_2: conversation.user_2
             }),
         })
           .then(res => 
