@@ -146,7 +146,7 @@ export default class Dashboard extends Component{
     const index = messageArray.find(message => message[0].conversation_id === newMessage.conversation_id)
     console.log(index)
     if(messageArray.length === 0){
-      return this.setState({
+       this.setState({
         messages: [newMessage]
       })
     } else if(index === -1){
