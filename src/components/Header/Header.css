@@ -1,13 +1,29 @@
 header {
-  background-color: khaki;
+  background-color: rgba(255,255,255,0.3);
   text-align: center;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  
 }
-
+.header_text{
+  display: flex;
+  align-items: center;
+}
 img.quill {
-  width: 75px;
+  width: 80px;
+}
+.header_link {
+  display:flex;
+}
+.nav_container{
+  display: flex;
+  align-self: bottom;
 }
 
 header a {
+ font-family: 'Patrick Hand', cursive;
   text-decoration: none;
   color: black;
 }
