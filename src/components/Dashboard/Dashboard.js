@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import ConversationService from '../../services/conversation-api-service'
 import FindNewPal from '../FindNewPal/FindNewPal'
 import ConversationBubble from '../ConversationBubble/ConversationBubble'
-import Message from '../Message/Message'
+import NewConvoMessage from '../NewConvoMessage/NewConvoMessage'
 import MessageService from '../../services/message-api-service'
 import './Dashboard.css'
 
@@ -10,18 +10,18 @@ export default class Dashboard extends Component{
 
   state = {
     toggleFindNewPalPanel: false,
+    toggleNewMessagePanel: false,
     isOutOfAvailablePals: false,
     foundUser: {},
     conversationsRendered: false,
     activeConversations: [],
-    messages: []
+    messages: [],
+    newConversation: null
   }
 
   async componentDidMount() {
     const response = await ConversationService.getConversations()
-    
-      console.log(response)
-
+  
       this.setState({
         conversationsRendered: true,
         isOutOfAvailablePals: false,
@@ -48,7 +48,6 @@ export default class Dashboard extends Component{
       // instantiate an array called userIds
       userIds = [...new Set(userIds)]
       path = userIds.join('%20')
-      console.log(path)
     }
 
     if(this.state.toggleFindNewPalPanel) {
@@ -86,13 +85,10 @@ export default class Dashboard extends Component{
     
       userIds = [...new Set(userIds)]
       path = userIds.join('%20')
-      console.log(path)
     }
 
    
-      ConversationService.findNewPal(path).then((pal) => {
-        console.log(pal)
-        
+      ConversationService.findNewPal(path).then((pal) => {   
         this.setState({
           foundUser: pal
         })
@@ -101,13 +97,12 @@ export default class Dashboard extends Component{
   }
 
   handleNewConversation = (e) => {
-    console.log(this.state.foundUser.id)
     ConversationService.startNewConversation(this.state.foundUser.id)
     .then((conversation) => {
       conversation.pal_name = this.state.foundUser.display_name
-      console.log('ccccc', conversation)
       this.setState({
         activeConversations: [...this.state.activeConversations, conversation],
+        newConversation: conversation,
         toggleFindNewPalPanel: false
       })
     })
@@ -131,7 +126,6 @@ export default class Dashboard extends Component{
         convoComponents.push(<button key={`button_${i}`} onClick={this.handleNewPal}>Find a new Pal</button>)
       }
     }
-    console.log(convoComponents)
     return convoComponents
   }
 
@@ -140,16 +134,21 @@ export default class Dashboard extends Component{
   }
 
   setNewMessage = (newMessage) => {
-    console.log([...this.state.messages])
     const messageArray = this.state.messages;
     
-    const index = messageArray.find(message => message[0].conversation_id === newMessage.conversation_id)
-    console.log(index)
     if(messageArray.length === 0){
-       this.setState({
+      return this.setState({
         messages: [newMessage]
       })
-    } else if(index === -1){
+    } 
+    
+    const index = messageArray.findIndex((messages, i) => {
+      if(messages.length === 0) {
+        return
+      } else if(messages[0].conversation_id === newMessage.conversation_id)
+      return i
+      })
+    if(index === -1){
       messageArray.push([newMessage])
     } else {
       messageArray[index].push(newMessage)
@@ -165,17 +164,34 @@ export default class Dashboard extends Component{
     })
   }
 
+  closeNewConvoMessage = () => {
+    this.setState({
+      newConversation: null
+    })
+  }
+
   render() {
+    const { toggleFindNewPalPanel, newConversation, isOutOfAvailablePals, foundUser } = this.state
     return (
       <section className='dashboard'>
-       {this.state.toggleFindNewPalPanel 
+
+       {toggleFindNewPalPanel 
        ? <FindNewPal 
           handleNewConversation={this.handleNewConversation}
           handleDifferentPal={this.handleDifferentPal}
-          user={this.state.foundUser}
-          availablePals={this.state.isOutOfAvailablePals}
+          user={foundUser}
+          availablePals={isOutOfAvailablePals}
           /> 
        : ''}
+
+        {newConversation
+        ? <NewConvoMessage 
+            newConvoData={{...newConversation, user_2: foundUser.id}} 
+            closeNewConvoMessage={this.closeNewConvoMessage} 
+            setNewMessage={this.setNewMessage}
+          />
+        : ''}
+
         <section className='Active_Conversations'>
           {this.renderConversationBubbles()}
         </section>
