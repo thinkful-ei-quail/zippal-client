@@ -25,7 +25,8 @@ export default class Dashboard extends Component{
       this.setState({
         conversationsRendered: true,
         isOutOfAvailablePals: false,
-        activeConversations: response.conversations
+        activeConversations: response.conversations,
+        messages: response.messages
       })    
   }
 
