@@ -13,7 +13,6 @@ class Header extends Component {
   }
 
   renderLogoutLink(){
-    console.log(this.context.user)
     return (
       <div>
         <span>
