@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 import './FindNewPal.css'
 
 export default class FindNewPal extends Component {
-  render() {
-    console.log(this.props.user)
+
+  renderFindNewPalInterface() {
     const {display_name, bio, location} = this.props.user
     return (
       <div className='find_new_pal'>
@@ -17,5 +17,22 @@ export default class FindNewPal extends Component {
       <button onClick={this.props.handleDifferentPal}>Find a different pal</button>
       </div>
     )
+  }
+
+  renderOutOfAvailablePalsMessage() {
+    return (
+      <div className='find_new_pal'>
+        No available pals to choose from right now. Try again later.
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <>
+      {!this.props.availablePals ? this.renderFindNewPalInterface() : this.renderOutOfAvailablePalsMessage()}
+      </>
+    )
+
   }
 }

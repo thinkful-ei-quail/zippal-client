@@ -9,7 +9,6 @@ export default class DashboardRoute extends Component {
     return (
       <section>
         <div>
-          <h2> welcome!</h2>
           <Dashboard/>
         </div>
       </section>

@@ -10,6 +10,8 @@ import HomePage from '../../routes/HomePage/HomePage'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
 import Profile from '../../routes/ProfileRoute/ProfileRoute'
 
+import './App.css'
+
 class App extends Component {
   state = {hasError: false}
 

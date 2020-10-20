@@ -10,6 +10,7 @@ export default class Dashboard extends Component{
 
   state = {
     toggleFindNewPalPanel: false,
+    isOutOfAvailablePals: false,
     foundUser: {},
     conversationsRendered: false,
     activeConversations: [],
@@ -23,6 +24,7 @@ export default class Dashboard extends Component{
 
       this.setState({
         conversationsRendered: true,
+        isOutOfAvailablePals: false,
         activeConversations: response.conversations
       })    
   }
@@ -54,12 +56,16 @@ export default class Dashboard extends Component{
       })
     } else {
       ConversationService.findNewPal(path).then((pal) => {
-        console.log(pal)
-        
         this.setState({
           toggleFindNewPalPanel: !this.state.toggleFindNewPalPanel,
           foundUser: pal
         })
+      }).then((pal) => {
+        if(this.state.foundUser.error) {
+          this.setState({
+            isOutOfAvailablePals: true
+          })
+        }
       })
 
     }
@@ -134,10 +140,11 @@ export default class Dashboard extends Component{
        ? <FindNewPal 
           handleNewConversation={this.handleNewConversation}
           handleDifferentPal={this.handleDifferentPal}
-          user={this.state.foundUser}/> 
+          user={this.state.foundUser}
+          availablePals={this.state.isOutOfAvailablePals}
+          /> 
        : ''}
         <section className='Active_Conversations'>
-          <p>new conversations go here</p>
           {this.renderConversationBubbles()}
         </section>
       </section>
