@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import LetterForm from '../LetterForm/LetterForm'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import'./ConversationBubble.css'
 
@@ -64,7 +63,7 @@ export default class ConversationBubble extends Component {
         {view === 'expanded' && <button onClick={this.shrinkBubble}>Close</button>}
         <button onClick={this.expandBubble}><h2>{this.props.convoData.pal_name}</h2></button>
         <FontAwesomeIcon icon='user-circle'/>
-        {(showForm === true && view !== 'small') && <LetterForm />}
+        {/* {(showForm === true && view !== 'small') && <LetterForm />} */}
         {(view === 'expanded' && showForm === false) && <button onClick={this.toggleReplyForm}>Reply</button>}
         {(view === 'expanded' && showForm === true) && <button onClick={this.toggleReplyForm}>Back to message</button>}
       </section>
