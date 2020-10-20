@@ -104,7 +104,7 @@ export default class Dashboard extends Component{
     ConversationService.startNewConversation(this.state.foundUser.id)
     .then((conversation) => {
       conversation.pal_name = this.state.foundUser.display_name
-      console.log(conversation)
+      console.log('ccccc', conversation)
       this.setState({
         activeConversations: [...this.state.activeConversations, conversation],
         toggleFindNewPalPanel: false
@@ -122,7 +122,8 @@ export default class Dashboard extends Component{
             key={activeConversations[i].id}
             convoData={activeConversations[i]}
             messageData={messages[i]}
-
+            newMessageHandler={this.newMessageHandler}
+            setNewMessage={this.setNewMessage}
           />
         )
       } else {
@@ -131,6 +132,36 @@ export default class Dashboard extends Component{
     }
     console.log(convoComponents)
     return convoComponents
+  }
+
+  newMessageHandler = async (convo) => {
+    return await MessageService.createNewMessage(convo)
+  }
+
+  setNewMessage = (newMessage) => {
+    console.log([...this.state.messages])
+    const messageArray = this.state.messages;
+    
+    const index = messageArray.find(message => message[0].conversation_id === newMessage.conversation_id)
+    console.log(index)
+    if(messageArray.length === 0){
+      return this.setState({
+        messages: [newMessage]
+      })
+    } else if(index === -1){
+      messageArray.push([newMessage])
+    } else {
+      messageArray[index].push(newMessage)
+    }
+    // for(let i = 0; i < messageArray.length; i++) {
+    //   if(messageArray[i][0].conversation_id === newMessage.conversation_id) {
+    //     messageArray[i].push(newMessage)
+    //   }
+    // }
+
+    this.setState({
+      messages: messageArray
+    })
   }
 
   render() {
