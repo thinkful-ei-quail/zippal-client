@@ -53,8 +53,23 @@ const ConversationApiService = {
         // AND/OR will have the ability to create a new message
     },
 
-    endConversation(conversation_id){
+    endConversation(conversation){
         // setting is_active to FALSE
+        return fetch(`${config.API_ENDPOINT}/api/${conversation.id}/deactivate`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify({
+             is_active: false   
+            }),
+        })
+        .then(res => 
+            (!res.ok)
+            ? res.json().then(e => Promise.reject(e))
+            : res.json()
+          )
     }
 }
 
