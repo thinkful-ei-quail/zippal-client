@@ -10,7 +10,7 @@ class Message extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            pending_content: 'Message in Progress ...'
+            pending_content: 'Message in Progress...'
         }
     }
 
@@ -23,7 +23,7 @@ class Message extends Component {
         MessageService.saveMessage(content.value)
             .then(() => {
                 this.setState({
-                    pending_content: 'Message in Progress ...'
+                    pending_content: 'Message in Progress...'
                 })
             })
             .catch(this.context.setError)

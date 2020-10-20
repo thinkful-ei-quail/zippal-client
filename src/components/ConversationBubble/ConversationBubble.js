@@ -71,13 +71,20 @@ export default class ConversationBubble extends Component {
 
   // renderSecondToLastMessage () {}
 
+  renderSmallView = () => {
+    return (
+      <div className='ConversationBubble__convo_card'>
 
+      </div>
+    )
+  }
 
 
   
   render() {
     console.log('conbubble', this.props)
     const { view, showForm } = this.state
+    console.log(this.props.messageData)
     return (
       <section className={view}>
         {view === 'expanded' && <button onClick={this.shrinkBubble}>Close</button>}
