@@ -148,6 +148,7 @@ export default class Dashboard extends Component{
       } else if(messages[0].conversation_id === newMessage.conversation_id)
       return i
       })
+
     if(index === -1){
       messageArray.push([newMessage])
     } else {
