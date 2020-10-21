@@ -114,7 +114,7 @@ export default class Dashboard extends Component{
     ConversationService.endConversation(convoId)
     .then((convo) => {
       console.log(convo)
-    
+      console.log(this.state.activeConversations)
     })
   }
 
