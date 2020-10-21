@@ -32,17 +32,17 @@ const MessageApiService = {
     //     // options to save or send
     // },
 
-    saveMessage(message) {
+    saveMessage(content, id) {
         // route patch message/:message_id/save 
         // updating message.content
-        fetch(`${message_API_ENDPOINT}/${message.id}/save`,{
+        fetch(`${message_API_ENDPOINT}/${id}/save`,{
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             },
             body: JSON.stringify({
-                content: message.content
+                content
             }),
         })
           .then(res => 
@@ -52,11 +52,11 @@ const MessageApiService = {
           )
     },
 
-    sendMessage(message) {
+    sendMessage(content, id) {
         // route patch message/:message_id/send
         // updating content?, sender_status, receiver_status, date_sent
         // update conversation user_1_turn and user_2_turn
-        fetch(`${message_API_ENDPOINT}/${message.id}/send`,{
+        fetch(`${message_API_ENDPOINT}/${id}/send`,{
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
@@ -65,7 +65,7 @@ const MessageApiService = {
             body: JSON.stringify({
                 sender_status: 'Sent',
                 receiver_status: 'Received',
-                content: message.content,
+                content,
                 date_sent: new Date()
             }),
         })
