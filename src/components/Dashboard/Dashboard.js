@@ -109,6 +109,23 @@ export default class Dashboard extends Component{
     })
   }
 
+  handleEndConvo = (convo) => {
+    const convoId = convo.id
+    console.log(convoId)
+    ConversationService.endConversation(convoId)
+    .then((convo) => {
+      console.log(convo)
+      let activeConversations = this.state.activeConversations
+      let updatedActiveConvos = activeConversations.filter((c) => {
+        console.log(c.id)
+        return c.id !== convoId})
+      console.log(updatedActiveConvos)
+      this.setState({
+        activeConversations: updatedActiveConvos
+      })
+    })
+  }
+
   renderConversationBubbles() {
     const { activeConversations, messages } = this.state
     const convoComponents = []
@@ -121,6 +138,7 @@ export default class Dashboard extends Component{
             messageData={messages[i]}
             newMessageHandler={this.newMessageHandler}
             setNewMessage={this.setNewMessage}
+            handleEndConvo={this.handleEndConvo}
           />
         )
       } else {
