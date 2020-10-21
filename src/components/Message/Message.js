@@ -10,34 +10,46 @@ class Message extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            pending_content: 'Message in Progress ...'
+            pending_content: 'Message in Progress...'
         }
     }
 
     static contextType = UserContext;
 
-    saveMessageHandler = (e) => {
-        e.preventDefault()
-        const {content} = e.target
-
-        MessageService.saveMessage(content.value)
-            .then(() => {
-                this.setState({
-                    pending_content: 'Message in Progress ...'
-                })
-            })
-            .catch(this.context.setError)
+    componentDidMount = () => {
+        this.setState({
+            pending_content: this.props.newMessage.content
+        })
     }
 
-    sendMessageHandler = (e) => {
-        const {content} = e.target
+    saveMessageHandler = () => {
+        const {pending_content} = this.state
 
-        MessageService.sendMessage(content.value)
-          .then(() => this.setState({
-              pending_content: 'Message in Progress'
-          }))
-          .catch(this.context.setError)
+        MessageService.saveMessage(pending_content, this.props.newMessage.id)
+            // .then(() => {
+            //     this.setState({
+            //         pending_content: 'Message in Progress...'
+            //     })
+            // })
+            // .catch(this.context.setError)
+    }
 
+    sendMessageHandler = () => {
+        // e.preventDefault()
+        const {pending_content} =this.state
+
+        MessageService.sendMessage(pending_content, this.props.newMessage.id)
+        //   .then(() => this.setState({
+        //       pending_content: 'Message in Progress...'
+        //   }))
+        //   .catch(this.context.setError)
+
+    }
+
+    setPendingContent = (e) => {
+        this.setState({
+            pending_content: e.value
+        })
     }
 
 
@@ -52,23 +64,20 @@ class Message extends Component {
                 name='Message_Content_Area'
                 type='text'
                 id='Message_Content'
-                value={this.state.pending_content === 'Message in Progress...' 
-                ? this.props.newMessage.content : this.state.pending_content }
-                onChange= {(e) => this.setState({pending_context: e.target.value})}
+                value={this.state.pending_content}
+                onChange= {(e) => this.setPendingContent(e.target)}
                 />
             </div>
             <div className='Message_Buttons_Container'>
                 <button 
                 className='Message_Save_Btn' 
-                type='submit'
-                onSubmit={(e) => this.saveMessageHandler(e)}
+                onClick={this.saveMessageHandler}
                 >
                     Save Message
                 </button>
                 <button 
                 className='Message_Send_Btn' 
-                type='submit'
-                onSubmit={(e) => this.sendMessageHandler(e)}
+                onClick={this.sendMessageHandler}
                 >
                     Send Message to {this.props.convoData.pal_name}
                 </button>
@@ -85,7 +94,7 @@ class Message extends Component {
         return (
             <div className='Message_Read'>
                 <h3> Message {
-                this.context.id === this.props.sender_id
+                this.context.id === this.props.newMessage.sender_id
                 ? 'to '
                 : 'from '  
                 }
@@ -99,7 +108,7 @@ class Message extends Component {
     }
     
     render() {
-        return this.props.sender_status === 'Sent'
+        return this.props.newMessage.sender_status === 'Sent'
         ? this.renderMessage()
         : this.renderMessageForm()
     }

@@ -14,15 +14,7 @@ class Header extends Component {
 
   renderLogoutLink(){
     return (
-      <div>
-        <span>
-          <h1 id="header_text">
-            <Link to='/dashboard'>
-              <img className='quill'  alt='zip pal' src={quill}/>
-              Zip Pal
-            </Link>
-          </h1>
-        </span>
+      <div className='nav_container'>
         <nav className='nav'>
           <Link 
           onClick={this.handleLogoutClick} 
@@ -42,15 +34,7 @@ class Header extends Component {
 
   renderLoginLink(){
     return (
-      <div>
-        <span>
-          <h1 id="header_text">
-            <Link to='/'>
-              <img className='quill'  alt='zip pal' src={quill}/>
-              Zip Pal
-            </Link>
-          </h1>
-        </span>
+      <div className='nav_container'>
       <nav className='nav'>
         <Link to='/login'>Login</Link>
         {' ' }
@@ -63,6 +47,16 @@ class Header extends Component {
   render() {
     return (
       <header>
+         <h1 className="header_text">
+            <div className='header_image'>
+              {TokenService.hasAuthToken()
+              ? <Link className='header_link' to='/dashboard'><img className='quill' alt='zip pal' src={quill}/></Link>
+              : <Link className='header_link' to='/'><img className='quill'  alt='zip pal' src={quill}/></Link> }
+            </div>
+            <div className='title'>
+              Zip Pal
+            </div>
+          </h1>
         {TokenService.hasAuthToken()
         ? this.renderLogoutLink()
         : this.renderLoginLink()}
