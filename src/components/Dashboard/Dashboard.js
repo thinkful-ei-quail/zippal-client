@@ -2,8 +2,10 @@ import React,{Component} from 'react'
 import ConversationService from '../../services/conversation-api-service'
 import FindNewPal from '../FindNewPal/FindNewPal'
 import ConversationBubble from '../ConversationBubble/ConversationBubble'
+// import Message from '../Message/Message'
 import NewConvoMessage from '../NewConvoMessage/NewConvoMessage'
 import MessageService from '../../services/message-api-service'
+import UserContext from '../../context/UserContext'
 import './Dashboard.css'
 
 export default class Dashboard extends Component{
@@ -18,6 +20,8 @@ export default class Dashboard extends Component{
     messages: [],
     newConversation: null
   }
+
+  static contextType = UserContext
 
   async componentDidMount() {
     const response = await ConversationService.getConversations()
@@ -188,6 +192,9 @@ export default class Dashboard extends Component{
     const { toggleFindNewPalPanel, newConversation, isOutOfAvailablePals, foundUser } = this.state
     return (
       <section className='dashboard'>
+        <div className='welcome_text'>
+        Welcome, {this.context.user.display_name}!<br/> Write a message to your pals!
+        </div>
 
        {toggleFindNewPalPanel 
        ? <FindNewPal 
