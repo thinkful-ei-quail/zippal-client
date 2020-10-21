@@ -88,7 +88,7 @@ export default class ConversationBubble extends Component {
     const { view, showForm } = this.state
     return (
       <section className={view}>
-        <ConversationNotification messageData={this.props.messageData}/>
+        {!this.props.messageData ? '' : <ConversationNotification messageData={this.props.messageData}/> }
         {view === 'expanded' && <button onClick={this.shrinkBubble}>Close</button>}
         <button onClick={this.expandBubble}><h2>{this.props.convoData.pal_name}</h2></button>
         <FontAwesomeIcon icon={this.props.convoData.fa_icon}/>
