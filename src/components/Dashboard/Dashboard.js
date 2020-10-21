@@ -117,7 +117,7 @@ export default class Dashboard extends Component{
           <ConversationBubble 
             key={activeConversations[i].id}
             convoData={activeConversations[i]}
-            messageData={messages[i]}
+            messageData={messages[i] || []}
             newMessageHandler={this.newMessageHandler}
             setNewMessage={this.setNewMessage}
           />

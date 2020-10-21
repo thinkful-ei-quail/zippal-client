@@ -10,37 +10,32 @@ export default class ConversationBubble extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      view: 'small',
-      showForm: false,
+      expanded: false,
+      selectedMessage: null,
       newMessage: null
     }
   }
   
-  expandBubble = () => {
+  toggleBubble = () => {
     this.setState({
-      view: 'expanded'
+      expanded: !this.state.expanded
     })
   }
 
-  shrinkBubble = () => {
-    this.setState({
-      view: 'small'
-    })
-  }
 
-  toggleReplyForm = async (convo) => {
-    const newMessage = await this.props.newMessageHandler(convo)
-    await this.props.setNewMessage(newMessage)
-    this.setState({
-      showForm: !this.state.showForm
-    })
-  }
+  // toggleReplyForm = async (convo) => {
+  //   const newMessage = await this.props.newMessageHandler(convo)
+  //   await this.props.setNewMessage(newMessage)
+  //   this.setState({
+  //     showForm: !this.state.showForm
+  //   })
+  // }
 
-  closeReplyForm = () => {
-    this.setState({
-      showForm: !this.state.showForm
-    })
-  }
+  // closeReplyForm = () => {
+  //   this.setState({
+  //     showForm: !this.state.showForm
+  //   })
+  // }
 
   // MESSAGE LOGIC //
   /*
@@ -76,6 +71,9 @@ export default class ConversationBubble extends Component {
 
   messageStatusMessage = () => {
     const { messageData } = this.props
+    if(!messageData) {
+      return 'No messages in this conversation'
+    }
     if(messageData.length === 0) {
       return 'No messages in this conversation'
     }
@@ -104,23 +102,62 @@ export default class ConversationBubble extends Component {
 
   renderSmallView = () => {
     return (
-      <button className='ConversationBubble__convo_card' onClick={this.expandBubble}>
+      <div className='ConversationBubble__convo_card small' >
         <h2>{this.props.convoData.pal_name}</h2>
-        <FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} />
+        <button onClick={this.toggleBubble}><FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} /></button>
         <p>Conversation Status: {this.messageStatusMessage()}</p>
         <p>Conversation Start Date: {this.props.convoData.date_created}</p>
         <p>Total Messages: {this.props.messageData.length}</p>
-      </button>
+      </div>
+    )
+  }
+
+  //create little messsage containers that display sender name and date message was sent
+  //these messages can be selected to view the content
+  renderMessages = () => {
+    const { messageData } = this.props
+    
+    if(messageData.length === 0) {
+      return <span>No messages to display yet</span>
+    }
+
+    const messageContainers = messageData.map((message, i) => {
+      return (
+        <button onClick={() => this.selectMessageHandler(i)} key={message.id} className='ConersationBubble__message_select'>
+          <p>{message.sender_id === this.context.user.id ? 'Outgoing': 'Incoming'}</p>
+          <p>Date sent: {message.date_sent}</p>
+          <p>Content: {message.content.substring(0, 30)}...</p>
+        </button>
+      )
+    })
+
+    return messageContainers
+  }
+
+  selectMessageHandler = (id) => {
+    this.setState({
+      selectedMessage: this.props.messageData[id],
+    })
+  }
+
+  // conditionally render reply(create new message) button or continue draft(open last message in text area to continue writing)
+  renderExpandedView = () => {
+    return (
+    <div className='ConversationBubble__convo_card expanded'>
+      <button onClick={this.toggleBubble}><FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} /></button>
+      {!this.state.selectedMessage ? this.renderMessages() : ''}
+      {this.state.selectedMessage ? <Message convoData={this.props.convoData} newMessage={this.state.selectedMessage}/>: ''}
+    </div>
     )
   }
 
 
   
   render() {
-    const { view, showForm } = this.state
+    const { expanded } = this.state
     return (
       <>
-        {view === 'small' ? this.renderSmallView(): ''}
+        {expanded === false ? this.renderSmallView() : this.renderExpandedView()}
       </>
   //     <section className={view}>
   //       {view === 'expanded' && <button onClick={this.shrinkBubble}>Close</button>}
