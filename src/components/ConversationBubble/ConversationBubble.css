@@ -6,5 +6,11 @@
 
 .expanded {
   background-color: lightgray;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  padding:20px;
+  border-radius: 5px;
+  border:1px solid black;
   
 }
