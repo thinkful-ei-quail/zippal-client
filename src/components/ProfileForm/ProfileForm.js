@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './ProfileForm.css'
 
 export default class ProfileForm extends Component {
   render(){

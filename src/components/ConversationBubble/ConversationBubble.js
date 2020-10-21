@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import UserContext from '../../context/UserContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Message from '../Message/Message'
+import ConversationNotification from '../ConversationNotification/CoversationNotification'
 import'./ConversationBubble.css'
 
 export default class ConversationBubble extends Component {
@@ -150,6 +151,8 @@ export default class ConversationBubble extends Component {
     </div>
     )
   }
+
+
 
 
   

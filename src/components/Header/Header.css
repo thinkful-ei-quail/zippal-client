@@ -19,9 +19,8 @@ img.quill {
 }
 .nav_container{
   display: flex;
-  align-self: bottom;
+  flex-direction: column-reverse;
 }
-
 header a {
  font-family: 'Patrick Hand', cursive;
   text-decoration: none;
