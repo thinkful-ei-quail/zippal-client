@@ -134,7 +134,7 @@ export default class Dashboard extends Component{
           <ConversationBubble 
             key={activeConversations[i].id}
             convoData={activeConversations[i]}
-            messageData={messages[i]}
+            messageData={messages[i] || []}
             newMessageHandler={this.newMessageHandler}
             setNewMessage={this.setNewMessage}
             handleEndConvo={this.handleEndConvo}
@@ -166,6 +166,7 @@ export default class Dashboard extends Component{
       } else if(messages[0].conversation_id === newMessage.conversation_id)
       return i
       })
+
     if(index === -1){
       messageArray.push([newMessage])
     } else {
