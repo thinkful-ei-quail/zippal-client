@@ -21,9 +21,6 @@ img.quill {
   display: flex;
   flex-direction: column-reverse;
 }
-.welcome_text{
-  margin-bottom: 3px;
-}
 header a {
  font-family: 'Patrick Hand', cursive;
   text-decoration: none;

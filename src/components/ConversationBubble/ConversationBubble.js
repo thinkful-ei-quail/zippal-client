@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Message from '../Message/Message'
+import ConversationNotification from '../ConversationNotification/CoversationNotification'
 import'./ConversationBubble.css'
 
 export default class ConversationBubble extends Component {
@@ -80,16 +81,20 @@ export default class ConversationBubble extends Component {
   }
 
 
+
+
   
   render() {
     const { view, showForm } = this.state
     return (
       <section className={view}>
+        {!this.props.messageData ? '' : <ConversationNotification messageData={this.props.messageData}/> }
         {view === 'expanded' && <button onClick={this.shrinkBubble}>Close</button>}
         <button onClick={this.expandBubble}><h2>{this.props.convoData.pal_name}</h2></button>
         <FontAwesomeIcon icon={this.props.convoData.fa_icon}/>
         {(showForm === true && view !== 'small') && <Message convoData={this.props.convoData} messageData={this.props.messageData} newMessage={this.state.newMessage}/>}
         {(view === 'expanded' && showForm === false) && <button onClick={() => this.toggleReplyForm(this.props.convoData)}>Reply</button>}
+        {(view === 'expanded' && showForm === false) && <button onClick={() => this.props.handleEndConvo(this.props.convoData)}>End</button>}
         {(view === 'expanded' && showForm === true) && <button onClick={this.closeReplyForm}>Back to message</button>}
       </section>
     )
