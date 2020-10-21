@@ -80,6 +80,8 @@ export default class ConversationBubble extends Component {
   }
 
 
+
+
   
   render() {
     console.log('conbubble', this.props)
@@ -92,6 +94,7 @@ export default class ConversationBubble extends Component {
         <FontAwesomeIcon icon={this.props.convoData.fa_icon}/>
         {(showForm === true && view !== 'small') && <Message convoData={this.props.convoData} messageData={this.props.messageData} newMessage={this.state.newMessage}/>}
         {(view === 'expanded' && showForm === false) && <button onClick={() => this.toggleReplyForm(this.props.convoData)}>Reply</button>}
+        {(view === 'expanded' && showForm === false) && <button onClick={() => this.props.handleEndConvo(this.props.convoData)}>End</button>}
         {(view === 'expanded' && showForm === true) && <button onClick={this.closeReplyForm}>Back to message</button>}
       </section>
     )

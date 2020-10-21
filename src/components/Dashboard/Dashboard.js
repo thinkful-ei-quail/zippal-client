@@ -113,6 +113,16 @@ export default class Dashboard extends Component{
     })
   }
 
+  handleEndConvo = (convo) => {
+    const convoId = convo.id
+    console.log(convoId)
+    ConversationService.endConversation(convoId)
+    .then((convo) => {
+      console.log(convo)
+    
+    })
+  }
+
   renderConversationBubbles() {
     const { activeConversations, messages } = this.state
     const convoComponents = []
@@ -125,6 +135,7 @@ export default class Dashboard extends Component{
             messageData={messages[i]}
             newMessageHandler={this.newMessageHandler}
             setNewMessage={this.setNewMessage}
+            handleEndConvo={this.handleEndConvo}
           />
         )
       } else {
