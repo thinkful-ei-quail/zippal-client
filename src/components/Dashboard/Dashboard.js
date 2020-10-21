@@ -2,11 +2,8 @@ import React,{Component} from 'react'
 import ConversationService from '../../services/conversation-api-service'
 import FindNewPal from '../FindNewPal/FindNewPal'
 import ConversationBubble from '../ConversationBubble/ConversationBubble'
-<<<<<<< HEAD
 // import Message from '../Message/Message'
-=======
 import NewConvoMessage from '../NewConvoMessage/NewConvoMessage'
->>>>>>> f61f0f56d45529837016a78fe2c5341df337cb1a
 import MessageService from '../../services/message-api-service'
 import './Dashboard.css'
 
