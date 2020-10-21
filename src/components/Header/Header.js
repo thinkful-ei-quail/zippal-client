@@ -14,6 +14,7 @@ class Header extends Component {
 
   renderLogoutLink(){
     return (
+      <div className='logged_in'>
       <div className='nav_container'>
         <nav className='nav'>
           <Link 
@@ -24,10 +25,10 @@ class Header extends Component {
           {' ' }
           <Link to='/profile'>Profile</Link>
         </nav>
-        <span>
+      </div>
+        <div className='welcome_text'>
         Welcome, {this.context.user.display_name}! Write a message to your pals!
-        </span>
-       
+        </div>
       </div>
     )
   }
