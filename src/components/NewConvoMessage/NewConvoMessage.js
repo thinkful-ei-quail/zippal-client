@@ -6,26 +6,18 @@ export default class NewConvoMessage extends React.Component {
   constructor(props) {
     super(props)
     this.state ={
-      composeMessage: false,
-      newMessage: null
+      edited: false
     }
   }
 
-  handleComposeNewMessage = async () => {
-    const newMessage =  await MessageService.createNewMessage(this.props.newConvoData)
-    await this.props.setNewMessage(newMessage)
-    this.setState({
-      composeMessage: true,
-      newMessage
-    })
-  }
+
 
   render() {
-    const { composeMessage, newMessage } = this.state
+    const { edited } = this.state
     return (
-      <div className='NewConvoMessage__container'>
-        <h2>Say hi to your new pal!</h2>
-        { composeMessage ? <Message convoData={this.props.newConvoData} newMessage={newMessage} /> : <button onClick={this.handleComposeNewMessage}>Start your first message</button> }
+      <div>
+        <h2>Say hello to {this.props.conversation.pal_name}</h2>
+        <Message message={this.props.newMessage} conversation={this.props.conversation} /> 
       </div>
     )
   }

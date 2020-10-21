@@ -91,7 +91,7 @@ export default class ConversationBubble extends Component {
         {!this.props.messageData ? '' : <ConversationNotification messageData={this.props.messageData}/> }
         {view === 'expanded' && <button onClick={this.shrinkBubble}>Close</button>}
         <button onClick={this.expandBubble}><h2>{this.props.convoData.pal_name}</h2></button>
-        <FontAwesomeIcon icon={this.props.convoData.fa_icon}/>
+        {this.props.convoData.fa_icon ? <FontAwesomeIcon icon={this.props.convoData.fa_icon}/> : '' }
         {(showForm === true && view !== 'small') && <Message convoData={this.props.convoData} messageData={this.props.messageData} newMessage={this.state.newMessage}/>}
         {(view === 'expanded' && showForm === false) && <button onClick={() => this.toggleReplyForm(this.props.convoData)}>Reply</button>}
         {(view === 'expanded' && showForm === false) && <button onClick={() => this.props.handleEndConvo(this.props.convoData)}>End</button>}

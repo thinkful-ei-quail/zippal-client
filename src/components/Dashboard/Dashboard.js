@@ -4,6 +4,7 @@ import FindNewPal from '../FindNewPal/FindNewPal'
 import ConversationBubble from '../ConversationBubble/ConversationBubble'
 // import Message from '../Message/Message'
 import NewConvoMessage from '../NewConvoMessage/NewConvoMessage'
+import TokenService from '../../services/token-service';
 import MessageService from '../../services/message-api-service'
 import './Dashboard.css'
 
@@ -22,7 +23,6 @@ export default class Dashboard extends Component{
 
   async componentDidMount() {
     const response = await ConversationService.getConversations()
-  
       this.setState({
         conversationsRendered: true,
         isOutOfAvailablePals: false,
@@ -98,13 +98,20 @@ export default class Dashboard extends Component{
   }
 
   handleNewConversation = (e) => {
+    const user = TokenService.parseAuthToken()
     ConversationService.startNewConversation(this.state.foundUser.id)
     .then((conversation) => {
       conversation.pal_name = this.state.foundUser.display_name
-      this.setState({
-        activeConversations: [...this.state.activeConversations, conversation],
-        newConversation: conversation,
-        toggleFindNewPalPanel: false
+      conversation.user_2 = this.state.foundUser.id
+      conversation.user_1 = user.id
+      MessageService.createNewMessage(conversation)
+      .then ((message) => {
+        this.setState({
+          activeConversations: [...this.state.activeConversations, conversation],
+          newConversation: conversation,
+          toggleFindNewPalPanel: false,
+          messages: [message]
+        })
       })
     })
   }
@@ -204,11 +211,7 @@ export default class Dashboard extends Component{
        : ''}
 
         {newConversation
-        ? <NewConvoMessage 
-            newConvoData={{...newConversation, user_2: foundUser.id}} 
-            closeNewConvoMessage={this.closeNewConvoMessage} 
-            setNewMessage={this.setNewMessage}
-          />
+        ? <NewConvoMessage conversation={newConversation} newMessage={this.state.messages}/>
         : ''}
 
         <section className='Active_Conversations'>

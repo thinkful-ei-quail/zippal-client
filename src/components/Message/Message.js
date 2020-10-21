@@ -18,14 +18,14 @@ class Message extends Component {
 
     componentDidMount = () => {
         this.setState({
-            pending_content: this.props.newMessage.content
+            pending_content: this.props.message.content
         })
     }
 
     saveMessageHandler = () => {
         const {pending_content} = this.state
 
-        MessageService.saveMessage(pending_content, this.props.newMessage.id)
+        MessageService.saveMessage(pending_content, this.props.message.id)
             // .then(() => {
             //     this.setState({
             //         pending_content: 'Message in Progress...'
@@ -38,7 +38,7 @@ class Message extends Component {
         // e.preventDefault()
         const {pending_content} =this.state
 
-        MessageService.sendMessage(pending_content, this.props.newMessage.id)
+        MessageService.sendMessage(pending_content, this.props.message.id)
         //   .then(() => this.setState({
         //       pending_content: 'Message in Progress...'
         //   }))
@@ -58,7 +58,7 @@ class Message extends Component {
         <form className='Message_Form'>
             <div className='Message_Container'>
                 <label htmlFor='Message_Content'>
-                    Create a new message for {this.props.convoData.pal_name}
+                    Send a new message for {this.props.conversation.pal_name}
                 </label>
                 <textarea
                 name='Message_Content_Area'
@@ -79,7 +79,7 @@ class Message extends Component {
                 className='Message_Send_Btn' 
                 onClick={this.sendMessageHandler}
                 >
-                    Send Message to {this.props.convoData.pal_name}
+                    Send Message to {this.props.conversation.pal_name}
                 </button>
             </div>
         </form>
@@ -94,21 +94,21 @@ class Message extends Component {
         return (
             <div className='Message_Read'>
                 <h3> Message {
-                this.context.id === this.props.newMessage.sender_id
+                this.context.id === this.props.message.sender_id
                 ? 'to '
                 : 'from '  
                 }
-                {this.props.pal}
+                {this.props.conversation.pal}
                 </h3>
                 <p>
-                    {this.props.content}
+                    {this.props.message.content}
                 </p>
             </div>
         ) 
     }
     
     render() {
-        return this.props.newMessage.sender_status === 'Sent'
+        return this.props.message.sender_status === 'Sent'
         ? this.renderMessage()
         : this.renderMessageForm()
     }
