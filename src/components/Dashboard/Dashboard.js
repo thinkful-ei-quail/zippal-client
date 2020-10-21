@@ -110,15 +110,11 @@ export default class Dashboard extends Component{
 
   handleEndConvo = (convo) => {
     const convoId = convo.id
-    console.log(convoId)
     ConversationService.endConversation(convoId)
     .then((convo) => {
-      console.log(convo)
       let activeConversations = this.state.activeConversations
       let updatedActiveConvos = activeConversations.filter((c) => {
-        console.log(c.id)
         return c.id !== convoId})
-      console.log(updatedActiveConvos)
       this.setState({
         activeConversations: updatedActiveConvos
       })
