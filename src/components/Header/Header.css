@@ -4,12 +4,14 @@ header {
   display: flex;
   width: 100%;
   align-items: center;
-  flex-direction: column;
-  
+  flex-direction: row;
+  justify-content: space-between;
 }
 .header_text{
   display: flex;
   align-items: center;
+  font-size: 27px;
+
 }
 img.quill {
   width: 80px;
@@ -30,7 +32,6 @@ header a {
 nav {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
 }
 
 nav a {
