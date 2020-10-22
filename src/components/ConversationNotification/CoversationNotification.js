@@ -7,7 +7,8 @@ class ConversationNotification extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            alert: false
+            alert: false,
+            icon: ''
         }
     }
 
@@ -24,7 +25,7 @@ class ConversationNotification extends Component {
     }
 
 
-       const lastMessage = messages.pop();
+       const lastMessage = messages[messages.length - 1];
 
        const {receiver_id, receiver_status, sender_id, sender_status, is_read} = lastMessage;
 
@@ -49,6 +50,7 @@ class ConversationNotification extends Component {
        if(sender_id === userId && sender_status === "Awaiting Reply"){
            return "envelope-open-text"
        }
+
 
     }
     
