@@ -1,13 +1,18 @@
 input:focus {
   border: 3px solid #555;
 }
+input {
+  max-width: -webkit-fill-available;
+}
 legend {
-  padding: 100px 42px;
-  width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding: 100px 18px;
+  max-width: fit-content;
   background-image: linear-gradient(360deg, white, darkkhaki);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19) ;
 }
-form {
+.user_form {
  align-self: center;
  text-align: -webkit-center;
 }
@@ -17,4 +22,15 @@ form {
 
 button {
   margin-top: 4px;
+  place-self: center;
+}
+
+#login-password-input, #login-username-input {
+  align-self: center;
+  max-width: -webkit-fill-available;
+}
+
+label{
+  display: flex;
+  justify-content: center;
 }

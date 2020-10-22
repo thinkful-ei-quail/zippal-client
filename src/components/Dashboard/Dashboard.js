@@ -17,7 +17,8 @@ export default class Dashboard extends Component{
     conversationsRendered: false,
     activeConversations: [],
     messages: [],
-    newConversation: null
+    newConversation: null,
+    newMessage: null
   }
 
   static contextType = UserContext
@@ -40,15 +41,13 @@ export default class Dashboard extends Component{
       path = 'empty'
     } else {
       let userIds = [];
+      // loop through active conversations to find each user id
+      // push the user_1 id and user_2 id to an array
       this.state.activeConversations.forEach((conversation) => {
         userIds.push(conversation.user_1)
         userIds.push(conversation.user_2)
       })
-      // loop through active conversations to find each user id that is not us
-      // push the user_1 id and user_2 id to an array
       // turn that into a set to filter out any repeats
-      // pass that up
-      // instantiate an array called userIds
       userIds = [...new Set(userIds)]
       path = userIds.join('%20')
     }
@@ -103,18 +102,22 @@ export default class Dashboard extends Component{
     const {id, display_name} = this.state.foundUser
     const pal_name = display_name
     ConversationService.startNewConversation(id)
-    .then((conversation) => {
-      conversation.pal_name = pal_name
-      MessageService.createNewMessage(conversation)
-      .then((message) => {
-        this.setState({
-          activeConversations: [...this.state.activeConversations, conversation],
-          newConversation: conversation,
-          toggleFindNewPalPanel: false,
-          messages: [message]
-        })
+      .then((conversation) => {
+        conversation.pal_name = pal_name
+        MessageService.createNewMessage(conversation)
+          .then((message) => {
+            const messagesInState = this.state.messages
+            messagesInState.push([message])
+            console.log(messagesInState)
+            this.setState({
+              activeConversations: [...this.state.activeConversations, conversation],
+              newConversation: conversation,
+              toggleFindNewPalPanel: false,
+              messages: messagesInState,
+              newMessage: message
+            })
+          })
       })
-    })
   }
 
   handleEndConvo = (convo) => {
@@ -133,13 +136,14 @@ export default class Dashboard extends Component{
   renderConversationBubbles() {
     const { activeConversations, messages } = this.state
     const convoComponents = []
+  
     for(let i = 0; i < 5; i++) {
-      if(activeConversations[i]) {
+      if(activeConversations[i] && messages.length !== 0) {
         convoComponents.push(
           <ConversationBubble 
             key={activeConversations[i].id}
             convoData={activeConversations[i]}
-            messageData={messages[i] || []}
+            messageData={messages[i]}
             newMessageHandler={this.newMessageHandler}
             setNewMessage={this.setNewMessage}
             handleEndConvo={this.handleEndConvo}
@@ -167,7 +171,7 @@ export default class Dashboard extends Component{
     
     const index = messageArray.findIndex((messages, i) => {
       if(messages.length === 0) {
-        return
+        return 
       } else if(messages[0].conversation_id === newMessage.conversation_id)
       return i
       })
@@ -177,11 +181,7 @@ export default class Dashboard extends Component{
     } else {
       messageArray[index].push(newMessage)
     }
-    // for(let i = 0; i < messageArray.length; i++) {
-    //   if(messageArray[i][0].conversation_id === newMessage.conversation_id) {
-    //     messageArray[i].push(newMessage)
-    //   }
-    // }
+
 
     this.setState({
       messages: messageArray
@@ -214,7 +214,7 @@ export default class Dashboard extends Component{
         {newConversation && this.state.activeConversations.length !== 0
         ? <NewConvoMessage 
             newConvoData={newConversation} 
-            newMessage={this.state.messages}
+            newMessage={this.state.newMessage}
           />
         : ''}
 

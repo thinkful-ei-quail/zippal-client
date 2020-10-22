@@ -50,6 +50,7 @@ class RegistrationForm extends Component {
     const {error} = this.state
     return (
       <form
+      className='user_form'
         onSubmit={this.handleSubmit}
       >
         <legend>

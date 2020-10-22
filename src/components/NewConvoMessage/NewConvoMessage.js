@@ -2,9 +2,6 @@ import React from 'react'
 import Message from '../Message/Message'
 
 export default class NewConvoMessage extends React.Component {
-  constructor(props){
-    super(props);
-  }
 
   render() {
     return (

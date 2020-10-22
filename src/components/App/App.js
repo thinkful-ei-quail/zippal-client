@@ -11,10 +11,10 @@ import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
 import Profile from '../../routes/ProfileRoute/ProfileRoute'
 import { library } from '@fortawesome/fontawesome-svg-core'
 //import individual icons here
-import { faUserCircle, faEnvelope, faEnvelopeOpen, faEnvelopeOpenText, faPaperPlane, faPenNib} from '@fortawesome/free-solid-svg-icons'
+import { faUserCircle, faEnvelope, faEnvelopeOpen, faEnvelopeOpenText, faPaperPlane, faPenNib, faHourglassHalf} from '@fortawesome/free-solid-svg-icons'
 //add them to library here to be used wherever
 import './App.css'
-library.add(faUserCircle, faEnvelope, faEnvelopeOpen, faEnvelopeOpenText, faPaperPlane, faPenNib)
+library.add(faUserCircle, faEnvelope, faEnvelopeOpen, faEnvelopeOpenText, faPaperPlane, faPenNib, faHourglassHalf)
 
 
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className='App'>
         <header className='App_header'>
-          <Route component={Header}/>
+          <Header />
         </header>
         <main className='App_main'>
           {this.state.hasError && <p className='red'>There was an error!</p>}

@@ -8,11 +8,8 @@ export default class DashboardRoute extends Component {
   render(){
     return (
       <section>
-        <div>
           <Dashboard/>
-        </div>
       </section>
-
     )
   }
 }
