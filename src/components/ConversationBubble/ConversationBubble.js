@@ -14,7 +14,8 @@ export default class ConversationBubble extends Component {
     this.state = {
       expanded: false,
       selectedMessage: null,
-      newMessage: null
+      newMessage: null,
+      confirmEndConvoPanel: false
     }
   }
   
@@ -39,6 +40,7 @@ export default class ConversationBubble extends Component {
       return 'No messages in this conversation'
     }
     const lastMessage = messageData[messageData.length - 1]
+    console.log(lastMessage)
     //if logged in user was the sender of the most recent message
     if(lastMessage.sender_id === this.context.user.id) {
       //message has been created but not sent
@@ -105,14 +107,46 @@ export default class ConversationBubble extends Component {
       }
   }
 
+  // confirm user actually wants to delete conversation
+  confirmEndConvo = () => {
+    this.setState({
+      confirmEndConvoPanel: true
+    })
+  }
+
+  // cancel the end conversation panel
+  cancelEndConvo = () => {
+    this.setState({
+      confirmEndConvoPanel: false
+    })
+  }
+
+  // render the confirm delete conversation panel
+  renderConfirmEndConvoPanel = () => {
+    const {handleEndConvo} = this.props
+    let convo = (this.props.convoData)
+
+    return (
+      <>
+      <p>Are you sure you want to delete this conversation? You will lose all of your letters and this cannot be undone.</p>
+      <button className="ConversationBubble__end_convo_confirm_btn" onClick={() => handleEndConvo(convo)}>Confirm</button>
+      <button className="ConversationBubble__end_convo_confirm_btn" onClick={this.cancelEndConvo}>Cancel</button>
+      </>
+    )
+  }
+
   // conditionally render reply(create new message) button or continue draft(open last message in text area to continue writing)
   renderExpandedView = () => {
+ 
     return (
     <div className='ConversationBubble__convo_card expanded'>
       <button onClick={this.toggleBubble}><FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} /></button>
-      <p>Conversation Start Date: {this.formatDate(this.props.convoData.date_created)}</p>
-      <p>Total Messages: {this.props.messageData.length}</p>
-      {!this.state.selectedMessage ? this.renderMessages() : <Message convoData={this.props.convoData} newMessage={this.state.selectedMessage}/>}
+      <button className="ConversationBubble__end_convo_btn" onClick={this.confirmEndConvo}>
+        End Conversation
+      </button>
+      {!this.state.selectedMessage ? this.renderMessages() : ''}
+      {this.state.selectedMessage ? <Message convoData={this.props.convoData} newMessage={this.state.selectedMessage}/>: ''}
+      {this.state.confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
     </div>
     )
   }
