@@ -3,8 +3,6 @@ import MessageService from '../../services/message-api-service';
 import UserContext from '../../context/UserContext';
 import './Message.css';
 
-// taking in status as props from dashboard??
-
 class Message extends Component {
     
     constructor(props) {
@@ -24,26 +22,12 @@ class Message extends Component {
 
     saveMessageHandler = () => {
         const {pending_content} = this.state
-
         MessageService.saveMessage(pending_content, this.props.newMessage.id)
-            // .then(() => {
-            //     this.setState({
-            //         pending_content: 'Message in Progress...'
-            //     })
-            // })
-            // .catch(this.context.setError)
     }
 
-    sendMessageHandler = (e) => {
-        // e.preventDefault()
+    sendMessageHandler = () => {
         const {pending_content} =this.state
-
         MessageService.sendMessage(pending_content, this.props.newMessage.id)
-        //   .then(() => this.setState({
-        //       pending_content: 'Message in Progress...'
-        //   }))
-        //   .catch(this.context.setError)
-
     }
 
     setPendingContent = (e) => {
@@ -85,10 +69,6 @@ class Message extends Component {
         </form>
         )
     }
-
-    // so far we've considered the user sending the message
-    // should we be checking for user so we can update message status?
-    // user data is stored in the context, (id, username, display_name)
 
     renderMessage() {
         return (

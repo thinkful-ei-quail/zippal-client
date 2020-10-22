@@ -40,7 +40,6 @@ export default class ConversationBubble extends Component {
       return 'No messages in this conversation'
     }
     const lastMessage = messageData[messageData.length - 1]
-    console.log(lastMessage)
     //if logged in user was the sender of the most recent message
     if(lastMessage.sender_id === this.context.user.id) {
       //message has been created but not sent
@@ -75,7 +74,7 @@ export default class ConversationBubble extends Component {
     )
   }
 
-  //create little messsage containers that display sender name and date message was sent
+  //create messsage containers that display sender name and date message was sent
   //these messages can be selected to view the content
   renderMessages = () => {
     const { messageData } = this.props
@@ -102,7 +101,7 @@ export default class ConversationBubble extends Component {
     this.setState({
       selectedMessage: selected,
     })
-    if (!selected.is_read) {
+    if (!selected.is_read && selected.receiver_id === this.context.user.id) {
         MessageApiService.readMessage(selected)
       }
   }

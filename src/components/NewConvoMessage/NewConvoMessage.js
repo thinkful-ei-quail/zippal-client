@@ -3,7 +3,6 @@ import Message from '../Message/Message'
 
 export default class NewConvoMessage extends React.Component {
 
-
   render() {
     return (
       <div className='NewConvoMessage__container'>
