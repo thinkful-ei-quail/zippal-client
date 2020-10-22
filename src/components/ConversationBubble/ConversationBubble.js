@@ -159,16 +159,11 @@ export default class ConversationBubble extends Component {
   render() {
     const { expanded } = this.state
     return (
-      <section className={view}>
+      <section className={expanded}>
         {expanded === false ? this.renderSmallView() : this.renderExpandedView()}
         {!this.props.messageData ? '' : <ConversationNotification messageData={this.props.messageData}/> }
-        {view === 'expanded' && <button onClick={this.shrinkBubble}>Close</button>}
         <button onClick={this.expandBubble}><h2>{this.props.convoData.pal_name}</h2></button>
         {this.props.convoData.fa_icon ? <FontAwesomeIcon icon={this.props.convoData.fa_icon}/> : '' }
-        {(showForm === true && view !== 'small') && <Message convoData={this.props.convoData} messageData={this.props.messageData} newMessage={this.state.newMessage}/>}
-        {(view === 'expanded' && showForm === false) && <button onClick={() => this.toggleReplyForm(this.props.convoData)}>Reply</button>}
-        {(view === 'expanded' && showForm === false) && <button onClick={() => this.props.handleEndConvo(this.props.convoData)}>End</button>}
-        {(view === 'expanded' && showForm === true) && <button onClick={this.closeReplyForm}>Back to message</button>}
       </section>
     )
   }
