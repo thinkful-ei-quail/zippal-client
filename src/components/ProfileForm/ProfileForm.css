@@ -13,6 +13,14 @@
 
 .profile_form form button {
   margin: 0 auto;
-  margin-top: 30px;
-  width: 300px;
+  margin-top: 20px;
+  width: 245px;
+}
+
+.about {
+  height: 7rem;
+}
+
+label {
+  margin-bottom: 4px;
 }
