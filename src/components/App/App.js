@@ -11,10 +11,10 @@ import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
 import Profile from '../../routes/ProfileRoute/ProfileRoute'
 import { library } from '@fortawesome/fontawesome-svg-core'
 //import individual icons here
-import { faUserCircle, faEnvelope, faEnvelopeOpen, faEnvelopeOpenText, faPaperPlane} from '@fortawesome/free-solid-svg-icons'
+import { faUserCircle, faEnvelope, faEnvelopeOpen, faEnvelopeOpenText, faPaperPlane, faPenNib} from '@fortawesome/free-solid-svg-icons'
 //add them to library here to be used wherever
 import './App.css'
-library.add(faUserCircle, faEnvelope, faEnvelopeOpen, faEnvelopeOpenText, faPaperPlane)
+library.add(faUserCircle, faEnvelope, faEnvelopeOpen, faEnvelopeOpenText, faPaperPlane, faPenNib)
 
 
 class App extends Component {
