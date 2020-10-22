@@ -34,7 +34,7 @@ class Message extends Component {
             // .catch(this.context.setError)
     }
 
-    sendMessageHandler = () => {
+    sendMessageHandler = (e) => {
         // e.preventDefault()
         const {pending_content} =this.state
 

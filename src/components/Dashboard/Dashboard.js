@@ -17,7 +17,8 @@ export default class Dashboard extends Component{
     conversationsRendered: false,
     activeConversations: [],
     messages: [],
-    newConversation: null
+    newConversation: null,
+    newMessage: null
   }
 
   static contextType = UserContext
@@ -114,7 +115,8 @@ export default class Dashboard extends Component{
               activeConversations: [...this.state.activeConversations, conversation],
               newConversation: conversation,
               toggleFindNewPalPanel: false,
-              messages: messagesInState
+              messages: messagesInState,
+              newMessage: message
             })
           })
       })
@@ -218,7 +220,7 @@ export default class Dashboard extends Component{
         {newConversation && this.state.activeConversations.length !== 0
         ? <NewConvoMessage 
             newConvoData={newConversation} 
-            newMessage={this.state.messages}
+            newMessage={this.state.newMessage}
           />
         : ''}
 
