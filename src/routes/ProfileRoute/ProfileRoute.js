@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ProfileView from '../../components/ProfileView/ProfileView'
+import ProfileForm from '../../components/ProfileForm/ProfileForm'
 
 
 export default class Profile extends Component {
@@ -19,13 +19,9 @@ export default class Profile extends Component {
 
   render(){
     return (
-<<<<<<< HEAD
       <section>
         <ProfileForm updateSuccess={this.handleUpdateProfileSuccess}/>
       </section>
-=======
-        <ProfileView />
->>>>>>> 9b09e2351e8b11c40fa702437605e378ff85ba5a
     )
   }
 }
