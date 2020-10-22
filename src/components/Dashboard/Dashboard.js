@@ -206,7 +206,7 @@ export default class Dashboard extends Component{
           /> 
        : ''}
 
-        {newConversation
+        {newConversation && this.state.activeConversations.length !== 0
         ? <NewConvoMessage 
             newConvoData={{...newConversation, user_2: foundUser.id}} 
             closeNewConvoMessage={this.closeNewConvoMessage} 
