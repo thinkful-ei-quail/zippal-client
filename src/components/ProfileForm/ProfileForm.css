@@ -1,5 +1,18 @@
-.profile{
-  position: absolute;
-  text-align: center; 
-   
+.profile_form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.profile_form form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.profile_form form button {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 300px;
 }
