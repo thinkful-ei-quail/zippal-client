@@ -173,7 +173,7 @@ export default class Dashboard extends Component{
     
     const index = messageArray.findIndex((messages, i) => {
       if(messages.length === 0) {
-        return
+        return 
       } else if(messages[0].conversation_id === newMessage.conversation_id)
       return i
       })
