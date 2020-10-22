@@ -4,6 +4,7 @@ import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../../context/UserContext';
 import Required from '../Required/Required'
 
+
 class RegistrationForm extends Component {
   static defaultProps = {
     onRegistrationSuccess: () => { }
@@ -51,6 +52,7 @@ class RegistrationForm extends Component {
       <form
         onSubmit={this.handleSubmit}
       >
+        <legend>
         <div role='alert'>
           {error && <p className='error'>{error}</p>}
         </div>
@@ -94,6 +96,7 @@ class RegistrationForm extends Component {
           {' '}
           <Link to='/login'>Already have an account?</Link>
         </footer>
+        </legend>
       </form>
     )
   }
