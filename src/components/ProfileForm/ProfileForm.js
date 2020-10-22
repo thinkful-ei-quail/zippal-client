@@ -7,17 +7,19 @@ import './ProfileForm.css'
 export default class ProfileForm extends Component {
   state = {
     bioText: '',
-    location: ''
+    location: '', 
+    fa_icon: 'user-circle'
   }
   static contextType = UserContext
 
   handlePatchUser = (e) => {
     e.preventDefault()
-    UserService.patchUser(this.context.user, this.state.bioText, this.state.location)
+    UserService.patchUser(this.state.bioText, this.state.location, this.state.fa_icon)
     this.setState({
       bioText: '',
       location: ''
     })
+    this.props.handleUpdateProfile()
   }
 
   handleChangeBio = (e) => {
@@ -33,6 +35,12 @@ export default class ProfileForm extends Component {
       location: value
     })
   }
+  handleChangeIcon= (e) => {
+    const {value} = e.target;
+    this.setState({
+      fa_icon: value
+    })
+  }
 
   render(){
     return (
@@ -41,6 +49,8 @@ export default class ProfileForm extends Component {
           <h3>Profile</h3>
         </div>
         <form onSubmit={this.handlePatchUser}>
+          <label>Icon</label>
+          <input id='fa_icon' value={this.state.fa_icon} onChange={this.handleChangeIcon}/>
           <label>Country:</label>
           <input id='country' value={this.state.location} onChange={this.handleChangeLocation}></input>
           <hr/>

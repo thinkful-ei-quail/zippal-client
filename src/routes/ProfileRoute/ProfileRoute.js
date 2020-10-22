@@ -1,12 +1,11 @@
 import React, {Component} from 'react'
-import ProfileForm from '../../components/ProfileForm/ProfileForm'
+import ProfileView from '../../components/ProfileView/ProfileView'
+
 
 export default class Profile extends Component {
   render(){
     return (
-      <section>
-        <ProfileForm />
-      </section>
+        <ProfileView />
     )
   }
 }
