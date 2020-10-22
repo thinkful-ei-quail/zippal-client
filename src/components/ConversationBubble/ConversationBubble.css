@@ -27,7 +27,7 @@
   border-radius: 5px;
   border:1px solid black;
   transition: all .25s cubic-bezier(0,0.56,0.69,0.49); /*make it smooth*/
-  
+  z-index: 3;
 }
 
 .expanded.show{
