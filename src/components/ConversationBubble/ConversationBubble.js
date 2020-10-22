@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Message from '../Message/Message'
 import ConversationNotification from '../ConversationNotification/CoversationNotification'
 import'./ConversationBubble.css'
+import MessageApiService from '../../services/message-api-service';
 
 export default class ConversationBubble extends Component {
   static contextType = UserContext 
@@ -96,9 +97,13 @@ export default class ConversationBubble extends Component {
   }
 
   selectMessageHandler = (id) => {
+    const selected = this.props.messageData[id]
     this.setState({
-      selectedMessage: this.props.messageData[id],
+      selectedMessage: selected,
     })
+    if (!selected.is_read) {
+        MessageApiService.readMessage(selected)
+      }
   }
 
   // confirm user actually wants to delete conversation
