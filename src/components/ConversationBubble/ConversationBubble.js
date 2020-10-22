@@ -74,7 +74,7 @@ export default class ConversationBubble extends Component {
     )
   }
 
-  //create little messsage containers that display sender name and date message was sent
+  //create messsage containers that display sender name and date message was sent
   //these messages can be selected to view the content
   renderMessages = () => {
     const { messageData } = this.props

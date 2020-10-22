@@ -41,15 +41,13 @@ export default class Dashboard extends Component{
       path = 'empty'
     } else {
       let userIds = [];
+      // loop through active conversations to find each user id
+      // push the user_1 id and user_2 id to an array
       this.state.activeConversations.forEach((conversation) => {
         userIds.push(conversation.user_1)
         userIds.push(conversation.user_2)
       })
-      // loop through active conversations to find each user id that is not us
-      // push the user_1 id and user_2 id to an array
       // turn that into a set to filter out any repeats
-      // pass that up
-      // instantiate an array called userIds
       userIds = [...new Set(userIds)]
       path = userIds.join('%20')
     }
