@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route, Redirect} from 'react-router-dom'
-//import UserContext from '../../context/UserContext'
-import TokenService from '../../services/token-service'
+import UserContext from '../../context/UserContext'
+//import TokenService from '../../services/token-service'
 
 export default function PrivateRoute({ component, ...props}){
   const Component = component
@@ -9,16 +9,21 @@ export default function PrivateRoute({ component, ...props}){
     <Route
     {...props}
     render = {componentProps => (
-        TokenService.hasAuthToken()
+      <UserContext.Consumer>
+        {userContext =>
+          !!userContext.user.id 
           ? <Component { ...componentProps} />
-          : <Redirect
+          : ( 
+            <Redirect
               to={{
-                pathname:'/login',
+                pathname:userContext.user.idle ? '/login' : '/register',
                 state: {from: componentProps.location},
               }}
             />
           )
         }
+        </UserContext.Consumer>
+    )}
     />
   )
 }

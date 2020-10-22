@@ -1,3 +1,7 @@
+.ConversationBubble__convo_card {
+  position: relative;
+}
+
 .small {
   transition: all 400ms;
   margin: 4px 4px;
