@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className='App'>
         <header className='App_header'>
-          <Route component={Header}/>
+          <Header />
         </header>
         <main className='App_main'>
           {this.state.hasError && <p className='red'>There was an error!</p>}
