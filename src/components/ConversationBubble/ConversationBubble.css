@@ -1,18 +1,40 @@
 .small {
+  transition: all 400ms;
   margin: 4px 4px;
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   /* background-color: lightgreen; */
   background-image: linear-gradient(360deg, white, darkkhaki);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
 }
 
+.small:hover {
+  width: 400px;
+  height:400px;
+}
+
 .expanded {
+  height: 55vh;
+  width:75vw;
   background-color: lightgray;
   position: absolute;
   padding:20px;
   border-radius: 5px;
   border:1px solid black;
+  transition: all .25s cubic-bezier(0,0.56,0.69,0.49); /*make it smooth*/
   
+}
+
+.expanded.show{
+  visibility: visible;
+  z-index: 200;
+  opacity: 1;
+  top:50%; /*slide it down smoothly*/
+}
+
+.expanded.show ~ .overlay{
+  opacity: 1;
+  visibility: visible;
+  z-index: 100;
 }
