@@ -41,12 +41,12 @@ export default class ProfileForm extends Component {
           <h3>Profile</h3>
         </div>
         <form onSubmit={this.handlePatchUser}>
-          <label>Tell us about yourself:</label>
-          <textarea id='about'  placeholder='write about yourself' value={this.state.bioText} onChange={this.handleChangeBio}>
-          </textarea>
-          {' ' }
           <label>Country:</label>
           <input id='country' value={this.state.location} onChange={this.handleChangeLocation}></input>
+          <hr/>
+          <label>Tell us about yourself:</label>
+          <textarea  className='about' id='about'  placeholder='write about yourself' value={this.state.bioText} onChange={this.handleChangeBio}>
+          </textarea>
           <button type="submit">Submit</button>
         </form>
       </section>
