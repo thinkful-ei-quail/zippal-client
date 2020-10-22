@@ -7,7 +7,8 @@ class ConversationNotification extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            alert: false
+            alert: false,
+            icon: ''
         }
     }
 
@@ -24,7 +25,7 @@ class ConversationNotification extends Component {
     }
 
 
-       const lastMessage = messages.pop();
+       const lastMessage = messages[messages.length - 1];
 
        const {receiver_id, receiver_status, sender_id, sender_status, is_read} = lastMessage;
 
@@ -50,6 +51,11 @@ class ConversationNotification extends Component {
            return "envelope-open-text"
        }
 
+       if(sender_id === userId && sender_status === "Pending"){
+           return "pen-nib"
+       }
+
+
     }
     
 
@@ -59,9 +65,9 @@ class ConversationNotification extends Component {
     
     render() {
         return (
-            <>
-                <FontAwesomeIcon icon={this.findUnreadMessages()}/>
-            </>
+            <div className={`ConversationNotification__icon_container ${this.findUnreadMessages() === "envelope" ? 'red' : 'blue'}`}>
+                <FontAwesomeIcon className='ConversationNotification__icon' icon={this.findUnreadMessages()}/>
+            </div>
         )
     }
 }
