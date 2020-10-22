@@ -15,7 +15,6 @@ const MessageApiService = {
             },
             body: JSON.stringify({
                 id: conversation.id,
-                user_1: conversation.user_1,
                 user_2: conversation.user_2
             }),
         })
