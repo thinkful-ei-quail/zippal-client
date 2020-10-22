@@ -40,6 +40,7 @@ export default class ConversationBubble extends Component {
       return 'No messages in this conversation'
     }
     const lastMessage = messageData[messageData.length - 1]
+    console.log(lastMessage)
     //if logged in user was the sender of the most recent message
     if(lastMessage.sender_id === this.context.user.id) {
       //message has been created but not sent
