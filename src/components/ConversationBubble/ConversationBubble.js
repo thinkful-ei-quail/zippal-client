@@ -75,7 +75,7 @@ export default class ConversationBubble extends Component {
     )
   }
 
-  //create little messsage containers that display sender name and date message was sent
+  //create messsage containers that display sender name and date message was sent
   //these messages can be selected to view the content
   renderMessages = () => {
     const { messageData } = this.props
@@ -102,7 +102,7 @@ export default class ConversationBubble extends Component {
     this.setState({
       selectedMessage: selected,
     })
-    if (!selected.is_read) {
+    if (!selected.is_read && selected.receiver_id === this.context.user.id) {
         MessageApiService.readMessage(selected)
       }
   }

@@ -44,6 +44,12 @@ export default class ProfileForm extends Component {
       location: value
     })
   }
+  handleChangeIcon= (e) => {
+    const {value} = e.target;
+    this.setState({
+      fa_icon: value
+    })
+  }
 
   render(){
     return (
