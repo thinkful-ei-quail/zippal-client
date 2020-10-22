@@ -21,13 +21,14 @@ export default class ProfileForm extends Component {
     })
   }
 
-  handlePatchUser = (e) => {
+  handlePatchUser = async (e) => {
     e.preventDefault()
-    UserService.patchUser(this.state.bioText, this.state.location)
+    await UserService.patchUser(this.state.bioText, this.state.location)
     this.setState({
       bioText: '',
       location: ''
     })
+    this.props.updateSuccess();
   }
 
   handleChangeBio = (e) => {
