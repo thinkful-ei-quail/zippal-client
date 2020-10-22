@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import UserService from '../../services/user-api-service'
 import UserContext from '../../context/UserContext'
 
+import './ProfileForm.css'
+
 export default class ProfileForm extends Component {
   state = {
     bioText: '',
@@ -34,7 +36,7 @@ export default class ProfileForm extends Component {
 
   render(){
     return (
-      <section className='profile'>
+      <section className='profile_form'>
         <div>
           <h3>Profile</h3>
         </div>
