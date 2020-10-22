@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Message from '../Message/Message'
 import ConversationNotification from '../ConversationNotification/CoversationNotification'
 import'./ConversationBubble.css'
+import MessageApiService from '../../services/message-api-service';
 
 export default class ConversationBubble extends Component {
   static contextType = UserContext 
@@ -93,7 +94,7 @@ export default class ConversationBubble extends Component {
       //if logged in user is the receiver of the most recent message
     } else if(lastMessage.sender_id !== this.context.user.id) {
       // Pal has seen logged in user's message and started a reply
-      if(lastMessage.sender_status === 'Pending' && lastMessage.is_read) {
+      if(lastMessage.sender_status === 'Pending' && !lastMessage.is_read) {
         return 'Your pal is working on their response'
       } else if(lastMessage.sender_status === 'Sent') {
         return 'You have a new message(or on the way once we get the timeout)'
@@ -104,7 +105,7 @@ export default class ConversationBubble extends Component {
   renderSmallView = () => {
     return (
       <div className='ConversationBubble__convo_card small' >
-        <h2>{this.props.convoData.pal_name}</h2>
+        <h2>{this.props.convoData.pal_name} <ConversationNotification messageData={this.props.messageData}/></h2>
         <button onClick={this.toggleBubble}><FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} /></button>
         <p>Conversation Status: {this.messageStatusMessage()}</p>
         <p>Conversation Start Date: {this.props.convoData.date_created}</p>
@@ -136,9 +137,13 @@ export default class ConversationBubble extends Component {
   }
 
   selectMessageHandler = (id) => {
+    const selected = this.props.messageData[id]
     this.setState({
-      selectedMessage: this.props.messageData[id],
+      selectedMessage: selected,
     })
+    if (!selected.is_read) {
+        MessageApiService.readMessage(selected)
+      }
   }
 
   // conditionally render reply(create new message) button or continue draft(open last message in text area to continue writing)

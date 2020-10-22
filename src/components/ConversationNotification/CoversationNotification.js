@@ -19,12 +19,13 @@ class ConversationNotification extends Component {
     findUnreadMessages = () => {
        const userId = this.findUserId();
        const messages = this.props.messageData
+       
        if (!messages.length) {
         return
-    }
+       }
 
 
-       const lastMessage = messages.pop();
+       const lastMessage = messages[messages.length - 1];
 
        const {receiver_id, receiver_status, sender_id, sender_status, is_read} = lastMessage;
 
