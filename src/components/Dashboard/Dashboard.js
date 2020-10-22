@@ -183,11 +183,7 @@ export default class Dashboard extends Component{
     } else {
       messageArray[index].push(newMessage)
     }
-    // for(let i = 0; i < messageArray.length; i++) {
-    //   if(messageArray[i][0].conversation_id === newMessage.conversation_id) {
-    //     messageArray[i].push(newMessage)
-    //   }
-    // }
+
 
     this.setState({
       messages: messageArray
