@@ -1,0 +1,25 @@
+.ConversationNotification__icon {
+  font-size: 20px;
+  color: white;
+}
+
+.ConversationNotification__icon_container {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: rgb(136, 136, 246);
+}

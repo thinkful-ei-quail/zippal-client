@@ -67,6 +67,7 @@ export default class ConversationBubble extends Component {
         <h2>{this.props.convoData.pal_name}</h2>
         <button onClick={this.toggleBubble}><FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} /></button>
         <p>Conversation Status: {this.messageStatusMessage()}</p>
+        <p>Total Messages: {this.props.messageData.length}</p>
       </div>
     )
   }
