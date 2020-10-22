@@ -20,9 +20,10 @@ class ConversationNotification extends Component {
     findUnreadMessages = () => {
        const userId = this.findUserId();
        const messages = this.props.messageData
+       
        if (!messages.length) {
         return
-    }
+       }
 
 
        const lastMessage = messages[messages.length - 1];

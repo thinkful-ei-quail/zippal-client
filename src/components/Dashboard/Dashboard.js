@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import ConversationService from '../../services/conversation-api-service'
 import FindNewPal from '../FindNewPal/FindNewPal'
 import ConversationBubble from '../ConversationBubble/ConversationBubble'
-// import Message from '../Message/Message'
 import NewConvoMessage from '../NewConvoMessage/NewConvoMessage'
 import MessageService from '../../services/message-api-service'
 import UserContext from '../../context/UserContext'
@@ -101,13 +100,19 @@ export default class Dashboard extends Component{
   }
 
   handleNewConversation = (e) => {
-    ConversationService.startNewConversation(this.state.foundUser.id)
+    const {id, display_name} = this.state.foundUser
+    const pal_name = display_name
+    ConversationService.startNewConversation(id)
     .then((conversation) => {
-      conversation.pal_name = this.state.foundUser.display_name
-      this.setState({
-        activeConversations: [...this.state.activeConversations, conversation],
-        newConversation: conversation,
-        toggleFindNewPalPanel: false
+      conversation.pal_name = pal_name
+      MessageService.createNewMessage(conversation)
+      .then((message) => {
+        this.setState({
+          activeConversations: [...this.state.activeConversations, conversation],
+          newConversation: conversation,
+          toggleFindNewPalPanel: false,
+          messages: [message]
+        })
       })
     })
   }
@@ -208,9 +213,8 @@ export default class Dashboard extends Component{
 
         {newConversation
         ? <NewConvoMessage 
-            newConvoData={{...newConversation, user_2: foundUser.id}} 
-            closeNewConvoMessage={this.closeNewConvoMessage} 
-            setNewMessage={this.setNewMessage}
+            newConvoData={newConversation} 
+            newMessage={this.state.messages}
           />
         : ''}
 

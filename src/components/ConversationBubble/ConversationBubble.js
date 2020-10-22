@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Message from '../Message/Message'
 import ConversationNotification from '../ConversationNotification/CoversationNotification'
 import'./ConversationBubble.css'
+import MessageApiService from '../../services/message-api-service';
 
 export default class ConversationBubble extends Component {
   static contextType = UserContext 
@@ -63,7 +64,7 @@ export default class ConversationBubble extends Component {
   renderSmallView = () => {
     return (
       <div className='ConversationBubble__convo_card small' >
-        <ConversationNotification messageData={this.props.messageData} />
+        {this.props.messageData !== 0 ? <ConversationNotification messageData={this.props.messageData} /> : ''}
         <h2>{this.props.convoData.pal_name}</h2>
         <button onClick={this.toggleBubble}><FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} /></button>
         <p>Conversation Status: {this.messageStatusMessage()}</p>
@@ -95,9 +96,13 @@ export default class ConversationBubble extends Component {
   }
 
   selectMessageHandler = (id) => {
+    const selected = this.props.messageData[id]
     this.setState({
-      selectedMessage: this.props.messageData[id],
+      selectedMessage: selected,
     })
+    if (!selected.is_read) {
+        MessageApiService.readMessage(selected)
+      }
   }
 
   // conditionally render reply(create new message) button or continue draft(open last message in text area to continue writing)

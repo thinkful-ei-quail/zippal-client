@@ -94,21 +94,21 @@ class Message extends Component {
         return (
             <div className='Message_Read'>
                 <h3> Message {
-                this.context.id === this.props.newMessage.sender_id
+                this.context.user.id === this.props.newMessage.sender_id
                 ? 'to '
                 : 'from '  
                 }
-                {this.props.pal}
+                {this.props.convoData.pal_name}
                 </h3>
                 <p>
-                    {this.props.content}
+                    {this.props.newMessage.content}
                 </p>
             </div>
         ) 
     }
     
     render() {
-        return this.props.newMessage.sender_status === 'Sent'
+        return this.props.newMessage.sender_status === 'Sent' || this.props.newMessage.sender_status === 'Awaiting Reply'
         ? this.renderMessage()
         : this.renderMessageForm()
     }
