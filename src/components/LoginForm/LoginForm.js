@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../../context/UserContext'
 
+import './LoginForm.css'
+
 class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => { }
@@ -45,6 +47,7 @@ class LoginForm extends Component {
         className='LoginForm'
         onSubmit={this.handleSubmit}
       >
+       <legend>
         <div role='alert'>
           {error && <p>{error}</p>}
         </div>
@@ -71,6 +74,7 @@ class LoginForm extends Component {
         <button type='submit'>
           Login
         </button>
+        </legend>
       </form>
     )
   }
