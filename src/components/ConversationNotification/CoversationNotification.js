@@ -39,6 +39,10 @@ class ConversationNotification extends Component {
            }
        }
 
+       if(receiver_id === userId && receiver_status === "Awaiting Message") {
+           return 'hourglass-half'
+       }
+
        if(sender_id === userId && sender_status === "Sent") {
            if(!is_read){
                return "paper-plane"
