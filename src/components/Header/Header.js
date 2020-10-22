@@ -44,7 +44,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header>
+      <>
          <h1 className="header_text">
             <div className='header_image'>
               {TokenService.hasAuthToken()
@@ -58,7 +58,7 @@ class Header extends Component {
         {TokenService.hasAuthToken()
         ? this.renderLogoutLink()
         : this.renderLoginLink()}
-      </header>
+      </>
     );
   }
 }

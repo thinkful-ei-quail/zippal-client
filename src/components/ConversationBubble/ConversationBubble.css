@@ -19,6 +19,7 @@
 }
 
 .expanded {
+  z-index: 3;
   height: 55vh;
   width: 75vw;
   background-color: lightgray;

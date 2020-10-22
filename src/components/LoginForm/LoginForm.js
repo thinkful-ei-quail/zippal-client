@@ -44,7 +44,7 @@ class LoginForm extends Component {
     const { error } = this.state
     return (
       <form
-        className='LoginForm'
+        className='user_form'
         onSubmit={this.handleSubmit}
       >
        <legend>
