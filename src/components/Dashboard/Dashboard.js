@@ -17,7 +17,8 @@ export default class Dashboard extends Component{
     conversationsRendered: false,
     activeConversations: [],
     messages: [],
-    newConversation: null
+    newConversation: null,
+    newMessage: null
   }
 
   static contextType = UserContext
@@ -103,18 +104,22 @@ export default class Dashboard extends Component{
     const {id, display_name} = this.state.foundUser
     const pal_name = display_name
     ConversationService.startNewConversation(id)
-    .then((conversation) => {
-      conversation.pal_name = pal_name
-      MessageService.createNewMessage(conversation)
-      .then((message) => {
-        this.setState({
-          activeConversations: [...this.state.activeConversations, conversation],
-          newConversation: conversation,
-          toggleFindNewPalPanel: false,
-          messages: [message]
-        })
+      .then((conversation) => {
+        conversation.pal_name = pal_name
+        MessageService.createNewMessage(conversation)
+          .then((message) => {
+            const messagesInState = this.state.messages
+            messagesInState.push([message])
+            console.log(messagesInState)
+            this.setState({
+              activeConversations: [...this.state.activeConversations, conversation],
+              newConversation: conversation,
+              toggleFindNewPalPanel: false,
+              messages: messagesInState,
+              newMessage: message
+            })
+          })
       })
-    })
   }
 
   handleEndConvo = (convo) => {
@@ -133,13 +138,14 @@ export default class Dashboard extends Component{
   renderConversationBubbles() {
     const { activeConversations, messages } = this.state
     const convoComponents = []
+  
     for(let i = 0; i < 5; i++) {
-      if(activeConversations[i]) {
+      if(activeConversations[i] && messages.length !== 0) {
         convoComponents.push(
           <ConversationBubble 
             key={activeConversations[i].id}
             convoData={activeConversations[i]}
-            messageData={messages[i] || []}
+            messageData={messages[i]}
             newMessageHandler={this.newMessageHandler}
             setNewMessage={this.setNewMessage}
             handleEndConvo={this.handleEndConvo}
@@ -214,7 +220,7 @@ export default class Dashboard extends Component{
         {newConversation && this.state.activeConversations.length !== 0
         ? <NewConvoMessage 
             newConvoData={newConversation} 
-            newMessage={this.state.messages}
+            newMessage={this.state.newMessage}
           />
         : ''}
 
