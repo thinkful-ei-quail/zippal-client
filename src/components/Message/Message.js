@@ -25,7 +25,7 @@ class Message extends Component {
 
     saveMessageHandler = async () => {
         const { pending_content } = this.state
-        const message = await MessageService.saveMessage(pending_content, this.props.newMessage.id)
+        const message = await MessageService.saveMessage(pending_content, this.props.message.id)
         this.props.setNewMessage(message)
         if(this.props.clearSelectedMessage) {
         this.props.clearSelectedMessage()
@@ -36,7 +36,7 @@ class Message extends Component {
 
     sendMessageHandler = async () => {
         const { pending_content } = this.state
-        const message = await MessageService.sendMessage(pending_content, this.props.newMessage.id)
+        const message = await MessageService.sendMessage(pending_content, this.props.message.id)
         this.props.setNewMessage(message)
         if(this.props.clearSelectedMessage) {
         this.props.clearSelectedMessage()
@@ -90,29 +90,29 @@ class Message extends Component {
         return (
         <div className='Message_Read'>
             <h3> Message {
-            this.context.user.id === this.props.newMessage.sender_id
+            this.context.user.id === this.props.message.sender_id
                 ? 'to '
                 : 'from '
             }
             {this.props.convoData.pal_name}
             </h3>
             <p>
-            {this.props.newMessage.content}
+            {this.props.message.content}
             </p>
         </div>
         )
     }
 
   renderActionButton = () => {
-    const { newMessage, convoData, allMessages } = this.props
+    const { message, convoData, allMessages } = this.props
     const { user } = this.context
-    if(newMessage.sender_id === user.id && newMessage.date_sent === null) {
+    if(message.sender_id === user.id && message.date_sent === null) {
       return (
         <button type='button' onClick={this.startEditing}>Edit</button>
       )
     }
-    if((convoData.user_1 === user.id && convoData.user_1_turn === true && newMessage.id === allMessages[allMessages.length - 1].id)
-    || (convoData.user_2 === user.id && convoData.user_2_turn === true && newMessage.id === allMessages[allMessages.length - 1].id)) {
+    if((convoData.user_1 === user.id && convoData.user_1_turn === true && message.id === allMessages[allMessages.length - 1].id)
+    || (convoData.user_2 === user.id && convoData.user_2_turn === true && message.id === allMessages[allMessages.length - 1].id)) {
       return (
         <button type='button'>Reply</button>
       )
@@ -134,7 +134,7 @@ class Message extends Component {
 
   render() {
     const { showForm, editMode } = this.state
-    const { newMessage, convoData, allMessages } = this.props
+    const { message, convoData, allMessages } = this.props
     const { user } = this.context
     return (
       <>
@@ -143,7 +143,7 @@ class Message extends Component {
         {showForm ? this.renderMessageForm() : ''}
       </>
       )
-    // return this.props.newMessage.sender_status === 'Sent' || this.props.newMessage.sender_status === 'Awaiting Reply' 
+    // return this.props.message.sender_status === 'Sent' || this.props.message.sender_status === 'Awaiting Reply' 
     //   ? this.renderMessage()
     //   : this.renderMessageForm()
   }

@@ -155,7 +155,7 @@ export default class ConversationBubble extends Component {
         ? this.renderMessages() 
         : <Message 
             convoData={this.props.convoData} 
-            newMessage={this.state.selectedMessage} 
+            message={this.state.selectedMessage} 
             setNewMessage={this.props.setNewMessage} 
             clearSelectedMessage={this.clearSelectedMessage}
             // allMessages={this.props.messageData}
