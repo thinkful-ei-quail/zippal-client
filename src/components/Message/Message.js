@@ -5,12 +5,15 @@ import './Message.css';
 
 class Message extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            pending_content: 'Message in Progress...'
-        }
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      pending_content: 'Message in Progress...',
+      showForm: false,
+      editMode: false,
+      receivedContent: ''
+    }
+  }
 
     static contextType = UserContext;
 
@@ -100,11 +103,50 @@ class Message extends Component {
         )
     }
 
-    render() {
-        return this.props.message.sender_status === 'Sent' || this.props.message.sender_status === 'Awaiting Reply'
-        ? this.renderMessage()
-        : this.renderMessageForm()
+  renderActionButton = () => {
+    const { message, convoData, allMessages } = this.props
+    const { user } = this.context
+    if(message.sender_id === user.id && message.date_sent === null) {
+      return (
+        <button type='button' onClick={this.startEditing}>Edit</button>
+      )
     }
+    if((convoData.user_1 === user.id && convoData.user_1_turn === true && message.id === allMessages[allMessages.length - 1].id)
+    || (convoData.user_2 === user.id && convoData.user_2_turn === true && message.id === allMessages[allMessages.length - 1].id)) {
+      return (
+        <button type='button'>Reply</button>
+      )
+    }
+  }
+
+  startEditing = () => {
+    this.setState({
+      editMode: true,
+      showForm: true
+    })
+  }
+
+  // toggleShowForm = () => {
+  //   this.setState({
+  //     showForm: !this.state.showForm
+  //   })
+  // }
+
+  render() {
+    const { showForm, editMode } = this.state
+    const { message, convoData, allMessages } = this.props
+    const { user } = this.context
+    return (
+      <>
+        {!editMode ? this.renderMessage() : ''}
+        {this.renderActionButton()}
+        {showForm ? this.renderMessageForm() : ''}
+      </>
+      )
+    // return this.props.message.sender_status === 'Sent' || this.props.message.sender_status === 'Awaiting Reply' 
+    //   ? this.renderMessage()
+    //   : this.renderMessageForm()
+  }
 }
 
 export default Message;
