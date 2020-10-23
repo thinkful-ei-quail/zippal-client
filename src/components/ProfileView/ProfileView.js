@@ -1,34 +1,25 @@
 import React, {Component} from 'react'
-import UserContext from '../../context/UserContext'
-import UserService from '../../services/user-api-service'
 import ProfileForm from '../../components/ProfileForm/ProfileForm'
-import ProfileCard from '../../components/ProfileCard/ProfileCard'
+import ProfileCard from '../ProfileCard/ProfileCard'
 
 export default class Profile extends Component {
-  state = {
-    userProfile: {},
-    dataLoaded: false
+  constructor(props){
+    super(props)
+    this.state = {
+      editProfile: false
+    }
   }
 
-  static contextType = UserContext
+  handleUpdateProfileSuccess = () => {
+    const {location, history} = this.props
+    const destination = (location.state || {}).from || '/dashboard'
+    history.push(destination)
+  }
 
-  async componentDidMount() {
-    console.log(this.context.user.id)
-    let [userProfile] = await UserService.getUserInfo(this.context.user.id)
-    console.log(userProfile)
-    this.setState({
-      userProfile,
-      dataLoaded: true
-    })
-}
-
-handleUpdateProfile = async () => {
- const [updatedProfile] = await UserService.getUserInfo(this.context.user.id);
- console.log(updatedProfile)
- this.setState({
-   userProfile: updatedProfile
- })
-}
+  handleProfileEdit = (e) => {
+    e.preventDefault()
+    this.setState({editProfile: true})
+  }
 
   renderProfileCard = () => {
     return (
@@ -39,8 +30,17 @@ handleUpdateProfile = async () => {
   render() {
     return (
       <div className="profile">
-      {this.state.dataLoaded ? this.renderProfileCard() : ''}
-      <ProfileForm handleUpdateProfile={this.handleUpdateProfile}/>
+      {/* <section>
+        <p>{fa_icon}</p>
+        <p>Username: {username}</p>
+        <p>display name: {display_name}</p>
+        <p>location: {location}</p>
+        <p>bio: {bio}</p>
+      </section> */}
+      {this.state.editProfile 
+      ? <ProfileForm updateSuccess={this.handleUpdateProfileSuccess}/>
+      : <ProfileCard editProfile={this.handleProfileEdit}/>
+      }
       </div>
     )
   }

@@ -1,38 +1,26 @@
-.ProfileCard {
-}
-
 .ProfileCard_main {
   border: 1px solid bisque;
   display: flex;
-  width: 89vw;
-  max-width: 500px;
+  flex-direction: column;
+  align-items: center;
+  width: 75vw;
   margin: 0 auto;
   background-image: linear-gradient(220deg, white, darkkhaki);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .ProfileCard__icon_container {
-  width: 100%;
+  width: 50%;
   margin: auto 0;
-  padding-right: 20px;
-}
-
-.ProfileCard__icon_fa {
-  font-size: 5rem;
 }
 
 .ProfileCard__bio_location {
   text-align: left;
   margin: auto 0;
-  padding-right: 28px;
-  padding-bottom: 15px;
 }
 
 .ProfileCard__label {
-  line-height: 2em;
+  line-height: 3em;
   text-align: left;
   font-size: 14px;
-}
-
-.ProfileCard__data {
 }
