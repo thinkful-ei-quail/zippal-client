@@ -8,7 +8,8 @@ export default class ProfileForm extends Component {
     super(props)
     this.state = {
       bioText: '',
-      location: ''
+      location: '',
+      fa_icon: ''
     }
   }
 
@@ -16,7 +17,7 @@ export default class ProfileForm extends Component {
 
   handlePatchUser = async (e) => {
     e.preventDefault()
-    await UserService.patchUser(this.state.bioText, this.state.location)
+    UserService.patchUser(this.state.bioText, this.state.location, this.state.fa_icon)
     this.setState({
       bioText: '',
       location: ''
@@ -45,21 +46,25 @@ export default class ProfileForm extends Component {
   }
 
   render(){
-    const {bio, location} = this.context.profileInfo
+    const {bio, location, fa_icon, display_name} = this.context.profileInfo
     return (
       <section className='profile_form'>
         <div>
-          <h3>Profile</h3>
+          <h3>{`${display_name}'s Profile`}</h3>
         </div>
+        <legend>
         <form onSubmit={this.handlePatchUser}>
           <label htmlFor='location'>Location:</label>
           <input name='locationArea' id='location' placeholder={location} value={this.state.location} onChange={this.handleChangeLocation}></input>
+          <label htmlFor='fa_icon'>Icon</label>
+          <input name='UserIcon' id='fa_icon' defaultValue={fa_icon}  value={this.state.fa_icon} onChange={this.handleChangeIcon}/>
           <hr/>
           <label htmlFor='about'>Tell us about yourself:</label>
           <textarea name="bioArea" className='about' id='about' placeholder={bio} value={this.state.bioText} onChange={this.handleChangeBio}>
           </textarea>
           <button type="submit">Submit</button>
         </form>
+        </legend>
       </section>
 
     )

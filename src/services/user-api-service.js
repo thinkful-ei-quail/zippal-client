@@ -2,17 +2,30 @@ import config from '../config'
 import TokenService from './token-service'
 
 const UserApiService = {
-  patchUser(bio, location){
+  getUserInfo(user) {
+    return fetch(`${config.API_ENDPOINT}/api/user`, {
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+    .then(res => (!res.ok) ? res.json().then(e => Promise.reject(e)) : res.json())
+  },
+
+  patchUser(bio, location, fa_icon) {
+   
+    const updateFields = {
+      bio,
+      location,
+      fa_icon
+    }
+
     return fetch(`${config.API_ENDPOINT}/api/user`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`
       },
-      body: JSON.stringify({
-        bio: bio,
-        location: location
-      }),
+      body: JSON.stringify(updateFields),
     })
     .then(res => 
       (!res.ok)

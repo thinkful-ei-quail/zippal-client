@@ -54,10 +54,12 @@ export default class ConversationBubble extends Component {
       //if logged in user is the receiver of the most recent message
     } else if(lastMessage.sender_id !== this.context.user.id) {
       // Pal has seen logged in user's message and started a reply
-      if(lastMessage.sender_status === 'Pending' && !lastMessage.is_read) {
+        if(lastMessage.sender_status === 'Pending' && !lastMessage.is_read) {
         return 'Your pal is working on their response'
       } else if(lastMessage.sender_status === 'Sent') {
         return 'You have a new message(or on the way once we get the timeout)'
+      } else if(lastMessage.sender_status === 'Awaiting Reply') {
+        return 'Start a reply message'
       }
     }
   }
@@ -106,6 +108,12 @@ export default class ConversationBubble extends Component {
       }
   }
 
+  clearSelectedMessage = () => {
+    this.setState({
+      selectedMessage: null
+    })
+  }
+
   // confirm user actually wants to delete conversation
   confirmEndConvo = () => {
     this.setState({
@@ -136,15 +144,15 @@ export default class ConversationBubble extends Component {
 
   // conditionally render reply(create new message) button or continue draft(open last message in text area to continue writing)
   renderExpandedView = () => {
- 
     return (
     <div className='ConversationBubble__convo_card expanded'>
+      {this.state.selectedMessage ? <button onClick={this.clearSelectedMessage}>Go back</button>: ''}
       <button onClick={this.toggleBubble}><FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} /></button>
       <button className="ConversationBubble__end_convo_btn" onClick={this.confirmEndConvo}>
         End Conversation
       </button>
       {!this.state.selectedMessage ? this.renderMessages() : ''}
-      {this.state.selectedMessage ? <Message convoData={this.props.convoData} message={this.state.selectedMessage}/>: ''}
+      {this.state.selectedMessage ? <Message convoData={this.props.convoData} message={this.state.selectedMessage} setNewMessage={this.props.setNewMessage} clearSelectedMessage={this.clearSelectedMessage}/>: ''}
       {this.state.confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
     </div>
     )
