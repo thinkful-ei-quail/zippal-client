@@ -33,8 +33,9 @@ export default class ProfileCard extends Component {
               <p><span className="ProfileCard__label">bio:</span> <br/> 
               <span className="ProfileCard__data">{bio ? bio : 'not available'}</span></p>
             </div>
-        </div>
-      </section>
+            {this.renderEditButton()}
+          </div>
+        </section>
       
     )
   }

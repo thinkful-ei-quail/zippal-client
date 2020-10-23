@@ -10,12 +10,6 @@ export default class Profile extends Component {
     }
   }
 
-  handleUpdateProfileSuccess = () => {
-    const {location, history} = this.props
-    const destination = (location.state || {}).from || '/dashboard'
-    history.push(destination)
-  }
-
   handleProfileEdit = (e) => {
     e.preventDefault()
     this.setState({editProfile: true})
@@ -38,7 +32,7 @@ export default class Profile extends Component {
         <p>bio: {bio}</p>
       </section> */}
       {this.state.editProfile 
-      ? <ProfileForm updateSuccess={this.handleUpdateProfileSuccess}/>
+      ? <ProfileForm updateSuccess={this.props.updateSuccess}/>
       : <ProfileCard editProfile={this.handleProfileEdit}/>
       }
       </div>
