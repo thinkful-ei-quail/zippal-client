@@ -37,6 +37,10 @@ class ConversationNotification extends Component {
       }
     }
 
+    if (receiver_id === userId && receiver_status === 'Read') {
+      return "envelope-open"
+    }
+
     if (receiver_id === userId && receiver_status === "Awaiting Message") {
       return 'hourglass-half'
     }
