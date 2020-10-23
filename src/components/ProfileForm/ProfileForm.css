@@ -1,24 +1,34 @@
-.profile_form {
+.ProfileForm {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.profile_form form {
+.ProfileForm form {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 90%;
   margin: 0 auto;
+  background-image: linear-gradient(360deg, white, darkkhaki);
 }
 
-.profile_form form button {
+.ProfileForm form input {
   margin: 0 auto;
   margin-top: 20px;
-  width: 245px;
+  width: 50%;
+  max-width: 400px;
 }
 
-.about {
+.ProfileForm__about {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.ProfileForm__about_textarea {
+  margin: 0 auto;
   height: 7rem;
+  width: 100%;
+  max-width: 800px;
 }
 
 label {

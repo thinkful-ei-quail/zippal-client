@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import UserService from '../../services/user-api-service'
 import UserContext from '../../context/UserContext'
+import IconSelect from '../../components/IconSelect/IconSelect'
 
 import './ProfileForm.css'
 
@@ -44,23 +45,27 @@ export default class ProfileForm extends Component {
 
   render(){
     return (
-      <section className='profile_form'>
+      <section className='ProfileForm'>
         <div>
-          <h3>Profile</h3>
+          <h3>Edit your Profile</h3>
         </div>
-        <legend>
+       
         <form onSubmit={this.handlePatchUser}>
-          <label>Icon</label>
-          <input id='fa_icon' value={this.state.fa_icon} onChange={this.handleChangeIcon}/>
+          {/* <label>Icon</label>
+          <input id='fa_icon' value={this.state.fa_icon} onChange={this.handleChangeIcon}/> */}
+          <IconSelect />
           <label>Country:</label>
           <input id='country' value={this.state.location} onChange={this.handleChangeLocation}></input>
           <hr/>
-          <label>Tell us about yourself:</label>
-          <textarea  className='about' id='about'  placeholder='write about yourself' value={this.state.bioText} onChange={this.handleChangeBio}>
-          </textarea>
+         
+          <div className='ProfileForm__about'>
+            <label>Tell us about yourself:</label>
+            <textarea className='ProfileForm__about_textarea'  placeholder='write about yourself' value={this.state.bioText} onChange={this.handleChangeBio}>
+            </textarea>
+          </div>
           <button type="submit">Submit</button>
         </form>
-        </legend>
+
       </section>
 
     )

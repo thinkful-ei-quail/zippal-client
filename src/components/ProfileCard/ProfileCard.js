@@ -21,15 +21,17 @@ export default class ProfileCard extends Component {
           <h2>Welcome {display_name}!</h2>
           <div className="ProfileCard_main">
             <div className="ProfileCard__icon_container">
-              <FontAwesomeIcon className='ProfileCard__icon_fa fa-8x' icon={fa_icon} />
+              <FontAwesomeIcon className='ProfileCard__icon_fa' icon={fa_icon} />
               <p>{username}</p>
             </div>
             
             <div className="ProfileCard__bio_location">
               <p>
-                <span className="ProfileCard__label">location:</span ><br/> {location ? location : 'none'}
+                <span className="ProfileCard__label">location:</span> <br/> 
+                <span className="ProfileCard__data">{location ? location : 'none'}</span>
               </p>
-              <p><span className="ProfileCard__label">bio:</span> <br/> {bio ? bio : 'not available' }</p>
+              <p><span className="ProfileCard__label">bio:</span> <br/> 
+              <span className="ProfileCard__data">{bio ? bio : 'not available'}</span></p>
             </div>
         </div>
       </section>
