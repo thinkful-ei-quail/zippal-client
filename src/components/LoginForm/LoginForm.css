@@ -5,6 +5,9 @@ input:focus {
 input {
   max-width: -webkit-fill-available;
 }
+input {
+  max-width: -webkit-fill-available;
+}
 legend {
   align-self: center;
   display: flex;

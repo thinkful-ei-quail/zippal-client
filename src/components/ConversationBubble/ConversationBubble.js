@@ -40,7 +40,6 @@ export default class ConversationBubble extends Component {
       return 'No messages in this conversation'
     }
     const lastMessage = messageData[messageData.length - 1]
-    console.log(lastMessage)
     //if logged in user was the sender of the most recent message
     if(lastMessage.sender_id === this.context.user.id) {
       //message has been created but not sent
@@ -153,7 +152,7 @@ export default class ConversationBubble extends Component {
         End Conversation
       </button>
       {!this.state.selectedMessage ? this.renderMessages() : ''}
-      {this.state.selectedMessage ? <Message convoData={this.props.convoData} newMessage={this.state.selectedMessage} setNewMessage={this.props.setNewMessage} clearSelectedMessage={this.clearSelectedMessage}/>: ''}
+      {this.state.selectedMessage ? <Message convoData={this.props.convoData} message={this.state.selectedMessage} setNewMessage={this.props.setNewMessage} clearSelectedMessage={this.clearSelectedMessage}/>: ''}
       {this.state.confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
     </div>
     )
