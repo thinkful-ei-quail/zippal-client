@@ -134,8 +134,6 @@ class Message extends Component {
 
   render() {
     const { showForm, editMode } = this.state
-    const { message, convoData, allMessages } = this.props
-    const { user } = this.context
     return (
       <>
         {!editMode ? this.renderMessage() : ''}

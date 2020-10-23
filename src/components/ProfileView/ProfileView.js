@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ProfileForm from '../../components/ProfileForm/ProfileForm'
 import ProfileCard from '../ProfileCard/ProfileCard'
+import UserContext from '../../context/UserContext'
 
 export default class Profile extends Component {
   constructor(props){
@@ -10,12 +11,15 @@ export default class Profile extends Component {
     }
   }
 
+  static contextType = UserContext
+
   handleProfileEdit = (e) => {
     e.preventDefault()
     this.setState({editProfile: true})
   }
 
   render() {
+    const {bio} = this.context.profileInfo
     return (
       <div className="profile">
       {/* <section>
@@ -25,7 +29,7 @@ export default class Profile extends Component {
         <p>location: {location}</p>
         <p>bio: {bio}</p>
       </section> */}
-      {this.state.editProfile 
+      {(this.state.editProfile || !bio)
       ? <ProfileForm updateSuccess={this.props.updateSuccess}/>
       : <ProfileCard editProfile={this.handleProfileEdit}/>
       }

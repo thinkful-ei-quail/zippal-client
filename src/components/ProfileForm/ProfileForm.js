@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import UserService from '../../services/user-api-service'
 import './ProfileForm.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import UserContext from '../../context/UserContext'
 
 export default class ProfileForm extends Component {
@@ -56,8 +57,9 @@ export default class ProfileForm extends Component {
         <form onSubmit={this.handlePatchUser}>
           <label htmlFor='location'>Location:</label>
           <input name='locationArea' id='location' placeholder={location} value={this.state.location} onChange={this.handleChangeLocation}></input>
-          <label htmlFor='fa_icon'>Icon</label>
-          <input name='UserIcon' id='fa_icon' defaultValue={fa_icon}  value={this.state.fa_icon} onChange={this.handleChangeIcon}/>
+          <button type="button">
+            {<FontAwesomeIcon icon={fa_icon? fa_icon : 'user-circle'}/>}
+          </button>
           <hr/>
           <label htmlFor='about'>Tell us about yourself:</label>
           <textarea name="bioArea" className='about' id='about' placeholder={bio} value={this.state.bioText} onChange={this.handleChangeBio}>

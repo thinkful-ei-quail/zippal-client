@@ -24,22 +24,26 @@ export class UserProvider extends Component {
     const state = {user: {}, error:null, profileInfo: {}}
 
     const jwtPayload = TokenService.parseAuthToken()
-    const profileData = this.getProfile()
+    
 
-    if(jwtPayload)
+    if(jwtPayload){
+      const profileData = this.getProfile()
+
       state.user = {
         id: jwtPayload.id,
         display_name: jwtPayload.display_name,
         username: jwtPayload.sub,
       }
 
-    if(profileData)
-      state.profileInfo = {
-        bio: profileData.bio,
-        display_name: profileData.display_name,
-        fa_icon: profileData.fa_icon,
-        location: profileData.location
+      if(profileData)
+        state.profileInfo = {
+          bio: profileData.bio,
+          display_name: profileData.display_name,
+          fa_icon: profileData.fa_icon,
+          location: profileData.location
       }
+    }
+      
 
     this.state = state;
     IdleService.setIdleCallback(this.logoutBecauseIdle)
