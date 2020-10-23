@@ -14,14 +14,23 @@ export default class ProfileCard extends Component {
 
 
   render() {
+<<<<<<< HEAD
     const {fa_icon, username, display_name, location, bio} = this.props.editProfile
     console.log(fa_icon)
+=======
+    const {fa_icon, username, display_name, location, bio} = this.context.profileInfo
+    const defaultIcon = 'user-circle'
+>>>>>>> master
     return (
         <section className="ProfileCard">
           <h2>Welcome {display_name}!</h2>
           <div className="ProfileCard_main">
             <div className="ProfileCard__icon_container">
+<<<<<<< HEAD
               <FontAwesomeIcon className='ProfileCard__icon_fa' icon={fa_icon} />
+=======
+              <FontAwesomeIcon className='ProfileCard__icon_fa fa-8x' icon={fa_icon ? fa_icon : defaultIcon} />
+>>>>>>> master
               <p>{username}</p>
             </div>
             
