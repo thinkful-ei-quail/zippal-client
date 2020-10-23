@@ -6,6 +6,7 @@
   color: black;
   font-weight: bold;
   font-size: 18px;
+  margin-bottom: 22px;
 }
 .Active_Conversations {
   display: flex;
