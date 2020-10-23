@@ -40,6 +40,7 @@ export default class ProfileForm extends Component {
         <div>
           <h3>Profile</h3>
         </div>
+        <legend>
         <form onSubmit={this.handlePatchUser}>
           <label>Country:</label>
           <input id='country' value={this.state.location} onChange={this.handleChangeLocation}></input>
@@ -49,6 +50,7 @@ export default class ProfileForm extends Component {
           </textarea>
           <button type="submit">Submit</button>
         </form>
+        </legend>
       </section>
 
     )
