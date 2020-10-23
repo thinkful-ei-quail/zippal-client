@@ -14,7 +14,7 @@ export default class ProfileCard extends Component {
 
 
   render() {
-    const {fa_icon, username, display_name, location, bio} = this.props.userProfile
+    const {fa_icon, username, display_name, location, bio} = this.props.editProfile
     console.log(fa_icon)
     return (
         <section className="ProfileCard">

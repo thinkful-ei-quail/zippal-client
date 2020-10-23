@@ -9,7 +9,7 @@ export default class IconSelect extends Component {
       <section>
         <div className="IconSelect">
           <div>
-
+            
           </div>
       </div>
       </section>
