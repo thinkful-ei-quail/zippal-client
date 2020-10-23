@@ -144,7 +144,6 @@ export default class ConversationBubble extends Component {
 
   // conditionally render reply(create new message) button or continue draft(open last message in text area to continue writing)
   renderExpandedView = () => {
- 
     return (
     <div className='ConversationBubble__convo_card expanded'>
       {this.state.selectedMessage ? <button onClick={this.clearSelectedMessage}>Go back</button>: ''}
@@ -153,7 +152,7 @@ export default class ConversationBubble extends Component {
         End Conversation
       </button>
       {!this.state.selectedMessage ? this.renderMessages() : ''}
-      {this.state.selectedMessage ? <Message convoData={this.props.convoData} newMessage={this.state.selectedMessage} setNewMessage={this.props.setNewMessage}/>: ''}
+      {this.state.selectedMessage ? <Message convoData={this.props.convoData} newMessage={this.state.selectedMessage} setNewMessage={this.props.setNewMessage} clearSelectedMessage={this.clearSelectedMessage}/>: ''}
       {this.state.confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
     </div>
     )
