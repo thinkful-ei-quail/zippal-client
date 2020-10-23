@@ -152,8 +152,15 @@ export default class ConversationBubble extends Component {
       <button className="ConversationBubble__end_convo_btn" onClick={this.confirmEndConvo}>
         End Conversation
       </button>
-      {!this.state.selectedMessage ? this.renderMessages() : ''}
-      {this.state.selectedMessage ? <Message convoData={this.props.convoData} newMessage={this.state.selectedMessage} setNewMessage={this.props.setNewMessage} clearSelectedMessage={this.clearSelectedMessage}/>: ''}
+      {!this.state.selectedMessage 
+        ? this.renderMessages() 
+        : <Message 
+            convoData={this.props.convoData} 
+            newMessage={this.state.selectedMessage} 
+            setNewMessage={this.props.setNewMessage} 
+            clearSelectedMessage={this.clearSelectedMessage}
+            // allMessages={this.props.messageData}
+          />}
       {this.state.confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
     </div>
     )

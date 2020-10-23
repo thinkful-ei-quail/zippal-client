@@ -8,7 +8,10 @@ class Message extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      pending_content: 'Message in Progress...'
+      pending_content: 'Message in Progress...',
+      showForm: false,
+      editMode: false,
+      receivedContent: ''
     }
   }
 
@@ -100,10 +103,49 @@ class Message extends Component {
     )
   }
 
+  renderActionButton = () => {
+    const { newMessage, convoData, allMessages } = this.props
+    const { user } = this.context
+    if(newMessage.sender_id === user.id && newMessage.date_sent === null) {
+      return (
+        <button type='button' onClick={this.startEditing}>Edit</button>
+      )
+    }
+    if((convoData.user_1 === user.id && convoData.user_1_turn === true && newMessage.id === allMessages[allMessages.length - 1].id)
+    || (convoData.user_2 === user.id && convoData.user_2_turn === true && newMessage.id === allMessages[allMessages.length - 1].id)) {
+      return (
+        <button type='button'>Reply</button>
+      )
+    }
+  }
+
+  startEditing = () => {
+    this.setState({
+      editMode: true,
+      showForm: true
+    })
+  }
+
+  // toggleShowForm = () => {
+  //   this.setState({
+  //     showForm: !this.state.showForm
+  //   })
+  // }
+
   render() {
-    return this.props.newMessage.sender_status === 'Sent' || this.props.newMessage.sender_status === 'Awaiting Reply'
-      ? this.renderMessage()
-      : this.renderMessageForm()
+    const { showForm, editMode } = this.state
+    const { newMessage, convoData, allMessages } = this.props
+    const { user } = this.context
+    return (
+      <>
+        {!editMode ? this.renderMessage() : ''}
+        {this.renderActionButton()}
+        {showForm ? this.renderMessageForm() : ''}
+      </>
+      )
+    // return this.props.newMessage.sender_status === 'Sent' || this.props.newMessage.sender_status === 'Awaiting Reply' 
+    //   ? this.renderMessage()
+    //   : this.renderMessageForm()
   }
 }
 
