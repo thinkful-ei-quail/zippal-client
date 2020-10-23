@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import UserService from '../../services/user-api-service'
 import './ProfileForm.css'
+import UserContext from '../../context/UserContext'
 
 export default class ProfileForm extends Component {
   constructor(props){
@@ -11,15 +12,7 @@ export default class ProfileForm extends Component {
     }
   }
 
-  
-
-  async componentDidMount() {
-    const userInfo = await UserService.getUserProfile()
-    this.setState({
-      bioText: userInfo.bio,
-      location: userInfo.location
-    })
-  }
+ static contextType = UserContext
 
   handlePatchUser = async (e) => {
     e.preventDefault()
@@ -52,6 +45,7 @@ export default class ProfileForm extends Component {
   }
 
   render(){
+    const {bio, location} = this.context.profileInfo
     return (
       <section className='profile_form'>
         <div>
@@ -59,10 +53,10 @@ export default class ProfileForm extends Component {
         </div>
         <form onSubmit={this.handlePatchUser}>
           <label htmlFor='location'>Location:</label>
-          <input name='locationArea' id='location' value={this.state.location} onChange={this.handleChangeLocation}></input>
+          <input name='locationArea' id='location' placeholder={location} value={this.state.location} onChange={this.handleChangeLocation}></input>
           <hr/>
           <label htmlFor='about'>Tell us about yourself:</label>
-          <textarea name="bioArea" className='about' id='about'  value={this.state.bioText} onChange={this.handleChangeBio}>
+          <textarea name="bioArea" className='about' id='about' placeholder={bio} value={this.state.bioText} onChange={this.handleChangeBio}>
           </textarea>
           <button type="submit">Submit</button>
         </form>

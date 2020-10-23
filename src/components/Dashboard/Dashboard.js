@@ -25,7 +25,6 @@ export default class Dashboard extends Component{
 
   async componentDidMount() {
     const response = await ConversationService.getConversations()
-  
       this.setState({
         conversationsRendered: true,
         isOutOfAvailablePals: false,
@@ -108,7 +107,6 @@ export default class Dashboard extends Component{
           .then((message) => {
             const messagesInState = this.state.messages
             messagesInState.push([message])
-            console.log(messagesInState)
             this.setState({
               activeConversations: [...this.state.activeConversations, conversation],
               newConversation: conversation,
@@ -171,9 +169,10 @@ export default class Dashboard extends Component{
     
     const index = messageArray.findIndex((messages, i) => {
       if(messages.length === 0) {
-        return 
+        return ''
       } else if(messages[0].conversation_id === newMessage.conversation_id)
       return i
+      return ''
       })
 
     if(index === -1){
