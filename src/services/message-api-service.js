@@ -29,7 +29,7 @@ const MessageApiService = {
   saveMessage(content, id) {
     // route patch message/:message_id/save 
     // updating message.content
-    fetch(`${message_API_ENDPOINT}/${id}/save`, {
+    return fetch(`${message_API_ENDPOINT}/${id}/save`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
@@ -50,7 +50,7 @@ const MessageApiService = {
     // route patch message/:message_id/send
     // updating content?, sender_status, receiver_status, date_sent
     // update conversation user_1_turn and user_2_turn
-    fetch(`${message_API_ENDPOINT}/${id}/send`, {
+    return fetch(`${message_API_ENDPOINT}/${id}/send`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
@@ -63,7 +63,7 @@ const MessageApiService = {
         date_sent: new Date()
       }),
     })
-      .then(res =>
+      .then(res => 
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
@@ -73,7 +73,7 @@ const MessageApiService = {
   readMessage(message) {
     //route patch message/:message_id/read
     // updating sender_status, receiver_status, is_read
-    fetch(`${message_API_ENDPOINT}/${message.id}/read`, {
+    return fetch(`${message_API_ENDPOINT}/${message.id}/read`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
