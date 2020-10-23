@@ -22,7 +22,7 @@ class Message extends Component {
 
     saveMessageHandler = async () => {
         const { pending_content } = this.state
-        const message = await MessageService.saveMessage(pending_content, this.props.newMessage.id)
+        const message = await MessageService.saveMessage(pending_content, this.props.message.id)
         this.props.setNewMessage(message)
         if(this.props.clearSelectedMessage) {
         this.props.clearSelectedMessage()
@@ -33,7 +33,7 @@ class Message extends Component {
 
     sendMessageHandler = async () => {
         const { pending_content } = this.state
-        const message = await MessageService.sendMessage(pending_content, this.props.newMessage.id)
+        const message = await MessageService.sendMessage(pending_content, this.props.message.id)
         this.props.setNewMessage(message)
         if(this.props.clearSelectedMessage) {
         this.props.clearSelectedMessage()
@@ -87,21 +87,21 @@ class Message extends Component {
         return (
         <div className='Message_Read'>
             <h3> Message {
-            this.context.user.id === this.props.newMessage.sender_id
+            this.context.user.id === this.props.message.sender_id
                 ? 'to '
                 : 'from '
             }
             {this.props.convoData.pal_name}
             </h3>
             <p>
-            {this.props.newMessage.content}
+            {this.props.message.content}
             </p>
         </div>
         )
     }
 
     render() {
-        return this.props.newMessage.sender_status === 'Sent' || this.props.newMessage.sender_status === 'Awaiting Reply'
+        return this.props.message.sender_status === 'Sent' || this.props.message.sender_status === 'Awaiting Reply'
         ? this.renderMessage()
         : this.renderMessageForm()
     }
