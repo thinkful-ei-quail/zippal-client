@@ -144,7 +144,7 @@ export default class ConversationBubble extends Component {
         End Conversation
       </button>
       {!this.state.selectedMessage ? this.renderMessages() : ''}
-      {this.state.selectedMessage ? <Message convoData={this.props.convoData} newMessage={this.state.selectedMessage}/>: ''}
+      {this.state.selectedMessage ? <Message convoData={this.props.convoData} message={this.state.selectedMessage}/>: ''}
       {this.state.confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
     </div>
     )

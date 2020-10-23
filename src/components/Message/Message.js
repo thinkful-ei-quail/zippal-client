@@ -16,18 +16,18 @@ class Message extends Component {
 
     componentDidMount = () => {
         this.setState({
-            pending_content: this.props.newMessage.content
+            pending_content: this.props.message.content
         })
     }
 
     saveMessageHandler = () => {
         const {pending_content} = this.state
-        MessageService.saveMessage(pending_content, this.props.newMessage.id)
+        MessageService.saveMessage(pending_content, this.props.message.id)
     }
 
     sendMessageHandler = () => {
         const {pending_content} =this.state
-        MessageService.sendMessage(pending_content, this.props.newMessage.id)
+        MessageService.sendMessage(pending_content, this.props.message.id)
     }
 
     setPendingContent = (e) => {
@@ -42,7 +42,7 @@ class Message extends Component {
         <form className='Message_Form'>
             <div className='Message_Container'>
                 <label htmlFor='Message_Content'>
-                    Create a new message for {this.props.convoData.pal_name}
+                    Send a new message for {this.props.convoData.pal_name}
                 </label>
                 <textarea
                 name='Message_Content_Area'
@@ -74,21 +74,21 @@ class Message extends Component {
         return (
             <div className='Message_Read'>
                 <h3> Message {
-                this.context.user.id === this.props.newMessage.sender_id
+                this.context.user.id === this.props.message.sender_id
                 ? 'to '
                 : 'from '  
                 }
                 {this.props.convoData.pal_name}
                 </h3>
                 <p>
-                    {this.props.newMessage.content}
+                    {this.props.message.content}
                 </p>
             </div>
         ) 
     }
     
     render() {
-        return this.props.newMessage.sender_status === 'Sent' || this.props.newMessage.sender_status === 'Awaiting Reply'
+        return this.props.message.sender_status === 'Sent' || this.props.message.sender_status === 'Awaiting Reply'
         ? this.renderMessage()
         : this.renderMessageForm()
     }
