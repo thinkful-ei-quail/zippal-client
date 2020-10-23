@@ -1,4 +1,6 @@
 .find_new_pal {
   border: 1px solid red;
-  margin: 20px;
+  margin: 17px;
+  background-image: linear-gradient(360deg, white, darkkhaki);
+  padding: 15px;
 }
