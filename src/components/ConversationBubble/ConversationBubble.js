@@ -108,6 +108,12 @@ export default class ConversationBubble extends Component {
       }
   }
 
+  clearSelectedMessage = () => {
+    this.setState({
+      selectedMessage: null
+    })
+  }
+
   // confirm user actually wants to delete conversation
   confirmEndConvo = () => {
     this.setState({
@@ -141,6 +147,7 @@ export default class ConversationBubble extends Component {
  
     return (
     <div className='ConversationBubble__convo_card expanded'>
+      {this.state.selectedMessage ? <button onClick={this.clearSelectedMessage}>Go back</button>: ''}
       <button onClick={this.toggleBubble}><FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} /></button>
       <button className="ConversationBubble__end_convo_btn" onClick={this.confirmEndConvo}>
         End Conversation

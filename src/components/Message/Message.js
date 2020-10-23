@@ -38,7 +38,6 @@ class Message extends Component {
     })
   }
 
-
   renderMessageForm() {
     return (
       <form className='Message_Form'>
@@ -97,12 +96,5 @@ class Message extends Component {
       : this.renderMessageForm()
   }
 }
-
-
-// Message entry in db will already be completed onclick for new message
-// User will need a form to edit existing message entry
-// User can send, save, and read message entry based on sender status
-// User will see message contents in a <p></p> when updated to sent
-// stretch - message content will autosave after 5 minutes of inactivity?
 
 export default Message;
