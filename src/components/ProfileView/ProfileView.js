@@ -2,10 +2,12 @@ import React, {Component} from 'react'
 import UserContext from '../../context/UserContext'
 import UserService from '../../services/user-api-service'
 import ProfileForm from '../../components/ProfileForm/ProfileForm'
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
 export default class Profile extends Component {
   state = {
-    userProfile: {}
+    userProfile: {},
+    dataLoaded: false
   }
 
   static contextType = UserContext
@@ -15,7 +17,8 @@ export default class Profile extends Component {
     let [userProfile] = await UserService.getUserInfo(this.context.user.id)
     console.log(userProfile)
     this.setState({
-      userProfile
+      userProfile,
+      dataLoaded: true
     })
 }
 
@@ -27,19 +30,16 @@ handleUpdateProfile = async () => {
  })
 }
 
+  renderProfileCard = () => {
+    return (
+      <ProfileCard userProfile={this.state.userProfile}/>
+    )
+  }
+
   render() {
-    const {bio, location, username, display_name, fa_icon} = this.state.userProfile
     return (
       <div className="profile">
-
-      <section>
-        <p>{fa_icon}</p>
-        <p>Username: {username}</p>
-        <p>display name: {display_name}</p>
-        <p>location: {location}</p>
-        <p>bio: {bio}</p>
-      </section>
-
+      {this.state.dataLoaded ? this.renderProfileCard() : ''}
       <ProfileForm handleUpdateProfile={this.handleUpdateProfile}/>
       </div>
     )

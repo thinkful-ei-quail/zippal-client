@@ -48,6 +48,7 @@ export default class ProfileForm extends Component {
         <div>
           <h3>Profile</h3>
         </div>
+        <legend>
         <form onSubmit={this.handlePatchUser}>
           <label>Icon</label>
           <input id='fa_icon' value={this.state.fa_icon} onChange={this.handleChangeIcon}/>
@@ -59,6 +60,7 @@ export default class ProfileForm extends Component {
           </textarea>
           <button type="submit">Submit</button>
         </form>
+        </legend>
       </section>
 
     )
