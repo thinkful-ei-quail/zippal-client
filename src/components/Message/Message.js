@@ -15,93 +15,93 @@ class Message extends Component {
     }
   }
 
-  static contextType = UserContext;
+    static contextType = UserContext;
 
-  componentDidMount = () => {
-    this.setState({
-      pending_content: this.props.newMessage.content
-    })
-  }
-
-  saveMessageHandler = async () => {
-    const { pending_content } = this.state
-    const message = await MessageService.saveMessage(pending_content, this.props.newMessage.id)
-    this.props.setNewMessage(message)
-    if(this.props.clearSelectedMessage) {
-      this.props.clearSelectedMessage()
-    } else {
-      this.props.closeNewConvoMessage()
+    componentDidMount = () => {
+        this.setState({
+            pending_content: this.props.message.content
+        })
     }
-  }
 
-  sendMessageHandler = async () => {
-    const { pending_content } = this.state
-    const message = await MessageService.sendMessage(pending_content, this.props.newMessage.id)
-    this.props.setNewMessage(message)
-    if(this.props.clearSelectedMessage) {
-      this.props.clearSelectedMessage()
-    } else {
-      this.props.closeNewConvoMessage()
-    }
-  }
-
-  setPendingContent = (e) => {
-    this.setState({
-      pending_content: e.value
-    })
-  }
-
-  renderMessageForm() {
-    return (
-      <form className='Message_Form'>
-        <div className='Message_Container'>
-          <label htmlFor='Message_Content'>
-            Create a new message for {this.props.convoData.pal_name}
-          </label>
-          <textarea
-            name='Message_Content_Area'
-            type='text'
-            id='Message_Content'
-            value={this.state.pending_content}
-            onChange={(e) => this.setPendingContent(e.target)}
-          />
-        </div>
-        <div className='Message_Buttons_Container'>
-          <button
-            type='button'
-            className='Message_Save_Btn'
-            onClick={this.saveMessageHandler}
-          >
-            Save Message
-                </button>
-          <button
-            type='button'
-            className='Message_Send_Btn'
-            onClick={this.sendMessageHandler}
-          >
-            Send Message to {this.props.convoData.pal_name}
-          </button>
-        </div>
-      </form>
-    )
-  }
-
-  renderMessage() {
-    return (
-      <div className='Message_Read'>
-        <h3> Message {
-          this.context.user.id === this.props.newMessage.sender_id
-            ? 'to '
-            : 'from '
+    saveMessageHandler = async () => {
+        const { pending_content } = this.state
+        const message = await MessageService.saveMessage(pending_content, this.props.newMessage.id)
+        this.props.setNewMessage(message)
+        if(this.props.clearSelectedMessage) {
+        this.props.clearSelectedMessage()
+        } else {
+        this.props.closeNewConvoMessage()
         }
-          {this.props.convoData.pal_name}
-        </h3>
-        <p>
-          {this.props.newMessage.content}
-        </p>
-      </div>
-    )
-  }
+    }
+
+    sendMessageHandler = async () => {
+        const { pending_content } = this.state
+        const message = await MessageService.sendMessage(pending_content, this.props.newMessage.id)
+        this.props.setNewMessage(message)
+        if(this.props.clearSelectedMessage) {
+        this.props.clearSelectedMessage()
+        } else {
+        this.props.closeNewConvoMessage()
+        }
+    }
+
+    setPendingContent = (e) => {
+        this.setState({
+        pending_content: e.value
+        })
+    }
+
+    renderMessageForm() {
+        return (
+        <form className='Message_Form'>
+            <div className='Message_Container'>
+            <label htmlFor='Message_Content'>
+                Create a new message for {this.props.convoData.pal_name}
+            </label>
+            <textarea
+                name='Message_Content_Area'
+                type='text'
+                id='Message_Content'
+                value={this.state.pending_content}
+                onChange={(e) => this.setPendingContent(e.target)}
+            />
+            </div>
+            <div className='Message_Buttons_Container'>
+            <button
+                type='button'
+                className='Message_Save_Btn'
+                onClick={this.saveMessageHandler}
+            >
+                Save Message
+                    </button>
+            <button
+                type='button'
+                className='Message_Send_Btn'
+                onClick={this.sendMessageHandler}
+            >
+                Send Message to {this.props.convoData.pal_name}
+            </button>
+            </div>
+        </form>
+        )
+    }
+
+    renderMessage() {
+        return (
+        <div className='Message_Read'>
+            <h3> Message {
+            this.context.user.id === this.props.newMessage.sender_id
+                ? 'to '
+                : 'from '
+            }
+            {this.props.convoData.pal_name}
+            </h3>
+            <p>
+            {this.props.newMessage.content}
+            </p>
+        </div>
+        )
+    }
 
   renderActionButton = () => {
     const { newMessage, convoData, allMessages } = this.props

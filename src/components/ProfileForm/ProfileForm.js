@@ -1,25 +1,28 @@
 import React, {Component} from 'react'
 import UserService from '../../services/user-api-service'
+import './ProfileForm.css'
 import UserContext from '../../context/UserContext'
 
-import './ProfileForm.css'
-
 export default class ProfileForm extends Component {
-  state = {
-    bioText: '',
-    location: '', 
-    fa_icon: 'user-circle'
+  constructor(props){
+    super(props)
+    this.state = {
+      bioText: '',
+      location: '',
+      fa_icon: ''
+    }
   }
-  static contextType = UserContext
 
-  handlePatchUser = (e) => {
+ static contextType = UserContext
+
+  handlePatchUser = async (e) => {
     e.preventDefault()
     UserService.patchUser(this.state.bioText, this.state.location, this.state.fa_icon)
     this.setState({
       bioText: '',
       location: ''
     })
-    this.props.handleUpdateProfile()
+    this.props.updateSuccess();
   }
 
   handleChangeBio = (e) => {
@@ -43,20 +46,21 @@ export default class ProfileForm extends Component {
   }
 
   render(){
+    const {bio, location, fa_icon, display_name} = this.context.profileInfo
     return (
       <section className='profile_form'>
         <div>
-          <h3>Profile</h3>
+          <h3>{`${display_name}'s Profile`}</h3>
         </div>
         <legend>
         <form onSubmit={this.handlePatchUser}>
-          <label>Icon</label>
-          <input id='fa_icon' value={this.state.fa_icon} onChange={this.handleChangeIcon}/>
-          <label>Country:</label>
-          <input id='country' value={this.state.location} onChange={this.handleChangeLocation}></input>
+          <label htmlFor='location'>Location:</label>
+          <input name='locationArea' id='location' placeholder={location} value={this.state.location} onChange={this.handleChangeLocation}></input>
+          <label htmlFor='fa_icon'>Icon</label>
+          <input name='UserIcon' id='fa_icon' defaultValue={fa_icon}  value={this.state.fa_icon} onChange={this.handleChangeIcon}/>
           <hr/>
-          <label>Tell us about yourself:</label>
-          <textarea  className='about' id='about'  placeholder='write about yourself' value={this.state.bioText} onChange={this.handleChangeBio}>
+          <label htmlFor='about'>Tell us about yourself:</label>
+          <textarea name="bioArea" className='about' id='about' placeholder={bio} value={this.state.bioText} onChange={this.handleChangeBio}>
           </textarea>
           <button type="submit">Submit</button>
         </form>

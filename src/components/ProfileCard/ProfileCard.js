@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
 import UserContext from '../../context/UserContext'
-import UserService from '../../services/user-api-service'
-import {library} from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './ProfileCard.css'
@@ -12,10 +10,21 @@ export default class ProfileCard extends Component {
 
   static contextType = UserContext
 
+  renderEditButton() {
+    return (
+      <button 
+      onClick={e => this.props.editProfile(e)} 
+      type="button"
+      >
+        Edit your Profile?
+      </button>
+    )
+  }
+
+  // add in logic for when not pulling data from context - if viewing another person's profile?
 
   render() {
-    const {fa_icon, username, display_name, location, bio} = this.props.userProfile
-    console.log(fa_icon)
+    const {fa_icon, username, display_name, location, bio} = this.context.profileInfo
     return (
         <section className="ProfileCard">
           <h2>Welcome {display_name}!</h2>
@@ -31,8 +40,9 @@ export default class ProfileCard extends Component {
               </p>
               <p><span className="ProfileCard__label">bio:</span> <br/> {bio ? bio : 'not available' }</p>
             </div>
-        </div>
-      </section>
+            {this.renderEditButton}
+          </div>
+        </section>
       
     )
   }
