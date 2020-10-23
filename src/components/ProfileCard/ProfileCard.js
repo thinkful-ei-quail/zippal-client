@@ -26,7 +26,9 @@ export default class ProfileCard extends Component {
             </div>
             
             <div className="ProfileCard__bio_location">
-              <p><span className="ProfileCard__label">location:</span><br/> {location ? location : 'none'}</p>
+              <p>
+                <span className="ProfileCard__label">location:</span ><br/> {location ? location : 'none'}
+              </p>
               <p><span className="ProfileCard__label">bio:</span> <br/> {bio ? bio : 'not available' }</p>
             </div>
         </div>
