@@ -211,6 +211,8 @@ export default class Dashboard extends Component{
         ? <NewConvoMessage 
             newConvoData={newConversation} 
             newMessage={this.state.newMessage}
+            setNewMessage={this.setNewMessage}
+            closeNewConvoMessage={this.closeNewConvoMessage}
           />
         : ''}
 

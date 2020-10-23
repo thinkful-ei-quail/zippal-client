@@ -24,14 +24,22 @@ class Message extends Component {
     const { pending_content } = this.state
     const message = await MessageService.saveMessage(pending_content, this.props.newMessage.id)
     this.props.setNewMessage(message)
-    this.props.clearSelectedMessage()
+    if(this.props.clearSelectedMessage) {
+      this.props.clearSelectedMessage()
+    } else {
+      this.props.closeNewConvoMessage()
+    }
   }
 
   sendMessageHandler = async () => {
     const { pending_content } = this.state
     const message = await MessageService.sendMessage(pending_content, this.props.newMessage.id)
     this.props.setNewMessage(message)
-    this.props.clearSelectedMessage()
+    if(this.props.clearSelectedMessage) {
+      this.props.clearSelectedMessage()
+    } else {
+      this.props.closeNewConvoMessage()
+    }
   }
 
   setPendingContent = (e) => {
