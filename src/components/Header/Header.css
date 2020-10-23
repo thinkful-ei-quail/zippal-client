@@ -42,3 +42,11 @@ nav a {
 nav a:hover {
   color: #9c27ca;
 }
+
+@media all and (max-width: 300px){
+  nav{
+    height: 116px;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
