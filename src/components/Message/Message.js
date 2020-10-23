@@ -54,12 +54,14 @@ class Message extends Component {
             </div>
             <div className='Message_Buttons_Container'>
                 <button 
+                type='button'
                 className='Message_Save_Btn' 
                 onClick={this.saveMessageHandler}
                 >
                     Save Message
                 </button>
-                <button 
+                <button
+                type='button' 
                 className='Message_Send_Btn' 
                 onClick={this.sendMessageHandler}
                 >

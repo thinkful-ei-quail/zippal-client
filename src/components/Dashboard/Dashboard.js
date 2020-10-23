@@ -169,19 +169,14 @@ export default class Dashboard extends Component{
       })
     } 
     
-    const index = messageArray.findIndex((messages, i) => {
-      if(messages.length === 0) {
-        return 
-      } else if(messages[0].conversation_id === newMessage.conversation_id)
-      return i
-      })
+    const index = messageArray.findIndex(messages => (messages.length !== 0 && messages[0].conversation_id === newMessage.conversation_id))
 
     if(index === -1){
       messageArray.push([newMessage])
     } else {
       messageArray[index].push(newMessage)
     }
-
+    console.log('INDEX', index)
 
     this.setState({
       messages: messageArray

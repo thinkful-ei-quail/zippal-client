@@ -40,6 +40,7 @@ export default class ConversationBubble extends Component {
       return 'No messages in this conversation'
     }
     const lastMessage = messageData[messageData.length - 1]
+    console.log(lastMessage)
     //if logged in user was the sender of the most recent message
     if(lastMessage.sender_id === this.context.user.id) {
       //message has been created but not sent
@@ -54,10 +55,12 @@ export default class ConversationBubble extends Component {
       //if logged in user is the receiver of the most recent message
     } else if(lastMessage.sender_id !== this.context.user.id) {
       // Pal has seen logged in user's message and started a reply
-      if(lastMessage.sender_status === 'Pending' && !lastMessage.is_read) {
+        if(lastMessage.sender_status === 'Pending' && !lastMessage.is_read) {
         return 'Your pal is working on their response'
       } else if(lastMessage.sender_status === 'Sent') {
         return 'You have a new message(or on the way once we get the timeout)'
+      } else if(lastMessage.sender_status === 'Awaiting Reply') {
+        return 'Start a reply message'
       }
     }
   }
