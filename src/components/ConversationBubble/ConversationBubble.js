@@ -18,7 +18,8 @@ export default class ConversationBubble extends Component {
       hideMessage: false,
       edit: false,
       reply: false,
-      contentOfPrevious: ''
+      contentOfPrevious: '',
+      hideEditAndReplyButton: false
     }
   }
   
@@ -120,7 +121,9 @@ export default class ConversationBubble extends Component {
     this.setState({
       selectedMessage: null,
       reply: false,
-      edit: false
+      edit: false,
+      contentOfPrevious: '',
+      hideEditAndReplyButton: false
     })
   }
 
@@ -154,7 +157,8 @@ export default class ConversationBubble extends Component {
 
   startEditing = () => {
     this.setState({
-      edit: true
+      edit: true,
+      hideEditAndReplyButton: true
     })
   }
 
@@ -167,7 +171,8 @@ export default class ConversationBubble extends Component {
     this.setState({
       selectedMessage: newMessage,
       contentOfPrevious,
-      reply: true
+      reply: true,
+      hideEditAndReplyButton: true
     })
   }
 
@@ -200,7 +205,7 @@ export default class ConversationBubble extends Component {
 
   // conditionally render reply(create new message) button or continue draft(open last message in text area to continue writing)
   renderExpandedView = () => {
-    const { selectedMessage, confirmEndConvoPanel, hideMessage, reply, edit, contentOfPrevious } = this.state
+    const { selectedMessage, confirmEndConvoPanel, hideMessage, reply, edit, contentOfPrevious, hideEditAndReplyButton } = this.state
     return (
     <div className='ConversationBubble__convo_card expanded'>
       {/*Navigation buttons for ConversationBubble */}
@@ -222,7 +227,7 @@ export default class ConversationBubble extends Component {
           ? (
             <>
             <p>{reply ? contentOfPrevious : selectedMessage.content}</p>
-            {this.renderActionButton()}
+            {hideEditAndReplyButton ? '' : this.renderActionButton()}
             </>
             )
           : ''}
