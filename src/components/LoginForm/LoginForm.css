@@ -3,17 +3,17 @@ input:focus {
   background-color: burlywood;
 }
 input {
-  max-width: -webkit-fill-available;
-}
-input {
-  max-width: -webkit-fill-available;
+  border-radius: 5px;
+  min-width: 200px;
+  margin:  15px auto ;
+  
 }
 legend {
   align-self: center;
   display: flex;
   flex-direction: column;
-  padding: 100px 18px;
-  width: 40vw;
+  padding: 75px 25px;
+  width: 75vw;
   background-image: linear-gradient(360deg, white, darkkhaki);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19) ;
 }

@@ -25,12 +25,13 @@ export default class ProfileCard extends Component {
 
   render() {
     const {fa_icon, username, display_name, location, bio} = this.context.profileInfo
+    const defaultIcon = 'user-circle'
     return (
         <section className="ProfileCard">
           <h2>Welcome {display_name}!</h2>
           <div className="ProfileCard_main">
             <div className="ProfileCard__icon_container">
-              <FontAwesomeIcon className='ProfileCard__icon_fa fa-8x' icon={fa_icon} />
+              <FontAwesomeIcon className='ProfileCard__icon_fa fa-8x' icon={fa_icon ? fa_icon : defaultIcon} />
               <p>{username}</p>
             </div>
             
@@ -40,7 +41,7 @@ export default class ProfileCard extends Component {
               </p>
               <p><span className="ProfileCard__label">bio:</span> <br/> {bio ? bio : 'not available' }</p>
             </div>
-            {this.renderEditButton}
+            {this.renderEditButton()}
           </div>
         </section>
       
