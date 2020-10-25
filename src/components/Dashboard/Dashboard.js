@@ -103,7 +103,8 @@ export default class Dashboard extends Component{
     ConversationService.startNewConversation(id)
       .then((conversation) => {
         conversation.pal_name = pal_name
-        MessageService.createNewMessage(conversation)
+        const receivingUser = conversation.user_1 === this.context.user.id ? conversation.user_2 : conversation.user_1
+        MessageService.createNewMessage(conversation, receivingUser)
           .then((message) => {
             const messagesInState = this.state.messages
             messagesInState.push([message])
