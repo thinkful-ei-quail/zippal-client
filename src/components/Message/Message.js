@@ -9,9 +9,6 @@ class Message extends Component {
     super(props)
     this.state = {
       pending_content: 'Message in Progress...',
-      showForm: false,
-      editMode: false,
-      receivedContent: ''
     }
   }
 
@@ -86,64 +83,12 @@ class Message extends Component {
         )
     }
 
-    renderMessage() {
-        return (
-        <div className='Message_Read'>
-            <h3> Message {
-            this.context.user.id === this.props.message.sender_id
-                ? 'to '
-                : 'from '
-            }
-            {this.props.convoData.pal_name}
-            </h3>
-            <p>
-            {this.props.message.content}
-            </p>
-        </div>
-        )
-    }
-
-  renderActionButton = () => {
-    const { message, convoData, allMessages } = this.props
-    const { user } = this.context
-    if(message.sender_id === user.id && message.date_sent === null) {
-      return (
-        <button type='button' onClick={this.startEditing}>Edit</button>
-      )
-    }
-    if((convoData.user_1 === user.id && convoData.user_1_turn === true && message.id === allMessages[allMessages.length - 1].id)
-    || (convoData.user_2 === user.id && convoData.user_2_turn === true && message.id === allMessages[allMessages.length - 1].id)) {
-      return (
-        <button type='button'>Reply</button>
-      )
-    }
-  }
-
-  startEditing = () => {
-    this.setState({
-      editMode: true,
-      showForm: true
-    })
-  }
-
-  // toggleShowForm = () => {
-  //   this.setState({
-  //     showForm: !this.state.showForm
-  //   })
-  // }
-
   render() {
-    const { showForm, editMode } = this.state
     return (
       <>
-        {!editMode ? this.renderMessage() : ''}
-        {this.renderActionButton()}
-        {showForm ? this.renderMessageForm() : ''}
+        {this.renderMessageForm()}
       </>
       )
-    // return this.props.message.sender_status === 'Sent' || this.props.message.sender_status === 'Awaiting Reply' 
-    //   ? this.renderMessage()
-    //   : this.renderMessageForm()
   }
 }
 

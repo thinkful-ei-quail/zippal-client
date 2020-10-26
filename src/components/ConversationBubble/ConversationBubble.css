@@ -19,6 +19,8 @@
 }
 
 .expanded {
+  display:flex;
+  flex-direction: column;
   z-index: 3;
   height: 55vh;
   width: 75vw;

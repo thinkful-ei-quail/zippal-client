@@ -3,7 +3,7 @@ import TokenService from './token-service'
 
 
 const MessageApiService = {
-  createNewMessage(conversation) {
+  createNewMessage(conversation, receivingUser) {
     // use convoID, senderID, receiverID from conversation
     // redirect to message/new_message_id
     // set content to "Message in progress ..."
@@ -15,7 +15,7 @@ const MessageApiService = {
       },
       body: JSON.stringify({
         id: conversation.id,
-        user_2: conversation.user_2
+        user_2: receivingUser
       }),
     })
       .then(res =>
