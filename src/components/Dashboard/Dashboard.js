@@ -103,7 +103,8 @@ export default class Dashboard extends Component{
     ConversationService.startNewConversation(id)
       .then((conversation) => {
         conversation.pal_name = pal_name
-        MessageService.createNewMessage(conversation)
+        const receivingUser = conversation.user_1 === this.context.user.id ? conversation.user_2 : conversation.user_1
+        MessageService.createNewMessage(conversation, receivingUser)
           .then((message) => {
             const messagesInState = this.state.messages
             messagesInState.push([message])
@@ -160,13 +161,13 @@ export default class Dashboard extends Component{
 
   setNewMessage = (newMessage) => {
     const messageArray = this.state.messages;
-    
+    const conversations = this.state.activeConversations
     if(messageArray.length === 0){
       return this.setState({
         messages: [newMessage]
       })
     } 
-    
+    //Find and update message or add new message to array
     const index = messageArray.findIndex(messages => (messages.length !== 0 && messages[0].conversation_id === newMessage.conversation_id))
     if(index === -1){
       messageArray.push([newMessage])
@@ -176,8 +177,18 @@ export default class Dashboard extends Component{
       messageArray[index].push(newMessage)
     }
 
+    //find and update conversation turns now that message has been sent
+    for(let i = 0; i < conversations.length; i++) {
+      if(conversations[i].id === newMessage.conversation_id) {
+        conversations[i].user_1_turn = !conversations[i].user_1_turn
+        conversations[i].user_2_turn = !conversations[i].user_2_turn
+        break
+      }
+    }
+
     this.setState({
-      messages: messageArray
+      messages: messageArray,
+      activeConversations: conversations
     })
   }
 

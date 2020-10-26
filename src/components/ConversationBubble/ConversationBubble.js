@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Message from '../Message/Message'
 import ConversationNotification from '../ConversationNotification/CoversationNotification'
 import'./ConversationBubble.css'
-import MessageApiService from '../../services/message-api-service';
+import MessageService from '../../services/message-api-service';
 
 export default class ConversationBubble extends Component {
   static contextType = UserContext 
@@ -14,8 +14,12 @@ export default class ConversationBubble extends Component {
     this.state = {
       expanded: false,
       selectedMessage: null,
-      newMessage: null,
-      confirmEndConvoPanel: false
+      confirmEndConvoPanel: false,
+      hideMessage: false,
+      edit: false,
+      reply: false,
+      contentOfPrevious: '',
+      hideEditAndReplyButton: false
     }
   }
   
@@ -87,9 +91,14 @@ export default class ConversationBubble extends Component {
 
     const messageContainers = messageData.map((message, i) => {
       return (
-        <button onClick={() => this.selectMessageHandler(i)} key={message.id} className='ConersationBubble__message_select'>
+        <button 
+          onClick={() => this.selectMessageHandler(i)} 
+          key={message.id} 
+          className='ConersationBubble__message_select'
+          disabled={this.state.selectedMessage}
+        >
           <p>{message.sender_id === this.context.user.id ? 'Outgoing': 'Incoming'}</p>
-          <p>Date sent: {this.formatDate(message.date_sent)}</p>
+          {message.date_sent ? <p>Date sent: {this.formatDate(message.date_sent)}</p> : ''}
           <p>Content: {message.content.substring(0, 30)}...</p>
         </button>
       )
@@ -98,19 +107,26 @@ export default class ConversationBubble extends Component {
     return messageContainers
   }
 
+  //on click handler that sets clicked on message to be passed to the message component
   selectMessageHandler = (id) => {
     const selected = this.props.messageData[id]
     this.setState({
       selectedMessage: selected,
     })
     if (!selected.is_read && selected.receiver_id === this.context.user.id) {
-        MessageApiService.readMessage(selected)
+        MessageService.readMessage(selected)
       }
   }
 
+  //Nullifies various pieces of state once a message has been acted upon so that other actions can be taken
   clearSelectedMessage = () => {
     this.setState({
-      selectedMessage: null
+      selectedMessage: null,
+      reply: false,
+      edit: false,
+      contentOfPrevious: '',
+      hideEditAndReplyButton: false,
+      hideMessage: false
     })
   }
 
@@ -142,33 +158,103 @@ export default class ConversationBubble extends Component {
     )
   }
 
+  //Edit mode allows for correct handling of selected message by Message component
+  startEditing = () => {
+    this.setState({
+      edit: true,
+      hideEditAndReplyButton: true
+    })
+  }
+
+  //Creates new message and sets it to selectedMessage so it can be passed to Message component. also sets the content of the message the reply is
+  //being written for to contentOfPreviousReply so that the message is visible during the reply
+  startReply = async () => {
+    const { selectedMessage } = this.state
+    const { convoData } = this.props
+    const contentOfPrevious = selectedMessage.content
+    const receivingUser = convoData.user_1 === this.context.user.id ? convoData.user_2 : convoData.user_1
+    const newMessage = await MessageService.createNewMessage(convoData, receivingUser)
+    this.setState({
+      selectedMessage: newMessage,
+      contentOfPrevious,
+      reply: true,
+      hideEditAndReplyButton: true
+    })
+  }
+
+  //Render buttons for appropriate actions based on conversation/message status
+  renderActionButton = () => {
+      const { convoData, messageData } = this.props
+      const { selectedMessage } = this.state
+      const { user } = this.context
+      if(selectedMessage.sender_id === user.id && selectedMessage.date_sent === null) {
+        return (
+          <button 
+            type='button' 
+            onClick={this.startEditing}
+          >
+            Edit
+          </button>
+        )
+      }
+      if((convoData.user_1 === user.id && convoData.user_1_turn === true && selectedMessage.id === messageData[messageData.length - 1].id)
+      || (convoData.user_2 === user.id && convoData.user_2_turn === true && selectedMessage.id === messageData[messageData.length - 1].id)) {
+        return (
+          <button 
+            type='button'
+            onClick={this.startReply}
+          >
+            Reply
+          </button>
+        )
+      }
+    }
+
   // conditionally render reply(create new message) button or continue draft(open last message in text area to continue writing)
   renderExpandedView = () => {
+    const { selectedMessage, confirmEndConvoPanel, hideMessage, reply, edit, contentOfPrevious, hideEditAndReplyButton } = this.state
     return (
     <div className='ConversationBubble__convo_card expanded'>
-      {this.state.selectedMessage ? <button onClick={this.clearSelectedMessage}>Go back</button>: ''}
-      <button onClick={this.toggleBubble}><FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} /></button>
-      <button className="ConversationBubble__end_convo_btn" onClick={this.confirmEndConvo}>
-        End Conversation
-      </button>
-      {!this.state.selectedMessage 
-        ? this.renderMessages() 
-        : <Message 
+      {/*Navigation buttons for ConversationBubble */}
+      <div className='ConversationBubble__nav'>
+        {selectedMessage ? <button onClick={this.clearSelectedMessage}>Go back</button>: ''}
+        <button onClick={this.toggleBubble}>
+          <FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} />
+        </button>
+        <button className="ConversationBubble__end_convo_btn" onClick={this.confirmEndConvo}>
+          End Conversation
+        </button>
+      </div>
+      {/* Message buttons */}
+      <div className='ConversationBubble__messages_container'>{this.renderMessages()}</div> 
+      {/* Display currently selected message and action buttons */}
+      <div className='ConversationBubble__content'>
+        {selectedMessage ? <button type='button' onClick={() => this.setState({hideMessage: !this.state.hideMessage})}>{hideMessage ? 'Show message' : 'Hide message'}</button> : '' }
+        {selectedMessage && !hideMessage
+          ? (
+            <>
+            <p>{reply ? contentOfPrevious : selectedMessage.content}</p>
+            {hideEditAndReplyButton ? '' : this.renderActionButton()}
+            </>
+            )
+          : ''}
+      </div>
+      <div className='ConversationBubble__form_container'>
+        { (reply || edit) 
+          ? <Message 
             convoData={this.props.convoData} 
             message={this.state.selectedMessage} 
             setNewMessage={this.props.setNewMessage} 
             clearSelectedMessage={this.clearSelectedMessage}
-            // allMessages={this.props.messageData}
-          />}
-      {this.state.confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
+          />
+          : ''}
+      </div>
+      {confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
+
     </div>
     )
   }
 
-
-
-
-  
   render() {
     const { expanded } = this.state
     return (
@@ -178,3 +264,5 @@ export default class ConversationBubble extends Component {
     )
   }
 }
+
+
