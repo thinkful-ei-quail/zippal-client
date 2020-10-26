@@ -7,7 +7,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
 }
-.header_text{
+.header_text, h1{
   display: flex;
   align-items: center;
   font-size: 27px;
@@ -31,7 +31,6 @@ header a {
 
 nav {
   display: flex;
-  justify-content: center;
 }
 
 nav a {
@@ -43,7 +42,7 @@ nav a:hover {
   color: #9c27ca;
 }
 
-@media all and (max-width: 300px){
+@media all and (max-width: 360px){
   nav{
     height: 116px;
     flex-direction: column;
