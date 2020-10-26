@@ -61,7 +61,12 @@ export default class ConversationBubble extends Component {
         if(lastMessage.sender_status === 'Pending' && !lastMessage.is_read) {
         return 'Your pal is working on their response'
       } else if(lastMessage.sender_status === 'Sent') {
-        return 'You have a new message(or on the way once we get the timeout)'
+          //find out if message is old enough to read
+          if(MessageService.calculateMessageDeliveryTime(lastMessage.date_sent) >= 6) {
+            return 'You have a new message'
+          } else {
+            return 'Your message will be delivered soon'
+          }
       } else if(lastMessage.sender_status === 'Awaiting Reply') {
         return 'Start a reply message'
       }
@@ -84,12 +89,14 @@ export default class ConversationBubble extends Component {
   //these messages can be selected to view the content
   renderMessages = () => {
     const { messageData } = this.props
+    const { user } = this.context
     
     if(messageData.length === 0) {
       return <span>No messages to display yet</span>
     }
 
     const messageContainers = messageData.map((message, i) => {
+     if((message.receiver_id === user.id && message.date_sent && MessageService.calculateMessageDeliveryTime(message.date_sent) >= 6) || (message.sender_id === user.id)) {
       return (
         <button 
           onClick={() => this.selectMessageHandler(i)} 
@@ -102,6 +109,7 @@ export default class ConversationBubble extends Component {
           <p>Content: {message.content.substring(0, 30)}...</p>
         </button>
       )
+     }
     })
 
     return messageContainers
@@ -246,6 +254,7 @@ export default class ConversationBubble extends Component {
             message={this.state.selectedMessage} 
             setNewMessage={this.props.setNewMessage} 
             clearSelectedMessage={this.clearSelectedMessage}
+            updateConvoTurns={this.props.updateConvoTurns}
           />
           : ''}
       </div>
