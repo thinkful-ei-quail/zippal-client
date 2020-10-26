@@ -239,8 +239,6 @@ export default class ConversationBubble extends Component {
             </>
             )
           : ''}
-      </div>
-      </div>
       <div className='ConversationBubble__form_container'>
         { (reply || edit) 
           ? <Message 
@@ -250,7 +248,9 @@ export default class ConversationBubble extends Component {
             clearSelectedMessage={this.clearSelectedMessage}
           />
           : ''}
+          </div>
       </div>
+    </div>
       {confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
 
     </div>
