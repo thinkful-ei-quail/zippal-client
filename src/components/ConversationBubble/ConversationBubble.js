@@ -95,7 +95,7 @@ export default class ConversationBubble extends Component {
       return <span>No messages to display yet</span>
     }
 
-    const messageContainers = messageData.map((message, i) => {
+    const messageContainers = messageData.sort((a, b) => a.id - b.id).map((message, i) => {
      if((message.receiver_id === user.id && message.date_sent && MessageService.calculateMessageDeliveryTime(message.date_sent) >= 6) || (message.sender_id === user.id)) {
       return (
         <button 
@@ -110,6 +110,7 @@ export default class ConversationBubble extends Component {
         </button>
       )
      }
+     return null
     })
 
     return messageContainers
