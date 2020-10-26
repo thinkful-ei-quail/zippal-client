@@ -234,9 +234,10 @@ export default class ConversationBubble extends Component {
         </button>
       </div>
       {/* Message buttons */}
+      <div className='conversationBubble__message_wrapper'>
       <div className='ConversationBubble__messages_container'>{this.renderMessages()}</div> 
       {/* Display currently selected message and action buttons */}
-      <div className='ConversationBubble__content'>
+      <div className={`ConversationBubble__content ${selectedMessage  ? " " : "transparent"}`}>
         {selectedMessage ? <button type='button' onClick={() => this.setState({hideMessage: !this.state.hideMessage})}>{hideMessage ? 'Show message' : 'Hide message'}</button> : '' }
         {selectedMessage && !hideMessage
           ? (
@@ -246,7 +247,6 @@ export default class ConversationBubble extends Component {
             </>
             )
           : ''}
-      </div>
       <div className='ConversationBubble__form_container'>
         { (reply || edit) 
           ? <Message 
@@ -257,7 +257,9 @@ export default class ConversationBubble extends Component {
             updateConvoTurns={this.props.updateConvoTurns}
           />
           : ''}
+          </div>
       </div>
+    </div>
       {confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
 
     </div>
