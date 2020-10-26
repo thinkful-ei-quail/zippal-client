@@ -69,9 +69,13 @@ scrollbar-width: none;
   flex-direction: column;
   max-height: 64vh;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;;
   background-color: beige;
   flex:3;
-
+}
+.ConversationBubble__content::-webkit-scrollbar {
+  display:none;
 }
 .transparent {
   background: none;
