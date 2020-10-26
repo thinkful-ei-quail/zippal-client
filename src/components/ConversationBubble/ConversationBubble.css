@@ -53,6 +53,11 @@ flex:1;
 flex-direction: column;
 max-height: 64vh;
 overflow-y: scroll;
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+.ConversationBubble__messages_container::-webkit-scrollbar {
+  display: none;
 }
 
 .ConversationBubble__content {
