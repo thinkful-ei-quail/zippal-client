@@ -9,7 +9,7 @@
   flex-direction: column;
   width: 90%;
   margin: 0 auto;
-  background-image: linear-gradient(360deg, white, darkkhaki);
+  background-image: linear-gradient(190deg, white, darkkhaki);
 }
 
 .ProfileForm form input {
@@ -24,13 +24,19 @@
   width: 100%;
 }
 
-.ProfileForm__about_textarea {
+.about {
   margin: 0 auto;
   height: 7rem;
-  width: 100%;
+  width: 90%;
   max-width: 800px;
+  background-color: rgb(238, 237, 220, 0.7);
+  padding: 10px;
 }
 
 label {
   margin-bottom: 4px;
+}
+
+.ProfileForm button {
+  margin-top: 20px;
 }

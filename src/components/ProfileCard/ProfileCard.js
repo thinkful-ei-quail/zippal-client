@@ -12,6 +12,17 @@ export default class ProfileCard extends Component {
 
   static contextType = UserContext
 
+  renderEditButton() {
+    return (
+      <button 
+      onClick={e => this.props.editProfile(e)} 
+      type="button"
+      >
+        Edit your Profile?
+      </button>
+    )
+  }
+
 
   render() {
     const {fa_icon, username, display_name, location, bio} = this.context.profileInfo

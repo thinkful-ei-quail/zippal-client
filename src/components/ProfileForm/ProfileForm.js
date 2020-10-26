@@ -14,7 +14,10 @@ export default class ProfileForm extends Component {
     }
   }
 
+
  static contextType = UserContext
+
+
 
   handlePatchUser = async (e) => {
     e.preventDefault()
@@ -64,7 +67,10 @@ export default class ProfileForm extends Component {
           <label htmlFor='about'>Tell us about yourself:</label>
           <textarea name="bioArea" className='about' id='about' placeholder={bio} value={this.state.bioText} onChange={this.handleChangeBio}>
           </textarea>
-          <button type="submit">Submit</button>
+          <div>
+            <button type="submit">Submit</button>
+            <button type="button" onClick={this.props.cancelUpdate}>Cancel</button>
+          </div>
         </form>
 
       </section>
