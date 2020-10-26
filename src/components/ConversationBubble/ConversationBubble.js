@@ -107,6 +107,7 @@ export default class ConversationBubble extends Component {
     return messageContainers
   }
 
+  //on click handler that sets clicked on message to be passed to the message component
   selectMessageHandler = (id) => {
     const selected = this.props.messageData[id]
     this.setState({
@@ -117,6 +118,7 @@ export default class ConversationBubble extends Component {
       }
   }
 
+  //Nullifies various pieces of state once a message has been acted upon so that other actions can be taken
   clearSelectedMessage = () => {
     this.setState({
       selectedMessage: null,
@@ -155,6 +157,7 @@ export default class ConversationBubble extends Component {
     )
   }
 
+  //Edit mode allows for correct handling of selected message by Message component
   startEditing = () => {
     this.setState({
       edit: true,
@@ -162,6 +165,8 @@ export default class ConversationBubble extends Component {
     })
   }
 
+  //Creates new message and sets it to selectedMessage so it can be passed to Message component. also sets the content of the message the reply is
+  //being written for to contentOfPreviousReply so that the message is visible during the reply
   startReply = async () => {
     const { selectedMessage } = this.state
     const { convoData } = this.props
@@ -176,6 +181,7 @@ export default class ConversationBubble extends Component {
     })
   }
 
+  //Render buttons for appropriate actions based on conversation/message status
   renderActionButton = () => {
       const { convoData, messageData } = this.props
       const { selectedMessage } = this.state
@@ -248,10 +254,6 @@ export default class ConversationBubble extends Component {
     )
   }
 
-
-
-
-  
   render() {
     const { expanded } = this.state
     return (
