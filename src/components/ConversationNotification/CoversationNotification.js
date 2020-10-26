@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TokenService from '../../services/token-service';
 import './ConversationNotification.css';
+import MessageService from '../../services/message-api-service'
 
 class ConversationNotification extends Component {
   constructor(props) {
@@ -29,6 +30,9 @@ class ConversationNotification extends Component {
     const { receiver_id, receiver_status, sender_id, sender_status, is_read } = lastMessage;
 
     if (receiver_id === userId && receiver_status === "Received") {
+      if(MessageService.calculateMessageDeliveryTime(lastMessage.date_sent) < 6) {
+        return 'plane-departure'
+      }
       if (!is_read) {
         return "envelope"
       }
