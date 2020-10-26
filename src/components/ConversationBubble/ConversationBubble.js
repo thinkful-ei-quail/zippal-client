@@ -125,7 +125,8 @@ export default class ConversationBubble extends Component {
       reply: false,
       edit: false,
       contentOfPrevious: '',
-      hideEditAndReplyButton: false
+      hideEditAndReplyButton: false,
+      hideMessage: false
     })
   }
 
@@ -245,6 +246,7 @@ export default class ConversationBubble extends Component {
             message={this.state.selectedMessage} 
             setNewMessage={this.props.setNewMessage} 
             clearSelectedMessage={this.clearSelectedMessage}
+            switchConversationTurns={this.props.switchConversationTurns}
           />
           : ''}
       </div>

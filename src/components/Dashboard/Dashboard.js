@@ -146,6 +146,7 @@ export default class Dashboard extends Component{
             newMessageHandler={this.newMessageHandler}
             setNewMessage={this.setNewMessage}
             handleEndConvo={this.handleEndConvo}
+            switchConversationTurns={this.switchConversationTurns}
           />
         )
       } else {
@@ -161,13 +162,13 @@ export default class Dashboard extends Component{
 
   setNewMessage = (newMessage) => {
     const messageArray = this.state.messages;
-    
+    const conversations = this.state.activeConversations
     if(messageArray.length === 0){
       return this.setState({
         messages: [newMessage]
       })
     } 
-    
+    //Find and update message or add new message to array
     const index = messageArray.findIndex(messages => (messages.length !== 0 && messages[0].conversation_id === newMessage.conversation_id))
     if(index === -1){
       messageArray.push([newMessage])
@@ -177,14 +178,38 @@ export default class Dashboard extends Component{
       messageArray[index].push(newMessage)
     }
 
+    //find and update conversation turns now that message has been sent
+    for(let i = 0; i < conversations.length; i++) {
+      if(conversations[i].id === newMessage.conversation_id) {
+        conversations[i].user_1_turn = !conversations[i].user_1_turn
+        conversations[i].user_2_turn = !conversations[i].user_2_turn
+        break
+      }
+    }
+
     this.setState({
-      messages: messageArray
+      messages: messageArray,
+      activeConversations: conversations
     })
   }
 
   closeNewConvoMessage = () => {
     this.setState({
       newConversation: null
+    })
+  }
+
+  switchConversationTurns = (conversationId) => {
+    const conversations = this.state.activeConversations
+    for(let i = 0; i < conversations.length; i++) {
+      if(conversations[i].id === conversationId) {
+        conversations[i].user_1_turn = !conversations[i].user_1_turn
+        conversations[i].user_2_turn = !conversations[i].user_2_turn
+        break
+      }
+    }
+    this.setState({
+      activeConversations: conversations
     })
   }
 
