@@ -25,6 +25,8 @@ export default class Dashboard extends Component{
 
   async componentDidMount() {
     const response = await ConversationService.getConversations()
+    response.conversations.sort((a,b) => a.id - b.id)
+    response.messages.sort((a,b) => a[0].id - b[0].id)
       this.setState({
         conversationsRendered: true,
         isOutOfAvailablePals: false,
@@ -153,7 +155,7 @@ export default class Dashboard extends Component{
         convoComponents.push(<button key={`button_${i}`} onClick={this.handleNewPal}>Find a new Pal</button>)
       }
     }
-    return convoComponents
+    return convoComponents.sort((a,b) => a.id - b.id)
   }
 
   newMessageHandler = async (convo) => {
