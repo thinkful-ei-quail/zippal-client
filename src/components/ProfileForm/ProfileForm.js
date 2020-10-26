@@ -70,7 +70,7 @@ export default class ProfileForm extends Component {
           {/* <button type="button">
             {<FontAwesomeIcon icon={fa_icon? fa_icon : 'user-circle'}/>}
           </button> */}
-          <IconSelect />
+          <IconSelect handleChangeIcon={this.handleChangeIcon}/>
           <hr/>
           <label htmlFor='about'>Tell us about yourself:</label>
           <textarea name="bioArea" className='about' id='about' placeholder={bio} value={this.state.bioText} onChange={this.handleChangeBio}>

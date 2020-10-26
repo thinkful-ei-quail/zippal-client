@@ -31,8 +31,10 @@
 .IconSelect button:active {
   outline: none;
   border: none;
+  color: red;
 }
 
 .IconSelect button:focus {
   outline: 0;
+  color: green;
 }

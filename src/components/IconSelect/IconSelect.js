@@ -7,7 +7,7 @@ import './IconSelect.css'
 export default class IconSelect extends Component {
   static contextType = UserContext 
   state = {
-
+    currentIcon: ''
   }
 
   iconArray = [
@@ -32,17 +32,18 @@ export default class IconSelect extends Component {
     'user-circle',
     'anchor',
     'biking'
-
   ];
 
-  componentDidMount() {
+
+  selectIcon = (index) => {
+    console.log(this.iconArray[index])
 
   }
 
   renderButtons = () => {
     return this.iconArray.map((icon, index) => {
       return (
-        <button key={icon + index} className="IconSelect__button"type="button">
+        <button key={icon + index} id={icon} className="IconSelect__button" type="button" onClick={() => this.selectIcon(index)}>
           <FontAwesomeIcon icon={icon} />
         </button>
       );
