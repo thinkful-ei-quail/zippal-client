@@ -146,7 +146,6 @@ export default class Dashboard extends Component{
             newMessageHandler={this.newMessageHandler}
             setNewMessage={this.setNewMessage}
             handleEndConvo={this.handleEndConvo}
-            switchConversationTurns={this.switchConversationTurns}
           />
         )
       } else {
@@ -196,20 +195,6 @@ export default class Dashboard extends Component{
   closeNewConvoMessage = () => {
     this.setState({
       newConversation: null
-    })
-  }
-
-  switchConversationTurns = (conversationId) => {
-    const conversations = this.state.activeConversations
-    for(let i = 0; i < conversations.length; i++) {
-      if(conversations[i].id === conversationId) {
-        conversations[i].user_1_turn = !conversations[i].user_1_turn
-        conversations[i].user_2_turn = !conversations[i].user_2_turn
-        break
-      }
-    }
-    this.setState({
-      activeConversations: conversations
     })
   }
 
