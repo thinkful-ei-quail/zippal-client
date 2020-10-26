@@ -11,6 +11,10 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
 }
+ .ConersationBubble__message_select{
+    width: 100%;
+ }
+  
 
 /* .small:hover {
   width: 315px;
@@ -65,9 +69,13 @@ scrollbar-width: none;
   flex-direction: column;
   max-height: 64vh;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;;
   background-color: beige;
   flex:3;
-
+}
+.ConversationBubble__content::-webkit-scrollbar {
+  display:none;
 }
 .transparent {
   background: none;
