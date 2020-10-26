@@ -18,7 +18,8 @@ import {
   faEnvelopeOpenText, 
   faPaperPlane, 
   faPenNib, 
-  faHourglassHalf
+  faHourglassHalf,
+  faPlaneDeparture
 } from '@fortawesome/free-solid-svg-icons'
 //add them to library here to be used wherever
 import './App.css'
@@ -30,7 +31,8 @@ library.add(
   faEnvelopeOpenText, 
   faPaperPlane, 
   faPenNib, 
-  faHourglassHalf
+  faHourglassHalf,
+  faPlaneDeparture
 )
 
 
