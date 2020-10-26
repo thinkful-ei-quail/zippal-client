@@ -2,7 +2,9 @@ import React, {Component} from 'react'
 import UserService from '../../services/user-api-service'
 import './ProfileForm.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import IconSelect from '../../components/IconSelect/IconSelect'
 import UserContext from '../../context/UserContext'
+
 
 export default class ProfileForm extends Component {
   constructor(props){
@@ -17,6 +19,10 @@ export default class ProfileForm extends Component {
 
  static contextType = UserContext
 
+ async componentDidMount() {
+   await this.context.getProfile()
+   console.log(this.context)
+ }
 
 
   handlePatchUser = async (e) => {
@@ -51,6 +57,7 @@ export default class ProfileForm extends Component {
 
   render(){
     const {bio, location, fa_icon, display_name} = this.context.profileInfo
+    console.log(fa_icon)
     return (
       <section className='ProfileForm'>
         <div>
@@ -60,9 +67,10 @@ export default class ProfileForm extends Component {
         <form onSubmit={this.handlePatchUser}>
           <label htmlFor='location'>Location:</label>
           <input name='locationArea' id='location' placeholder={location} value={this.state.location} onChange={this.handleChangeLocation}></input>
-          <button type="button">
+          {/* <button type="button">
             {<FontAwesomeIcon icon={fa_icon? fa_icon : 'user-circle'}/>}
-          </button>
+          </button> */}
+          <IconSelect />
           <hr/>
           <label htmlFor='about'>Tell us about yourself:</label>
           <textarea name="bioArea" className='about' id='about' placeholder={bio} value={this.state.bioText} onChange={this.handleChangeBio}>

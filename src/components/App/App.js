@@ -18,7 +18,28 @@ import {
   faEnvelopeOpenText, 
   faPaperPlane, 
   faPenNib, 
-  faHourglassHalf
+  faHourglassHalf,
+  faTheaterMasks,
+  faUniversity,
+  faSnowboarding, 
+  faPaw, 
+  faPalette,
+  faMountain,
+  faMusic,
+  faMotorcycle,
+  faLaptopCode,
+  faGamepad,
+  faFutbol,
+  faDumbbell,
+  faDog, 
+  faChess,
+  faCat,
+  faCaravan,
+  faCameraRetro,
+  faBowlingBall,
+  faAnchor,
+  faBiking
+
 } from '@fortawesome/free-solid-svg-icons'
 //add them to library here to be used wherever
 import './App.css'
@@ -30,7 +51,27 @@ library.add(
   faEnvelopeOpenText, 
   faPaperPlane, 
   faPenNib, 
-  faHourglassHalf
+  faHourglassHalf,
+  faTheaterMasks,
+  faUniversity,
+  faSnowboarding, 
+  faPaw,
+  faPalette,
+  faMountain,
+  faMusic,
+  faMotorcycle,
+  faLaptopCode,
+  faGamepad,
+  faFutbol,
+  faDumbbell,
+  faDog,
+  faChess,
+  faCat,
+  faCaravan,
+  faCameraRetro,
+  faBowlingBall,
+  faAnchor,
+  faBiking
 )
 
 
