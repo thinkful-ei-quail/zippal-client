@@ -92,6 +92,12 @@ const MessageApiService = {
       )
   },
 
+  calculateMessageDeliveryTime(sent_date) {
+    const sentDate = new Date(sent_date)
+    const readyDate = sentDate.setHours(sentDate.getHours() + config.MESSAGE_TIMEOUT_IN_HOURS)
+    return ((new Date().getTime() - readyDate) / 3600000)
+  }
+
 };
 
 const message_API_ENDPOINT = `${config.API_ENDPOINT}/api/message`;

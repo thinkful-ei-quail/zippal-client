@@ -122,7 +122,7 @@ export default class Dashboard extends Component{
   handleEndConvo = (convo) => {
     const convoId = convo.id
     ConversationService.endConversation(convoId)
-    .then((convo) => {
+    .then(() => {
       let activeConversations = this.state.activeConversations
       let updatedActiveConvos = activeConversations.filter((c) => {
         return c.id !== convoId})
@@ -146,6 +146,7 @@ export default class Dashboard extends Component{
             newMessageHandler={this.newMessageHandler}
             setNewMessage={this.setNewMessage}
             handleEndConvo={this.handleEndConvo}
+            updateConvoTurns={this.updateConvoTurns}
           />
         )
       } else {
@@ -180,12 +181,12 @@ export default class Dashboard extends Component{
     //find and update conversation turns now that message has been sent
     for(let i = 0; i < conversations.length; i++) {
       if(conversations[i].id === newMessage.conversation_id) {
+        console.log(conversations[i])
         conversations[i].user_1_turn = !conversations[i].user_1_turn
         conversations[i].user_2_turn = !conversations[i].user_2_turn
         break
       }
     }
-
     this.setState({
       messages: messageArray,
       activeConversations: conversations

@@ -45,16 +45,16 @@ class Header extends Component {
   render() {
     return (
       <>
-         <h1 className="header_text">
+         <div className="header_text">
             <div className='header_image'>
               {TokenService.hasAuthToken()
               ? <Link className='header_link' to='/dashboard'><img className='quill' alt='zip pal' src={quill}/></Link>
               : <Link className='header_link' to='/'><img className='quill'  alt='zip pal' src={quill}/></Link> }
             </div>
-            <div className='title'>
+            <h1 className='title'>
               Zip Pal
-            </div>
-          </h1>
+            </h1>
+          </div>
         {TokenService.hasAuthToken()
         ? this.renderLogoutLink()
         : this.renderLoginLink()}
