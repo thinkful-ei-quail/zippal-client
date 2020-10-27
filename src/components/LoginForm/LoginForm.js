@@ -36,9 +36,9 @@ class LoginForm extends Component {
     })
   }
 
-  componentDidMount() {
-    this.firstInput.current.focus()
-  }
+  // componentDidMount() {
+  //   this.firstInput.current.focus()
+  // }
 
   render(){
     const { error } = this.state
@@ -55,7 +55,7 @@ class LoginForm extends Component {
           Username
         </label>
         <input
-          ref={this.firstInput}
+          // ref={this.firstInput}
           id='login-username-input'
           name='username'
           required
