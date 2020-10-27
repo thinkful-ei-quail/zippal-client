@@ -23,7 +23,7 @@ export default class Profile extends Component {
   }
 
   render() {
-    const {bio, fa_icon} = this.context.profileInfo
+    const {bio} = this.context.profileInfo
     return (
       <div className="profile">
       {/* <section>
