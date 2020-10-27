@@ -39,7 +39,8 @@ import {
   faBowlingBall,
   faAnchor,
   faBiking,
-  faPlaneDeparture
+  faPlaneDeparture,
+  faWindowClose
 } from '@fortawesome/free-solid-svg-icons'
 //add them to library here to be used wherever
 import './App.css'
@@ -72,7 +73,8 @@ library.add(
   faBowlingBall,
   faAnchor,
   faBiking,
-  faPlaneDeparture
+  faPlaneDeparture,
+  faWindowClose
 )
 
 
