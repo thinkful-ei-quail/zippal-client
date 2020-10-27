@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegistrationRoute Component takes a snapshot of the RegistrationRoute 1`] = `
+<section
+  className="registration_section"
+>
+  <h2>
+    Sign up
+  </h2>
+  <form
+    className="user_form"
+    onSubmit={[Function]}
+  >
+    <legend>
+      <div
+        role="alert"
+      />
+      <p>
+        <span
+          className="required"
+        >
+          *
+        </span>
+         indicates required field
+      </p>
+      <div>
+        <label
+          htmlFor="registration-name-input"
+        >
+          Display Name
+          <span
+            className="required"
+          >
+            *
+          </span>
+        </label>
+        <input
+          id="registraion-name-input"
+          name="name"
+          required={true}
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="registration-username-input"
+        >
+          Username
+          <span
+            className="required"
+          >
+            *
+          </span>
+        </label>
+        <input
+          id="registration-username-input"
+          name="username"
+          required={true}
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="registration-password-input"
+        >
+          Password
+          <span
+            className="required"
+          >
+            *
+          </span>
+        </label>
+        <input
+          id="registration-password-input"
+          name="password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <footer>
+        <button
+          type="submit"
+        >
+          Sign up
+        </button>
+         
+        <a
+          href="/login"
+          onClick={[Function]}
+        >
+          Already have an account?
+        </a>
+      </footer>
+    </legend>
+  </form>
+</section>
+`;
