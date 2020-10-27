@@ -9,7 +9,6 @@ describe('Message Component', () => {
   const messages = testHelpers.makeTestMessages()
   const message = messages[0]
   it('renders without crashing', () => {
-    const user = {}
     const div = document.createElement('div')
     ReactDOM.render(<Message convoData={convoData} message={message} />, div)
     ReactDOM.unmountComponentAtNode(div)
