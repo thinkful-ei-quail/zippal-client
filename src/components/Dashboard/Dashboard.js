@@ -152,7 +152,7 @@ export default class Dashboard extends Component{
           />
         )
       } else {
-        convoComponents.push(<button key={`button_${i}`} onClick={this.handleNewPal}>Find a new Pal</button>)
+        convoComponents.push(<button className="Dashboard__newPal_button" key={`button_${i}`} onClick={this.handleNewPal}>Find a new Pal</button>)
       }
     }
     return convoComponents.sort((a,b) => a.id - b.id)

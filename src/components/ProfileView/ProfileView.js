@@ -22,12 +22,6 @@ export default class Profile extends Component {
     this.setState({editProfile: false})
   }
 
-  renderProfileCard = () => {
-    return (
-      <ProfileCard userProfile={this.state.userProfile}/>
-    )
-  }
-
   render() {
     const {bio, fa_icon} = this.context.profileInfo
     console.log(fa_icon)
