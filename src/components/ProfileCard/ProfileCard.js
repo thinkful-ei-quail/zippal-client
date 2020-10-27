@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
 import UserContext from '../../context/UserContext'
-import UserService from '../../services/user-api-service'
-import {library} from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import './ProfileCard.css'
 
 
@@ -26,7 +23,6 @@ export default class ProfileCard extends Component {
 
   render() {
     const {fa_icon, username, display_name, location, bio} = this.context.profileInfo
-    console.log(fa_icon)
     const defaultIcon = 'user-circle'
     return (
         <section className="ProfileCard">

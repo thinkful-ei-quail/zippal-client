@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import UserService from '../../services/user-api-service'
 import './ProfileForm.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import IconSelect from '../../components/IconSelect/IconSelect'
 import UserContext from '../../context/UserContext'
 
@@ -62,8 +61,7 @@ export default class ProfileForm extends Component {
   }
 
   render(){
-    const {bio, location, fa_icon, display_name} = this.context.profileInfo
-    console.log(fa_icon)
+    const {bio, location} = this.context.profileInfo
     return (
       <section className='ProfileForm'>
         <div>
