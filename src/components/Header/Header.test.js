@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-import UserContext from '../../context/UserContext'
+import UserContext from '../../context/UserContext' //Used to process logout
 import Header from './Header'
 
 describe('Header Component', () => {
