@@ -52,6 +52,20 @@ const testHelpers = {
         date_sent: null
       },
     ]
+  },
+
+  makeNewConvo() {
+    return {
+      id: 1,
+        user_1: 1,
+        user_2: 2,
+        date_created: '2020-10-27T02:10:34.511Z',
+        is_active: true,
+        user_1_turn: true,
+        user_2_turn: false,
+        pal_name: 'Test User',
+        fa_icon: 'user-circle'
+    }
   }
 }
 

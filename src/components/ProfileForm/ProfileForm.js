@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import UserService from '../../services/user-api-service'
 import './ProfileForm.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import IconSelect from '../../components/IconSelect/IconSelect'
 import UserContext from '../../context/UserContext'
 
