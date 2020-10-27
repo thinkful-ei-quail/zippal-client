@@ -42,9 +42,9 @@ class RegistrationForm extends Component {
     })
   }
 
-  componentDidMount(){
-    this.firstInput.current.focus()
-  }
+  // componentDidMount(){
+  //   this.firstInput.current.focus()
+  // }
 
   render(){
     const {error} = this.state
@@ -63,7 +63,7 @@ class RegistrationForm extends Component {
             Display Name<Required />
           </label>
           <input
-            ref={this.firstInput}
+            // ref={this.firstInput}
             id='registraion-name-input'
             name='name'
             required
