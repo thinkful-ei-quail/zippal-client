@@ -12,6 +12,26 @@ import {
   faPaperPlane, 
   faPenNib, 
   faHourglassHalf,
+  faTheaterMasks,
+  faUniversity,
+  faSnowboarding, 
+  faPaw, 
+  faPalette,
+  faMountain,
+  faMusic,
+  faMotorcycle,
+  faLaptopCode,
+  faGamepad,
+  faFutbol,
+  faDumbbell,
+  faDog, 
+  faChess,
+  faCat,
+  faCaravan,
+  faCameraRetro,
+  faBowlingBall,
+  faAnchor,
+  faBiking,
   faPlaneDeparture 
 } from '@fortawesome/free-solid-svg-icons'
 
@@ -23,5 +43,30 @@ library.add(
   faPaperPlane, 
   faPenNib, 
   faHourglassHalf,
+  faTheaterMasks,
+  faUniversity,
+  faSnowboarding, 
+  faPaw, 
+  faPalette,
+  faMountain,
+  faMusic,
+  faMotorcycle,
+  faLaptopCode,
+  faGamepad,
+  faFutbol,
+  faDumbbell,
+  faDog, 
+  faChess,
+  faCat,
+  faCaravan,
+  faCameraRetro,
+  faBowlingBall,
+  faAnchor,
+  faBiking,
   faPlaneDeparture
 )
+
+const Enzyme = require('enzyme');
+const EnzymeAdapter = require('enzyme-adapter-react-16');
+
+Enzyme.configure({ adapter: new EnzymeAdapter() });
