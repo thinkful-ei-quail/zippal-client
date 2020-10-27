@@ -19,7 +19,7 @@ export default class ProfileForm extends Component {
  static contextType = UserContext
 
   componentDidMount() {
-    this.context.getProfile()
+    // this.context.getProfile() <= unnecessary?
     this.setState({
       location: this.context.profileInfo.location,
       bio: this.context.profileInfo.bio,

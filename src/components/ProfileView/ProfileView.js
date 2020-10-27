@@ -24,7 +24,6 @@ export default class Profile extends Component {
 
   render() {
     const {bio, fa_icon} = this.context.profileInfo
-    console.log(fa_icon)
     return (
       <div className="profile">
       {/* <section>
