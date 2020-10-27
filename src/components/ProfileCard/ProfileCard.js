@@ -26,6 +26,7 @@ export default class ProfileCard extends Component {
 
   render() {
     const {fa_icon, username, display_name, location, bio} = this.context.profileInfo
+    console.log(fa_icon)
     const defaultIcon = 'user-circle'
     return (
         <section className="ProfileCard">

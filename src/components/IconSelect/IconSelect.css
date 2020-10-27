@@ -1,6 +1,6 @@
 .IconSelect {
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
   background-color: #cbc68c;
   width: 200px;
   height: 200px;
@@ -31,10 +31,10 @@
 .IconSelect button:active {
   outline: none;
   border: none;
-  color: red;
 }
 
 .IconSelect button:focus {
   outline: 0;
-  color: green;
+  background: black;
+  color: greenyellow;
 }

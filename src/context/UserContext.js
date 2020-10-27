@@ -12,6 +12,7 @@ const UserContext = React.createContext({
   clearError: () => { },
   setUser: () => { },
   getProfile: () => { },
+  updateProfile: () => { },
   processLogin: () => { },
   processLogout: () => { },
 })
@@ -82,6 +83,10 @@ export class UserProvider extends Component {
     console.log(profileInfo)
   }
 
+  updateProfile = (profileInfo) => {
+    this.setState({profileInfo})
+  }
+
   processLogin = authToken => {
     TokenService.saveAuthToken(authToken)
 
@@ -135,6 +140,7 @@ export class UserProvider extends Component {
       clearError: this.clearError,
       setUser: this.setUser,
       getProfile: this.getProfile,
+      updateProfile: this.updateProfile,
       processLogin: this.processLogin,
       processLogout: this.processLogout
     }

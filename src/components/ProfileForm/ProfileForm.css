@@ -4,7 +4,7 @@
   text-align: center;
 }
 
-.ProfileForm form {
+.ProfileForm__form {
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -14,7 +14,7 @@
 
 .ProfileForm form input {
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 50%;
   max-width: 400px;
 }

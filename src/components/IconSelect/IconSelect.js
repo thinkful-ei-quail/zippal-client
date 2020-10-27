@@ -6,10 +6,7 @@ import './IconSelect.css'
 
 export default class IconSelect extends Component {
   static contextType = UserContext 
-  state = {
-    currentIcon: ''
-  }
-
+  
   iconArray = [
     'theater-masks', 
     'university', 
@@ -37,6 +34,8 @@ export default class IconSelect extends Component {
 
   selectIcon = (index) => {
     console.log(this.iconArray[index])
+    let icon = this.iconArray[index]
+    this.props.handleChangeIcon(icon)
 
   }
 
@@ -51,6 +50,13 @@ export default class IconSelect extends Component {
   };
 
   render() {
-    return <div className="IconSelect">{this.renderButtons()}</div>;
+    return (
+      <section>
+        <h4>Select your icon:</h4>
+        <div className="IconSelect">
+          {this.renderButtons()}
+        </div>
+      </section>
+    )
   }
 }
