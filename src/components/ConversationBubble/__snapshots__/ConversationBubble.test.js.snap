@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConversationBubble Component renders ConversationBubble component 1`] = `
+<div
+  className="ConversationBubble__convo_card small"
+>
+  <div
+    className="ConversationNotification__icon_container blue"
+  >
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-pen-nib fa-w-16 ConversationNotification__icon"
+      data-icon="pen-nib"
+      data-prefix="fas"
+      focusable="false"
+      role="img"
+      style={Object {}}
+      viewBox="0 0 512 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M136.6 138.79a64.003 64.003 0 0 0-43.31 41.35L0 460l14.69 14.69L164.8 324.58c-2.99-6.26-4.8-13.18-4.8-20.58 0-26.51 21.49-48 48-48s48 21.49 48 48-21.49 48-48 48c-7.4 0-14.32-1.81-20.58-4.8L37.31 497.31 52 512l279.86-93.29a64.003 64.003 0 0 0 41.35-43.31L416 224 288 96l-151.4 42.79zm361.34-64.62l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.75 18.75-49.15 0-67.91z"
+        fill="currentColor"
+        style={Object {}}
+      />
+    </svg>
+  </div>
+  <h2>
+    Test User
+  </h2>
+  <button
+    onClick={[Function]}
+  >
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-user-circle fa-w-16 ConversationBubble__pal_icon"
+      data-icon="user-circle"
+      data-prefix="fas"
+      focusable="false"
+      role="img"
+      style={Object {}}
+      viewBox="0 0 496 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"
+        fill="currentColor"
+        style={Object {}}
+      />
+    </svg>
+  </button>
+  <p>
+    Conversation Status: 
+    Keep working on your current draft
+  </p>
+  <p>
+    Total Messages: 
+    1
+  </p>
+</div>
+`;
