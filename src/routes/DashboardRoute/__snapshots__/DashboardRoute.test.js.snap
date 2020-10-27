@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardRoute Component takes a snapshot of the DashboardRoute component 1`] = `
+<section>
+  <section
+    className="dashboard"
+  >
+    <div
+      className="welcome_text"
+    >
+      Welcome, 
+      !
+      <br />
+       Write a message to your pals!
+    </div>
+    
+    
+    <section
+      className="Active_Conversations"
+    >
+      <button
+        className="Dashboard__newPal_button"
+        onClick={[Function]}
+      >
+        Find a new Pal
+      </button>
+      <button
+        className="Dashboard__newPal_button"
+        onClick={[Function]}
+      >
+        Find a new Pal
+      </button>
+      <button
+        className="Dashboard__newPal_button"
+        onClick={[Function]}
+      >
+        Find a new Pal
+      </button>
+      <button
+        className="Dashboard__newPal_button"
+        onClick={[Function]}
+      >
+        Find a new Pal
+      </button>
+      <button
+        className="Dashboard__newPal_button"
+        onClick={[Function]}
+      >
+        Find a new Pal
+      </button>
+    </section>
+  </section>
+</section>
+`;

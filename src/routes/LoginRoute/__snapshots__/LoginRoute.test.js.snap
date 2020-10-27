@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginRoute Component takes snapshot of LoginRoute Component 1`] = `
+<section
+  className="LoginSection"
+>
+  <h2>
+    Login
+  </h2>
+  <form
+    className="user_form"
+    onSubmit={[Function]}
+  >
+    <legend>
+      <div
+        role="alert"
+      />
+      <label
+        htmlFor="login-username-input"
+      >
+        Username
+      </label>
+      <input
+        id="login-username-input"
+        name="username"
+        required={true}
+      />
+      <div>
+        <label
+          htmlFor="login-password-input"
+        >
+          Password
+        </label>
+        <input
+          id="login-password-input"
+          name="password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <button
+        type="submit"
+      >
+        Login
+      </button>
+    </legend>
+  </form>
+</section>
+`;
