@@ -1,27 +1,42 @@
-.profile_form {
+.ProfileForm {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.profile_form form {
+.ProfileForm__form {
   display: flex;
   flex-direction: column;
-  width: 75vw;
+  width: 90%;
   margin: 0 auto;
+  background-image: linear-gradient(190deg, white, darkkhaki);
 }
 
-.profile_form form button {
+.ProfileForm form input {
   margin: 0 auto;
-  margin-top: 20px;
-  display: block;
+  margin-top: 10px;
   width: 50%;
+  max-width: 400px;
+}
+
+.ProfileForm__about {
+  margin: 0 auto;
+  width: 100%;
 }
 
 .about {
+  margin: 0 auto;
   height: 7rem;
+  width: 90%;
+  max-width: 800px;
+  background-color: rgb(238, 237, 220, 0.7);
+  padding: 10px;
 }
 
 label {
   margin-bottom: 4px;
+}
+
+.ProfileForm button {
+  margin-top: 20px;
 }
