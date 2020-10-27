@@ -18,9 +18,13 @@ export default class ProfileForm extends Component {
 
  static contextType = UserContext
 
- async componentDidMount() {
-   await this.context.getProfile()
-   console.log(this.context)
+  componentDidMount() {
+    this.context.getProfile()
+    this.setState({
+      location: this.context.profileInfo.location,
+      bio: this.context.profileInfo.bio,
+      fa_icon: this.context.profileInfo.fa_icon
+    })
  }
 
 
@@ -61,7 +65,6 @@ export default class ProfileForm extends Component {
   }
 
   render(){
-    const {bio, location} = this.context.profileInfo
     return (
       <section className='ProfileForm'>
         <div>
@@ -70,13 +73,13 @@ export default class ProfileForm extends Component {
        
         <form className='profileForm__form' onSubmit={this.handlePatchUser}>
           <label htmlFor='location'><h4>Where are you located?:</h4></label>
-          <input name='locationArea' id='location' placeholder={location} value={this.state.location} onChange={this.handleChangeLocation}></input>
+          <input name='locationArea' id='location' type="text" defaultValue={this.state.location} onChange={(e) => this.handleChangeLocation(e)}></input>
 
           <IconSelect handleChangeIcon={this.handleChangeIcon}/>
        
 
           <label htmlFor='about'><h4>Tell us about yourself:</h4></label>
-          <textarea name="bioArea" className='about' id='about' placeholder={bio} value={this.state.bio} onChange={this.handleChangeBio}>
+          <textarea name="bioArea" className='about' id='about' placeholder={this.state.bio} defaultValue={this.state.bio} onChange={(e) => this.handleChangeBio(e)}>
           </textarea>
 
           <div className='ProfileForm__button_box'>
