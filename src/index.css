@@ -1,7 +1,9 @@
 /* Bring in normalize.css styles */
 @import-normalize;
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Patrick+Hand&family=Satisfy&display=swap');
-
+*{
+  box-sizing:border-box;
+}
 body {
   background-position-x: center;
   background-attachment: fixed;
