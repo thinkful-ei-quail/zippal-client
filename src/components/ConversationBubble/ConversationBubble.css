@@ -64,6 +64,19 @@
   display: none;
 }
 
+.ConversationBubble__nav {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.ConversationBubble__nav button {
+  margin-right: 10px;
+}
+
+.ConversationBubble__pal_icon {
+  font-size: 40px;
+}
+
 .ConversationBubble__content {
   display: flex;
   flex-direction: column;

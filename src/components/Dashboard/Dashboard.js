@@ -32,7 +32,8 @@ export default class Dashboard extends Component{
         isOutOfAvailablePals: false,
         activeConversations: response.conversations,
         messages: response.messages
-      })    
+      })
+    console.log(this.state.activeConversations)
   }
 
   handleNewPal = () => {
