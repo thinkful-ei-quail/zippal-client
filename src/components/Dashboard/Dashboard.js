@@ -33,7 +33,6 @@ export default class Dashboard extends Component{
         activeConversations: response.conversations,
         messages: response.messages
       })
-    console.log(this.state.activeConversations)
   }
 
   handleNewPal = () => {
@@ -184,7 +183,6 @@ export default class Dashboard extends Component{
     //find and update conversation turns now that message has been sent
     for(let i = 0; i < conversations.length; i++) {
       if(conversations[i].id === newMessage.conversation_id) {
-        console.log(conversations[i])
         conversations[i].user_1_turn = !conversations[i].user_1_turn
         conversations[i].user_2_turn = !conversations[i].user_2_turn
         break
