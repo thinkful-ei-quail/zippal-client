@@ -19,26 +19,31 @@ exports[`Dashboard Component takes a snapshot of dashboard 1`] = `
     className="Active_Conversations"
   >
     <button
+      className="Dashboard__newPal_button"
       onClick={[Function]}
     >
       Find a new Pal
     </button>
     <button
+      className="Dashboard__newPal_button"
       onClick={[Function]}
     >
       Find a new Pal
     </button>
     <button
+      className="Dashboard__newPal_button"
       onClick={[Function]}
     >
       Find a new Pal
     </button>
     <button
+      className="Dashboard__newPal_button"
       onClick={[Function]}
     >
       Find a new Pal
     </button>
     <button
+      className="Dashboard__newPal_button"
       onClick={[Function]}
     >
       Find a new Pal
