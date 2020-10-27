@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import TokenService from '../../services/token-service';
+import UserContext from '../../context/UserContext'
 import './ConversationNotification.css';
 import MessageService from '../../services/message-api-service'
 
@@ -13,13 +13,10 @@ class ConversationNotification extends Component {
     }
   }
 
-  findUserId = () => {
-    const user = TokenService.parseAuthToken()
-    return user.id;
-  }
+  static contextType = UserContext
 
   findUnreadMessages = () => {
-    const userId = this.findUserId();
+    const userId = this.context.user.id;
     const messages = this.props.messageData
 
     if (!messages.length) {
