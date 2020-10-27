@@ -63,7 +63,6 @@ export default class ProfileForm extends Component {
 
   render(){
     const {bio, location, fa_icon, display_name} = this.context.profileInfo
-    console.log(fa_icon)
     return (
       <section className='ProfileForm'>
         <div>
