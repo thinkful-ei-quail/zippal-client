@@ -25,6 +25,8 @@ export default class Dashboard extends Component{
 
   async componentDidMount() {
     const response = await ConversationService.getConversations()
+    response.conversations.sort((a,b) => a.id - b.id)
+    response.messages.sort((a,b) => a[0].id - b[0].id)
       this.setState({
         conversationsRendered: true,
         isOutOfAvailablePals: false,
@@ -146,13 +148,14 @@ export default class Dashboard extends Component{
             newMessageHandler={this.newMessageHandler}
             setNewMessage={this.setNewMessage}
             handleEndConvo={this.handleEndConvo}
+            updateConvoTurns={this.updateConvoTurns}
           />
         )
       } else {
         convoComponents.push(<button key={`button_${i}`} onClick={this.handleNewPal}>Find a new Pal</button>)
       }
     }
-    return convoComponents
+    return convoComponents.sort((a,b) => a.id - b.id)
   }
 
   newMessageHandler = async (convo) => {
@@ -180,12 +183,12 @@ export default class Dashboard extends Component{
     //find and update conversation turns now that message has been sent
     for(let i = 0; i < conversations.length; i++) {
       if(conversations[i].id === newMessage.conversation_id) {
+        console.log(conversations[i])
         conversations[i].user_1_turn = !conversations[i].user_1_turn
         conversations[i].user_2_turn = !conversations[i].user_2_turn
         break
       }
     }
-
     this.setState({
       messages: messageArray,
       activeConversations: conversations
