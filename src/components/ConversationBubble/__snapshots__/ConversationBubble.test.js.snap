@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConversationBubble Component renders ConversationBubble component 1`] = `
-<div
+<button
   className="ConversationBubble__convo_card small"
+  onClick={[Function]}
 >
   <div
     className="ConversationNotification__icon_container blue"
@@ -28,12 +29,12 @@ exports[`ConversationBubble Component renders ConversationBubble component 1`] =
   <h2>
     Test User
   </h2>
-  <button
-    onClick={[Function]}
+  <div
+    className="ConversationBubble__pal_icon"
   >
     <svg
       aria-hidden="true"
-      className="svg-inline--fa fa-user-circle fa-w-16 ConversationBubble__pal_icon"
+      className="svg-inline--fa fa-user-circle fa-w-16 "
       data-icon="user-circle"
       data-prefix="fas"
       focusable="false"
@@ -48,7 +49,7 @@ exports[`ConversationBubble Component renders ConversationBubble component 1`] =
         style={Object {}}
       />
     </svg>
-  </button>
+  </div>
   <p>
     Conversation Status: 
     Keep working on your current draft
@@ -57,5 +58,5 @@ exports[`ConversationBubble Component renders ConversationBubble component 1`] =
     Total Messages: 
     1
   </p>
-</div>
+</button>
 `;

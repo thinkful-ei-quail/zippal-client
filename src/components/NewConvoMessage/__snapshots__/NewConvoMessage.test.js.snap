@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewConvoMessage Component takes a snapshot of the NewConvoMessage component 1`] = `
+<div
+  className="NewConvoMessage__container"
+>
+  <button
+    type="button"
+  >
+    Close
+  </button>
+  <form
+    className="Message_Form"
+  >
+    <div
+      className="Message_Container"
+    >
+      <label
+        htmlFor="Message_Content"
+      >
+        Create a new message for 
+        Test User
+      </label>
+      <textarea
+        id="Message_Content"
+        name="Message_Content_Area"
+        onChange={[Function]}
+        type="text"
+        value="Sup"
+      />
+    </div>
+    <div
+      className="Message_Buttons_Container"
+    >
+      <button
+        className="Message_Save_Btn"
+        onClick={[Function]}
+        type="button"
+      >
+        Save Message
+      </button>
+      <button
+        className="Message_Send_Btn"
+        onClick={[Function]}
+        type="button"
+      >
+        Send Message to 
+        Test User
+      </button>
+    </div>
+  </form>
+</div>
+`;
