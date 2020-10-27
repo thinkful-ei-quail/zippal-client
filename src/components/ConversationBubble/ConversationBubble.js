@@ -117,8 +117,8 @@ export default class ConversationBubble extends Component {
   }
 
   //on click handler that sets clicked on message to be passed to the message component
-  selectMessageHandler = (id) => {
-    const selected = this.props.messageData[id]
+  selectMessageHandler = (index) => {
+    const selected = this.props.messageData[index]
     this.setState({
       selectedMessage: selected,
     })
