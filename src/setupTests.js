@@ -4,6 +4,7 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect';
 import { library } from '@fortawesome/fontawesome-svg-core'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { 
   faUserCircle, 
   faEnvelope, 
@@ -32,7 +33,8 @@ import {
   faBowlingBall,
   faAnchor,
   faBiking,
-  faPlaneDeparture 
+  faPlaneDeparture,
+  faSpinner
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -63,7 +65,10 @@ library.add(
   faBowlingBall,
   faAnchor,
   faBiking,
-  faPlaneDeparture
+  faPlaneDeparture,
+  faGithub,
+  faLinkedin,
+  faSpinner
 )
 
 const Enzyme = require('enzyme');

@@ -7,6 +7,11 @@
   min-height: 100vh;
 }
 
+main {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
 footer {
   width: 100%;
   position:absolute;
