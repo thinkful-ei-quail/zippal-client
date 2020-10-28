@@ -111,7 +111,7 @@ class App extends Component {
               path={'/registration'}
               component={RegistrationRoute}
             />
-            <PublicRoute
+            <Route
               exact path={'/'}
               component={HomePage}
             />
