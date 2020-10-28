@@ -15,7 +15,9 @@ exports[`RegistrationRoute Component takes a snapshot of the RegistrationRoute 1
       <div
         role="alert"
       />
-      <p>
+      <p
+        className="RegistrationForm__required_text"
+      >
         <span
           className="required"
         >
@@ -75,20 +77,22 @@ exports[`RegistrationRoute Component takes a snapshot of the RegistrationRoute 1
           type="password"
         />
       </div>
-      <footer>
+      <div>
         <button
+          className="form_button"
           type="submit"
         >
           Sign up
         </button>
          
         <a
+          className="RegistrationForm__link"
           href="/login"
           onClick={[Function]}
         >
           Already have an account?
         </a>
-      </footer>
+      </div>
     </legend>
   </form>
 </section>
