@@ -1,5 +1,5 @@
 header {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   text-align: center;
   display: flex;
   width: 100%;
@@ -7,24 +7,24 @@ header {
   flex-direction: row;
   justify-content: space-between;
 }
-.header_text, h1{
+.header_text,
+h1 {
   display: flex;
   align-items: center;
   font-size: 27px;
-
 }
 img.quill {
   width: 80px;
 }
 .header_link {
-  display:flex;
+  display: flex;
 }
-.nav_container{
+.nav_container {
   display: flex;
   flex-direction: column-reverse;
 }
 header a {
- font-family: 'Patrick Hand', cursive;
+  font-family: 'Patrick Hand', cursive;
   text-decoration: none;
   color: black;
 }
@@ -42,8 +42,8 @@ nav a:hover {
   color: #9c27ca;
 }
 
-@media all and (max-width: 360px){
-  nav{
+@media all and (max-width: 360px) {
+  nav {
     height: 116px;
     flex-direction: column;
     justify-content: space-evenly;
