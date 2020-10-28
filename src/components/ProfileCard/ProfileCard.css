@@ -3,10 +3,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 75vw;
-  margin: 0 auto;
+  width: 90vw;
+  margin: 0 auto 25px auto;
   padding: 12px;
-  background-image: linear-gradient(220deg, white, darkkhaki);
+  background: linear-gradient(220deg, white, darkkhaki);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -15,19 +15,29 @@
   margin: auto 0;
 }
 
+.ProfileCard__icon_container > p {
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .ProfileCard__bio_location {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   text-align: left;
-  margin: auto 10px;
+  justify-content: space-evenly;
 }
 
 .ProfileCard__label {
-  line-height: 2em;
-  text-align: left;
+  display:block;
+  margin: 10px 0;
   font-size: 18px;
+  font-weight: 600;
   color: #3a392a;
+  border-bottom: 1px solid black;
 }
 
 .ProfileCard__data {
-  margin-left: 10px;
-  font-size: 20px;
+  margin: 0 0 15px 0;
+  font-size: 16px;
 }
