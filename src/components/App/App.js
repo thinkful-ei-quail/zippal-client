@@ -106,6 +106,10 @@ class App extends Component {
         <main className='App_main'>
           {this.state.hasError && <p className='red'>There was an error!</p>}
           <Switch>
+            <Route
+              exact path={'/'}
+              component={HomePage}
+            />
             <PrivateRoute
               path={'/profile'}
               component={Profile}
@@ -122,24 +126,20 @@ class App extends Component {
               path={'/registration'}
               component={RegistrationRoute}
             />
-            <Route
-              exact path={'/'}
-              component={HomePage}
-            />
+              <Route
+                path={'/about'}
+                component={AboutRoute}
+              />
+              <Route 
+                path={'/contact'}
+                component={ContactRoute}
+              />
+              <Route
+                path={'/policy'}
+                component={PolicyRoute}
+              />
             <Route
               component={NotFoundRoute}
-            />
-            <Route
-              path={'/about'}
-              component={AboutRoute}
-            />
-            <Route 
-              path={'/contact'}
-              component={ContactRoute}
-            />
-            <Route
-              path={'/policy'}
-              component={PolicyRoute}
             />
           </Switch>
         </main>

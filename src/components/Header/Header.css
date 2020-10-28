@@ -7,10 +7,7 @@ header {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  min-height: 12vmax;
-  max-height: 12vmin;
-  margin: 0;
-  padding: 0;
+  min-height: 10vmax;
 }
 .header_text,
 h1 {
@@ -33,6 +30,7 @@ header a {
   font-family: 'Romanesco', cursive;
   color: black;
   text-decoration: none;
+  
 }
 
 nav {
@@ -43,7 +41,7 @@ nav a {
   margin: 0 20px;
   font-family: 'The Girl Next Door', cursive;
   text-decoration: none;
-  font-size: 3vmax;
+  font-size: 3vh;
   color: black;
 }
 
