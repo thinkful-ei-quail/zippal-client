@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import quill from '../../images/quill.png'
 import './Footer.css'
 
 class Footer extends Component {
@@ -11,10 +12,10 @@ class Footer extends Component {
         return (
             <div className='Footer_Container'>
                 <nav className='Footer_Nav_Container'>
-                    <Link to='/'>Homepage</Link>
-                    <Link to='/'>About</Link>
-                    <Link to='/'>Contact</Link>
-                    <Link to='/'>Policy</Link>
+                    {/* <Link to='/'> <img className='quill' alt='zip pal' src={quill}/> Homepage</Link> */}
+                    <Link to='/about'>About</Link>
+                    <Link to='/contact'>Contact</Link>
+                    <Link to='/policy'>Policy</Link>
                     <a href='https://github.com/thinkful-ei-quail/zippal-client' target='_blank' rel='external noopener noreferrer'><FontAwesomeIcon icon={['fab','github']} alt='link to client github repo'/></a>
                 </nav>
             </div>

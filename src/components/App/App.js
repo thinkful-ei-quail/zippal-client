@@ -9,6 +9,9 @@ import RegistrationRoute from '../../routes/RegistrationRoute/RegistrationRoute'
 import HomePage from '../../routes/HomePage/HomePage'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
 import Profile from '../../routes/ProfileRoute/ProfileRoute'
+import AboutRoute from '../../routes/AboutRoute/AboutRoute'
+import ContactRoute from '../../routes/ContactRoute/ContactRoute'
+import PolicyRoute from '../../routes/PolicyRoute/PolicyRoute'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons'
 
@@ -123,6 +126,18 @@ class App extends Component {
             />
             <Route
               component={NotFoundRoute}
+            />
+            <Route
+              path={'/about'}
+              component={AboutRoute}
+            />
+            <Route 
+              path={'/contact'}
+              component={ContactRoute}
+            />
+            <Route
+              path={'/policy'}
+              component={PolicyRoute}
             />
           </Switch>
         </main>
