@@ -18,6 +18,10 @@ export default class Profile extends Component {
     this.setState({editProfile: true})
   }
 
+  handleProfileEditCancel = () => {
+    this.setState({editProfile: false})
+  }
+
   render() {
     const {bio} = this.context.profileInfo
     return (
@@ -30,7 +34,7 @@ export default class Profile extends Component {
         <p>bio: {bio}</p>
       </section> */}
       {(this.state.editProfile || !bio)
-      ? <ProfileForm updateSuccess={this.props.updateSuccess}/>
+      ? <ProfileForm updateSuccess={this.props.updateSuccess} cancelUpdate={this.handleProfileEditCancel}/>
       : <ProfileCard editProfile={this.handleProfileEdit}/>
       }
       </div>

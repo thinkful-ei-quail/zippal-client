@@ -24,6 +24,7 @@ export default class ConversationBubble extends Component {
   }
   
   toggleBubble = () => {
+    window.scrollTo(0,0)
     this.setState({
       expanded: !this.state.expanded
     })
@@ -75,13 +76,13 @@ export default class ConversationBubble extends Component {
 
   renderSmallView = () => {
     return (
-      <div className='ConversationBubble__convo_card small' >
+      <button className='ConversationBubble__convo_card small' onClick={this.toggleBubble}>
         {this.props.messageData.length !== 0 ? <ConversationNotification messageData={this.props.messageData} /> : ''}
         <h2>{this.props.convoData.pal_name}</h2>
-        <button onClick={this.toggleBubble}><FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} /></button>
+        <div className='ConversationBubble__pal_icon'><FontAwesomeIcon  icon={this.props.convoData.fa_icon} /></div>
         <p>Conversation Status: {this.messageStatusMessage()}</p>
         <p>Total Messages: {this.props.messageData.length}</p>
-      </div>
+      </button>
     )
   }
 
@@ -117,8 +118,8 @@ export default class ConversationBubble extends Component {
   }
 
   //on click handler that sets clicked on message to be passed to the message component
-  selectMessageHandler = (id) => {
-    const selected = this.props.messageData[id]
+  selectMessageHandler = (index) => {
+    const selected = this.props.messageData[index]
     this.setState({
       selectedMessage: selected,
     })
@@ -224,12 +225,13 @@ export default class ConversationBubble extends Component {
     const { selectedMessage, confirmEndConvoPanel, hideMessage, reply, edit, contentOfPrevious, hideEditAndReplyButton } = this.state
     return (
     <div className='ConversationBubble__convo_card expanded'>
+      
       {/*Navigation buttons for ConversationBubble */}
       <div className='ConversationBubble__nav'>
-        {selectedMessage ? <button onClick={this.clearSelectedMessage}>Go back</button>: ''}
         <button onClick={this.toggleBubble}>
-          <FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} />
+          <FontAwesomeIcon className='ConversationBubble__window_close' icon="window-close" />
         </button>
+        {selectedMessage ? <button onClick={this.clearSelectedMessage}>Go back</button>: ''}
         <button className="ConversationBubble__end_convo_btn" onClick={this.confirmEndConvo}>
           End Conversation
         </button>

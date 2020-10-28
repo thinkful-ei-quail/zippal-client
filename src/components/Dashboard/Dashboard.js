@@ -32,7 +32,7 @@ export default class Dashboard extends Component{
         isOutOfAvailablePals: false,
         activeConversations: response.conversations,
         messages: response.messages
-      })    
+      })
   }
 
   handleNewPal = () => {
@@ -63,6 +63,7 @@ export default class Dashboard extends Component{
           toggleFindNewPalPanel: !this.state.toggleFindNewPalPanel,
           foundUser: pal
         })
+        window.scrollTo(0,0)
       }).then((pal) => {
         if(this.state.foundUser.error) {
           this.setState({
@@ -152,7 +153,7 @@ export default class Dashboard extends Component{
           />
         )
       } else {
-        convoComponents.push(<button key={`button_${i}`} onClick={this.handleNewPal}>Find a new Pal</button>)
+        convoComponents.push(<button className="Dashboard__newPal_button" key={`button_${i}`} onClick={this.handleNewPal}>Find a new Pal</button>)
       }
     }
     return convoComponents.sort((a,b) => a.id - b.id)
@@ -183,7 +184,6 @@ export default class Dashboard extends Component{
     //find and update conversation turns now that message has been sent
     for(let i = 0; i < conversations.length; i++) {
       if(conversations[i].id === newMessage.conversation_id) {
-        console.log(conversations[i])
         conversations[i].user_1_turn = !conversations[i].user_1_turn
         conversations[i].user_2_turn = !conversations[i].user_2_turn
         break

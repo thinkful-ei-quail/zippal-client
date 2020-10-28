@@ -19,7 +19,28 @@ import {
   faPaperPlane, 
   faPenNib, 
   faHourglassHalf,
-  faPlaneDeparture
+  faTheaterMasks,
+  faUniversity,
+  faSnowboarding, 
+  faPaw, 
+  faPalette,
+  faMountain,
+  faMusic,
+  faMotorcycle,
+  faLaptopCode,
+  faGamepad,
+  faFutbol,
+  faDumbbell,
+  faDog, 
+  faChess,
+  faCat,
+  faCaravan,
+  faCameraRetro,
+  faBowlingBall,
+  faAnchor,
+  faBiking,
+  faPlaneDeparture,
+  faWindowClose
 } from '@fortawesome/free-solid-svg-icons'
 //add them to library here to be used wherever
 import './App.css'
@@ -32,7 +53,28 @@ library.add(
   faPaperPlane, 
   faPenNib, 
   faHourglassHalf,
-  faPlaneDeparture
+  faTheaterMasks,
+  faUniversity,
+  faSnowboarding, 
+  faPaw,
+  faPalette,
+  faMountain,
+  faMusic,
+  faMotorcycle,
+  faLaptopCode,
+  faGamepad,
+  faFutbol,
+  faDumbbell,
+  faDog,
+  faChess,
+  faCat,
+  faCaravan,
+  faCameraRetro,
+  faBowlingBall,
+  faAnchor,
+  faBiking,
+  faPlaneDeparture,
+  faWindowClose
 )
 
 
@@ -69,7 +111,7 @@ class App extends Component {
               path={'/registration'}
               component={RegistrationRoute}
             />
-            <PublicRoute
+            <Route
               exact path={'/'}
               component={HomePage}
             />
