@@ -87,13 +87,13 @@ class RegistrationForm extends Component {
             required
           />
         </div>
-        <footer>
+        <div>
           <button className='form_button' type='submit'>
             Sign up
           </button>
           {' '}
           <Link className='RegistrationForm__link' to='/login'>Already have an account?</Link>
-        </footer>
+        </div>
         </legend>
       </form>
     )
