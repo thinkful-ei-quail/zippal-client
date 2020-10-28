@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Romanesco&family=The+Girl+Next+Door&display=swap');
 header {
   background-color: rgba(255, 255, 255, 0.5);
   text-align: center;
@@ -6,13 +7,22 @@ header {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
+  min-height: 12vmax;
+  max-height: 12vmin;
+  margin: 0;
+  padding: 0;
 }
 .header_text,
 h1 {
   display: flex;
   align-items: center;
-  font-size: 27px;
 }
+
+.title {
+  font-size: 10vmin;
+  font-family: 'Romanesco', cursive;
+}
+
 img.quill {
   width: 80px;
 }
@@ -24,8 +34,9 @@ img.quill {
   flex-direction: column-reverse;
 }
 header a {
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'The Girl Next Door', cursive;
   text-decoration: none;
+  font-size: 3vmax;
   color: black;
 }
 
@@ -35,7 +46,6 @@ nav {
 
 nav a {
   margin: 0 20px;
-  font-size: 24px;
 }
 
 nav a:hover {
@@ -44,7 +54,6 @@ nav a:hover {
 
 @media all and (max-width: 360px) {
   nav {
-    height: 116px;
     flex-direction: column;
     justify-content: space-evenly;
   }

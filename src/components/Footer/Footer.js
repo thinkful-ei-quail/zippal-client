@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import quill from '../../images/quill.png'
+// import quill from '../../images/quill.png'
 import './Footer.css'
 
 class Footer extends Component {
