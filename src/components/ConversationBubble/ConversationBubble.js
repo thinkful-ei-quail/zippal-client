@@ -51,8 +51,9 @@ export default class ConversationBubble extends Component {
       if (lastMessage.sender_status === 'Pending') {
         return 'Keep working on your current draft'
         //message has been sent, other user hasn't started new reply yet
-      } else if (lastMessage.sender_status === 'Sent') {
+      } else if (lastMessage.sender_status === 'Sent' && lastMessage.is_read === false) {
         return 'Your message is on it\'s way'
+      } else if(lastMessage.sender_status === 'Sent' && lastMessage.is_read === true) {
       } else if (lastMessage.sender_status === 'Awaiting Reply') {
         return 'Your pal has seen your message'
       }
