@@ -1,5 +1,7 @@
 # Zip Pal
 
+![](src/images/zip-pal-logo.png)
+
 ## A pen pal app (client side)
 
 [Hosted Live on Vercel](https://zippal.vercel.app/)
@@ -21,6 +23,7 @@ When signing up, Users can add their location and a brief bio, this information 
 - React Router Dom
 - JWT Authentication
 - Font Awesome
+- Jest / Enzyme (testing)
 
 ## React Components Codebase:
 
@@ -38,6 +41,7 @@ When signing up, Users can add their location and a brief bio, this information 
   - Viewable in all web pages, serves as the navigation between all other components. Allows user to log in and out.
 - Dashboard:
   - The parent component that holds conversations, messages and find a new pal interface.
+  - Note, after five minutes of inactivity you will be logged out and redirected to the login screen.
 - Conversation Bubbles:
   - There are five conversation slots. Active ones expand into the messaging window. Inactive ones toggle the "find a new pal" window.
   - Icons appear in the corner of each conversation to indicate the status of the last message and who's turn it is.
@@ -48,6 +52,41 @@ When signing up, Users can add their location and a brief bio, this information 
   - Messages may be saved as drafts.
 - Profile:
   - The profile page is where the user may view and change their location, bio and user icon. All icons in this app are provided by Font-Awesome free svg icons.
+
+## Walk-through with Screenshots
+
+1. First step is to create a new account if you do not have one. You will be directed to the Profile setup page to enter location, bio and choose an icon.
+
+![](src/images/rm01-registration-page.png)
+
+2. If you already have an account proceed straight to the login screen.
+
+![](src/images/rm02-login-page.png)
+
+3. The dashboard is where you can see an overview of your conversations, your pal's icons, and icons indicating the status of the messaging cycle
+
+![](src/images/rm03-dashboard.png)
+
+4. When you click on a conversation, the messaging interface expands. On the left is the history of your messages. Click on one to bring up the message and if it is your turn, the text editor to respond. There is a button to end the conversation, which will delete all messages for both users.
+
+![](src/images/rm04-message.png)
+
+5. When it is your turn you may draft a message. Save it if you are not ready to send. Send it when you are ready. Remember, the pen-pal system is supposed to be a long-form letter sending experience so take your time and be thoughtful.
+
+![](src/images/rm05-sending-message.png)
+
+6. If you wish to change your profile information, do so here in the edit profile section.
+
+![](src/images/rm06-profile-edit.png)
+
+## Instructions to Clone:
+
+1. Clone the client from [Github](https://github.com/thinkful-ei-quail/zippal-client)
+2. Clone the server/api from [Github](https://github.com/thinkful-ei-quail/zippal-api)
+3. Set up your postgres database and run npm migrate in the api directory
+4. Make sure your .env file is set up with proper variable names to connect to the specifications of your port, database variables and JWT secret (this file will not be included in the github repo.)
+5. Run `npm run dev` or `npm start` for the api back-end code
+6. Run `npm start` to open the client-side app
 
 ## Available Scripts
 
@@ -85,33 +124,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
