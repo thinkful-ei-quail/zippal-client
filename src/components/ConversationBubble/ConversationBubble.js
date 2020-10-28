@@ -68,7 +68,7 @@ export default class ConversationBubble extends Component {
         if (MessageService.calculateMessageDeliveryTime(lastMessage.date_sent) >= 6) {
           return 'You have a new message'
         } else {
-          return 'Your message will be delivered soon'
+          return 'Your incoming message will be delivered soon'
         }
       } else if (lastMessage.sender_status === 'Awaiting Reply') {
         return 'Start a reply message'
@@ -250,7 +250,7 @@ export default class ConversationBubble extends Component {
             {selectedMessage && !hideMessage
               ? (
                 <>
-                  <p className='ConversationBubble__message_text'>{reply ? contentOfPrevious : selectedMessage.content}</p><hr/>
+                  <p className='ConversationBubble__message_text'>{reply ? contentOfPrevious : selectedMessage.content}</p>
                   {hideEditAndReplyButton ? '' : this.renderActionButton()}
                 </>
               )
