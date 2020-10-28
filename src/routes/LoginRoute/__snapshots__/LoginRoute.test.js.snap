@@ -39,6 +39,7 @@ exports[`LoginRoute Component takes snapshot of LoginRoute Component 1`] = `
         />
       </div>
       <button
+        className="form_button"
         type="submit"
       >
         Login
