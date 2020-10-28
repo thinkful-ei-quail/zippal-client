@@ -16,7 +16,7 @@ export default class ProfileCard extends Component {
         onClick={e => this.props.editProfile(e)}
         type="button"
       >
-        Edit your Profile?
+        Edit your Profile
       </button>
     )
   }
