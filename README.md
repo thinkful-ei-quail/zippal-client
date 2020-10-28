@@ -6,6 +6,12 @@
 
 [Hosted Live on Vercel](https://zippal.vercel.app/)
 
+Demo User:
+
+username: demo
+
+password: Password0!
+
 [API repo](https://github.com/thinkful-ei-quail/zippal-api)
 
 ## Description
