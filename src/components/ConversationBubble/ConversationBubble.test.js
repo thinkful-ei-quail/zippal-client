@@ -27,13 +27,5 @@ describe('ConversationBubble Component', () => {
       <ConversationBubble convoData={testConvo} messageData={testMessages}/>
       </UserContext.Provider>)
   expect(tree).toMatchSnapshot();
-})
-  // it(`takes a snapshot of component`,() => {
-  //   const wrapper = shallow(
-  //     <UserContext.Provider value ={{user:{id:1}}}>
-  //       <ConversationBubble convoData={testConvo} messageData={testMessages}/>
-  //     </UserContext.Provider>
-  //   )
-  //   expect(toJSON(wrapper)).toMatchSnapshot();
-  // })
+  })
 })

@@ -559,11 +559,13 @@ exports[`ProfileForm Component takes a snapshot of ProfileForm Component 1`] = `
       className="ProfileForm__button_box"
     >
       <button
+        className="form_button"
         type="submit"
       >
         Submit
       </button>
       <button
+        className="form_button"
         type="button"
       >
         Cancel

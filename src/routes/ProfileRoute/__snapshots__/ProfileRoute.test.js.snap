@@ -560,11 +560,13 @@ exports[`ProfileRoute Component takes snapshot of ProfileRoute Component 1`] = `
           className="ProfileForm__button_box"
         >
           <button
+            className="form_button"
             type="submit"
           >
             Submit
           </button>
           <button
+            className="form_button"
             onClick={[Function]}
             type="button"
           >

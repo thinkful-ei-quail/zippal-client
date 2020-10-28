@@ -33,6 +33,7 @@ exports[`LoginForm Component takes snapshot of LoginForm component 1`] = `
       />
     </div>
     <button
+      className="form_button"
       type="submit"
     >
       Login

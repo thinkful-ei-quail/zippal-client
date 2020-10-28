@@ -46,6 +46,7 @@ import {
   faBiking,
   faPlaneDeparture,
   faWindowClose,
+  faSpinner
 } from '@fortawesome/free-solid-svg-icons'
 //add them to library here to be used wherever
 import './App.css'
@@ -83,7 +84,8 @@ library.add(
   faPlaneDeparture,
   faWindowClose,
   faGithub,
-  faLinkedin
+  faLinkedin,
+  faSpinner
 )
 
 

@@ -39,40 +39,33 @@ exports[`ProfileView Component takes a snapshot of the ProfileView component 1`]
       <div
         className="ProfileCard__bio_location"
       >
-        <p>
-          <span
-            className="ProfileCard__label"
-          >
-            location:
-          </span>
-           
-          <br />
-          <span
-            className="ProfileCard__data"
-          >
-            none
-          </span>
+        <p
+          className="ProfileCard__label"
+        >
+          location:
         </p>
-        <p>
-          <span
-            className="ProfileCard__label"
-          >
-            bio:
-          </span>
-           
-          <br />
-          <span
-            className="ProfileCard__data"
-          >
-            Test Bio
-          </span>
+        <p
+          className="ProfileCard__data"
+        >
+          none
+        </p>
+        <p
+          className="ProfileCard__label"
+        >
+          bio:
+        </p>
+        <p
+          className="ProfileCard__data"
+        >
+          Test Bio
         </p>
       </div>
       <button
+        className="form_button"
         onClick={[Function]}
         type="button"
       >
-        Edit your Profile?
+        Edit your Profile
       </button>
     </div>
   </section>
