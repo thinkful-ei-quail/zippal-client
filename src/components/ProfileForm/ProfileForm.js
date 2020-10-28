@@ -39,7 +39,8 @@ export default class ProfileForm extends Component {
     this.context.updateProfile(profileInfo)
     this.setState({
       bio: '',
-      location: ''
+      location: '',
+      fa_icon: ''
     })
     this.props.updateSuccess();
   }
