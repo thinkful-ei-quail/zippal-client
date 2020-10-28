@@ -83,7 +83,11 @@ export class UserProvider extends Component {
   }
 
   updateProfile = (profileInfo) => {
-    this.setState({profileInfo})
+    const newProfile = this.state.profileInfo
+    newProfile.bio = profileInfo.bio
+    newProfile.fa_icon = profileInfo.fa_icon
+    newProfile.location = profileInfo.location
+    this.setState({newProfile})
   }
 
   processLogin = authToken => {

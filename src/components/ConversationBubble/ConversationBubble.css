@@ -81,6 +81,7 @@
   background-color: white;
   flex: 3;
 }
+
 .ConversationBubble__content::-webkit-scrollbar {
   display: none;
 }
@@ -88,6 +89,7 @@
 .transparent {
   background: none;
 }
+
 @media all and (max-width: 500px) {
   .expanded {
     min-height: calc(100vh - 116px);
