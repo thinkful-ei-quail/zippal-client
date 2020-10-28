@@ -1,0 +1,10 @@
+.RegistrationForm__link {
+  color: black;
+  font-weight: 500;
+}
+
+.RegistrationForm__required_text {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 12px;
+}

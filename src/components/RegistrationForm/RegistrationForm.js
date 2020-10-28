@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import AuthApiService from '../../services/auth-api-service'
 import UserContext from '../../context/UserContext';
 import Required from '../Required/Required'
+import './RegistrationForm.css'
 
 
 class RegistrationForm extends Component {
@@ -42,10 +43,6 @@ class RegistrationForm extends Component {
     })
   }
 
-  // componentDidMount(){
-  //   this.firstInput.current.focus()
-  // }
-
   render(){
     const {error} = this.state
     return (
@@ -57,13 +54,12 @@ class RegistrationForm extends Component {
         <div role='alert'>
           {error && <p className='error'>{error}</p>}
         </div>
-        <p><Required /> indicates required field</p>
+        <p className='RegistrationForm__required_text'><Required /> indicates required field</p>
         <div>
           <label htmlFor='registration-name-input'>
             Display Name<Required />
           </label>
           <input
-            // ref={this.firstInput}
             id='registraion-name-input'
             name='name'
             required
@@ -91,11 +87,11 @@ class RegistrationForm extends Component {
           />
         </div>
         <footer>
-          <button type='submit'>
+          <button className='form_button' type='submit'>
             Sign up
           </button>
           {' '}
-          <Link to='/login'>Already have an account?</Link>
+          <Link className='RegistrationForm__link' to='/login'>Already have an account?</Link>
         </footer>
         </legend>
       </form>

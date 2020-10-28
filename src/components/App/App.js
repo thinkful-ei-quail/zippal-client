@@ -10,6 +10,8 @@ import HomePage from '../../routes/HomePage/HomePage'
 import DashboardRoute from '../../routes/DashboardRoute/DashboardRoute'
 import Profile from '../../routes/ProfileRoute/ProfileRoute'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import {faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons'
+
 //import individual icons here
 import { 
   faUserCircle, 
@@ -40,10 +42,12 @@ import {
   faAnchor,
   faBiking,
   faPlaneDeparture,
-  faWindowClose
+  faWindowClose,
 } from '@fortawesome/free-solid-svg-icons'
 //add them to library here to be used wherever
 import './App.css'
+import Footer from '../Footer/Footer'
+
 
 library.add(
   faUserCircle, 
@@ -74,7 +78,9 @@ library.add(
   faAnchor,
   faBiking,
   faPlaneDeparture,
-  faWindowClose
+  faWindowClose,
+  faGithub,
+  faLinkedin
 )
 
 
@@ -111,7 +117,7 @@ class App extends Component {
               path={'/registration'}
               component={RegistrationRoute}
             />
-            <PublicRoute
+            <Route
               exact path={'/'}
               component={HomePage}
             />
@@ -120,6 +126,9 @@ class App extends Component {
             />
           </Switch>
         </main>
+        <footer className='App_footer'>
+          <Footer/>
+        </footer>
       </div>
     )
   }

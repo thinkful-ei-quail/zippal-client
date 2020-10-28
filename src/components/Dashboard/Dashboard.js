@@ -63,6 +63,7 @@ export default class Dashboard extends Component{
           toggleFindNewPalPanel: !this.state.toggleFindNewPalPanel,
           foundUser: pal
         })
+        window.scrollTo(0,0)
       }).then((pal) => {
         if(this.state.foundUser.error) {
           this.setState({
