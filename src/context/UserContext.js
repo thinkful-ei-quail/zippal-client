@@ -80,7 +80,6 @@ export class UserProvider extends Component {
   getProfile = async () => {
     const profileInfo = await UserService.getUserProfile()
     this.setState({profileInfo})
-    console.log(profileInfo)
   }
 
   updateProfile = (profileInfo) => {

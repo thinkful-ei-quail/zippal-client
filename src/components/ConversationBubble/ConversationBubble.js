@@ -24,6 +24,7 @@ export default class ConversationBubble extends Component {
   }
   
   toggleBubble = () => {
+    window.scrollTo(0,0)
     this.setState({
       expanded: !this.state.expanded
     })

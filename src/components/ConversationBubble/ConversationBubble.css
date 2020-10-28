@@ -14,6 +14,8 @@
 }
 .ConersationBubble__message_select {
   width: 100%;
+  margin-top: -4px;
+  margin-bottom: 4px;
 }
 
 /* .small:hover {
@@ -26,9 +28,8 @@
   flex-direction: column;
   min-height: 55vh;
   width: 75vw;
-  background-color: lightgray;
+  background-color: rgba(255, 255, 255, 1);
   position: absolute;
-  padding: 20px;
   border-radius: 5px;
   border: 1px solid black;
   transition: all 0.25s cubic-bezier(0, 0.56, 0.69, 0.49); /*make it smooth*/
@@ -50,10 +51,13 @@
 .conversationBubble__message_wrapper {
   display: flex;
   flex-direction: row;
+  height: 64vh;
 }
 .ConversationBubble__messages_container {
   display: flex;
+  padding: 5px;
   flex: 1;
+  background-color: rgb(15, 55, 202);
   flex-direction: column;
   max-height: 64vh;
   overflow-y: scroll;
@@ -67,10 +71,13 @@
 .ConversationBubble__nav {
   text-align: left;
   margin-bottom: 10px;
+  padding: 5px;
+  background-color: rgb(15, 55, 202);
 }
 
 .ConversationBubble__nav button {
   margin-right: 10px;
+  margin-top: 0px;
 }
 
 .ConversationBubble__pal_icon {
@@ -97,6 +104,7 @@
   .conversationBubble__message_wrapper {
     display: flex;
     flex-direction: column;
+    height: 50vh;
   }
   .transparent {
     display: none;
