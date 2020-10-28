@@ -23,7 +23,12 @@ Array [
     <h1
       className="title"
     >
-      Zip Pal
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Zip Pal
+      </a>
     </h1>
   </div>,
   <div

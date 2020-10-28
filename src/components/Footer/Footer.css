@@ -1,9 +1,11 @@
+
 .Footer_Container {
     background-color: rgba(255, 255, 255, 0.5);
     text-align: center;
     /* display: flex; */
     width: 100%;
     align-items: center;
+    
     /* flex-direction: row;
     justify-content: space-between; */
   }
@@ -17,8 +19,12 @@
 
 .Footer_Nav_Container a {
   display: block;
-  font-size: 12px;
+  /* font-size: 12px; */
   margin: 5px auto;
+  font-family: 'The Girl Next Door', cursive;
+  text-decoration: none;
+  color: black;
+  font-size: 3vmax;
 }
 
 @media all and (max-width: 380px) {
