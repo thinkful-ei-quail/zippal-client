@@ -54,6 +54,7 @@ export default class ConversationBubble extends Component {
       } else if (lastMessage.sender_status === 'Sent' && lastMessage.is_read === false) {
         return 'Your message is on it\'s way'
       } else if(lastMessage.sender_status === 'Sent' && lastMessage.is_read === true) {
+        return 'Your pal has seen your message'
       } else if (lastMessage.sender_status === 'Awaiting Reply') {
         return 'Your pal has seen your message'
       }
