@@ -19,6 +19,7 @@ class RegistrationForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
+    this.props.startLoading()
     const {name,username,password} = ev.target
     AuthApiService.postUser({
       display_name: name.value,
