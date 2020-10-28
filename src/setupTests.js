@@ -34,6 +34,7 @@ import {
   faAnchor,
   faBiking,
   faPlaneDeparture,
+  faSpinner
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -66,7 +67,8 @@ library.add(
   faBiking,
   faPlaneDeparture,
   faGithub,
-  faLinkedin
+  faLinkedin,
+  faSpinner
 )
 
 const Enzyme = require('enzyme');

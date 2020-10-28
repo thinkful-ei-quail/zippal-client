@@ -1,14 +1,28 @@
 import React, {Component} from 'react'
 import LoginForm from '../../components/LoginForm/LoginForm'
+import Loading from '../../components/Loading/Loading'
 
 
 class LoginRoute extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      loading: false
+    }
+  }
   static defaultProps = {
     location: {},
     history: {
       push: () => { },
     },
   }
+
+  startLoading = () => {
+    this.setState({
+      loading: true
+    })
+  }
+
 
   handleLoginSuccess = () => {
     const {location, history} = this.props
@@ -20,9 +34,10 @@ class LoginRoute extends Component {
     return (
       <section className='LoginSection'>
         <h2>Login</h2>
-        <LoginForm
+        {this.state.loading === false ? <LoginForm
           onLoginSuccess={this.handleLoginSuccess}
-        />
+          startLoading={this.startLoading}
+        /> : <Loading />}
       </section>
     );
   }

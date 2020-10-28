@@ -17,6 +17,7 @@ class LoginForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
+    this.props.startLoading()
     const {username, password} = ev.target
 
     this.setState({error:null})
@@ -35,10 +36,6 @@ class LoginForm extends Component {
       this.setState({ error: res.error})
     })
   }
-
-  // componentDidMount() {
-  //   this.firstInput.current.focus()
-  // }
 
   render(){
     const { error } = this.state
