@@ -1,41 +1,50 @@
 input:focus {
-  border: 3px solid #555;
-  background-color: burlywood;
+  /* border: 3px solid #555; */
+  /* background-color: burlywood; */
 }
+
 input {
+  display: block;
+  width: 100%;
+  max-width: 400px;
   border-radius: 5px;
-  min-width: 200px;
-  margin:  15px auto ;
-  
+  margin:  15px auto;
+  padding: 5px;
+  border: 1px solid black;
 }
+
 legend {
   align-self: center;
   display: flex;
   flex-direction: column;
-  padding: 75px 25px;
-  width: 75vw;
+  margin: 0 auto;
+  padding: 25px 15px;
+  width: 90vw;
+  max-width: 500px;
   background-image: linear-gradient(360deg, white, darkkhaki);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19) ;
 }
-.user_form {
- align-self: center;
- text-align: -webkit-center;
-}
-.loginForm {
-  display: flex;
+
+.form_button {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  padding: 9px 5px;
+  margin: 15px auto 15px auto;
+  border: 2px solid rgb(15,55,202);
+  border-radius: 5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  background-color: rgb(15, 55, 202);
+  color: white;
 }
 
-button {
-  margin-top: 4px;
-  place-self: center;
-}
-
-#login-password-input, #login-username-input {
-  align-self: center;
-  max-width: -webkit-fill-available;
+.form_button:hover {
+  opacity: 0.9;
 }
 
 label{
-  display: flex;
-  justify-content: center;
+  display: block;
+  width: 100%;
+  font-weight: 700;
 }
