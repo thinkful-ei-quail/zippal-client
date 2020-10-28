@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import UserContext from '../../context/UserContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './ProfileCard.css'
@@ -11,40 +11,39 @@ export default class ProfileCard extends Component {
 
   renderEditButton() {
     return (
-      <button 
-      onClick={e => this.props.editProfile(e)} 
-      type="button"
+      <button
+        className='form_button'
+        onClick={e => this.props.editProfile(e)}
+        type="button"
       >
-        Edit your Profile?
+        Edit your Profile
       </button>
     )
   }
 
 
   render() {
-    const {fa_icon, username, display_name, location, bio} = this.context.profileInfo
+    const { fa_icon, username, display_name, location, bio } = this.context.profileInfo
     const defaultIcon = 'user-circle'
     return (
-        <section className="ProfileCard">
-          <h2>Welcome {display_name}!</h2>
-          <div className="ProfileCard_main">
-            <div className="ProfileCard__icon_container">
-              <FontAwesomeIcon className='ProfileCard__icon_fa fa-8x' icon={fa_icon ? fa_icon : defaultIcon} />
-              <p>{username}</p>
-            </div>
-            
-            <div className="ProfileCard__bio_location">
-              <p>
-                <span className="ProfileCard__label">location:</span> <br/> 
-                <span className="ProfileCard__data">{location ? location : 'none'}</span>
-              </p>
-              <p><span className="ProfileCard__label">bio:</span> <br/> 
-              <span className="ProfileCard__data">{bio ? bio : 'not available'}</span></p>
-            </div>
-            {this.renderEditButton()}
+      <section className="ProfileCard">
+        <h2>Welcome {display_name}!</h2>
+        <div className="ProfileCard_main">
+          <div className="ProfileCard__icon_container">
+            <FontAwesomeIcon className='ProfileCard__icon_fa fa-8x' icon={fa_icon ? fa_icon : defaultIcon} />
+            <p>{username}</p>
           </div>
-        </section>
-      
+
+          <div className="ProfileCard__bio_location">
+            <p className="ProfileCard__label">location:</p>
+            <p className="ProfileCard__data">{location ? location : 'none'}</p>
+            <p className="ProfileCard__label">bio:</p>
+            <p className="ProfileCard__data">{bio ? bio : 'not available'}</p>
+          </div>
+          {this.renderEditButton()}
+        </div>
+      </section>
+
     )
   }
 }

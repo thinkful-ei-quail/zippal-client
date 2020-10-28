@@ -82,8 +82,8 @@ export default class ProfileForm extends Component {
           </textarea>
 
           <div className='ProfileForm__button_box'>
-            <button type="submit">Submit</button>
-            <button type="button" onClick={this.props.cancelUpdate}>Cancel</button>
+            <button className='form_button' type="submit">Submit</button>
+            <button className='form_button' type="button" onClick={this.props.cancelUpdate}>Cancel</button>
           </div>
         </form>
 
