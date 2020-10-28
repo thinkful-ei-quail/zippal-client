@@ -33,10 +33,6 @@ export default class Dashboard extends Component{
         activeConversations: response.conversations,
         messages: response.messages
       })
-<<<<<<< HEAD
-    console.log(this.state.activeConversations)
-=======
->>>>>>> master
   }
 
   handleNewPal = () => {
