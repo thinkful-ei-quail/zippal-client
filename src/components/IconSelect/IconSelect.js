@@ -33,7 +33,6 @@ export default class IconSelect extends Component {
 
 
   selectIcon = (index) => {
-    console.log(this.iconArray[index])
     let icon = this.iconArray[index]
     this.props.handleChangeIcon(icon)
 

@@ -24,6 +24,7 @@ export default class ConversationBubble extends Component {
   }
   
   toggleBubble = () => {
+    window.scrollTo(0,0)
     this.setState({
       expanded: !this.state.expanded
     })
@@ -224,12 +225,13 @@ export default class ConversationBubble extends Component {
     const { selectedMessage, confirmEndConvoPanel, hideMessage, reply, edit, contentOfPrevious, hideEditAndReplyButton } = this.state
     return (
     <div className='ConversationBubble__convo_card expanded'>
+      
       {/*Navigation buttons for ConversationBubble */}
       <div className='ConversationBubble__nav'>
-        {selectedMessage ? <button onClick={this.clearSelectedMessage}>Go back</button>: ''}
         <button onClick={this.toggleBubble}>
-          <FontAwesomeIcon className='ConversationBubble__pal_icon' icon={this.props.convoData.fa_icon} />
+          <FontAwesomeIcon className='ConversationBubble__window_close' icon="window-close" />
         </button>
+        {selectedMessage ? <button onClick={this.clearSelectedMessage}>Go back</button>: ''}
         <button className="ConversationBubble__end_convo_btn" onClick={this.confirmEndConvo}>
           End Conversation
         </button>
