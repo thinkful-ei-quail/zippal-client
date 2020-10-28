@@ -12,8 +12,12 @@ exports[`HomePage Component takes snapshot of HomePage component 1`] = `
     what is Zip Pal?
   </h3>
   <p>
-    Zip Pal was created out of that familure human need for connections. In these troubled times, it is so hard to just meet people.
-    <br />
+    Zip Pal was created out of that familiar human need for connections.
+  </p>
+  <p>
+    In these troubled times, it is so hard to just meet people.
+  </p>
+  <p>
     That is where Zip Pal comes in! With Zip Pal, you can start a conversation with another random user anytime you'd like! 
   </p>
 </div>
