@@ -16,7 +16,7 @@ class Footer extends Component {
                     <Link to='/about'>About</Link>
                     <Link to='/contact'>Contact</Link>
                     <Link to='/policy'>Policy</Link>
-                    <a href='https://github.com/thinkful-ei-quail/zippal-client' target='_blank' rel='external noopener noreferrer'><FontAwesomeIcon icon={['fab','github']} alt='link to client github repo'/>Github repo</a>
+                    <a href='https://github.com/thinkful-ei-quail/zippal-client' target='_blank' rel='external noopener noreferrer'><FontAwesomeIcon icon={['fab','github']} alt='link to client github repo'/></a>
                 </nav>
             </div>
         )
