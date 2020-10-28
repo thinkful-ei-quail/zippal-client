@@ -52,7 +52,9 @@ class Header extends Component {
               : <Link className='header_link' to='/'><img className='quill'  alt='zip pal' src={quill}/></Link> }
             </div>
             <h1 className='title'>
-              <Link to='/dashboard'>Zip Pal</Link>
+              {TokenService.hasAuthToken()
+              ?<Link to='/dashboard'>Zip Pal</Link>
+              :<Link to='/'>Zip Pal</Link>}
             </h1>
           </div>
         {TokenService.hasAuthToken()
