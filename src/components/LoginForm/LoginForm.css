@@ -3,6 +3,14 @@ input:focus {
   /* background-color: burlywood; */
 }
 
+textarea {
+  font-family: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
 input {
   display: block;
   width: 100%;

@@ -1,3 +1,20 @@
 .App {
+  position: relative;
   text-align: center;
+  width: 100vw;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  min-height: 100vh;
+}
+
+footer {
+  width: 100%;
+  position:absolute;
+  bottom: 0;
+}
+
+@media all and (max-width: 380px) {
+  .App {
+    padding-bottom:125px;
+  }
 }
