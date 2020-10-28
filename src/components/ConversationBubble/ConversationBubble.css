@@ -18,14 +18,15 @@
   margin-bottom: 4px;
 }
 
-.ConersationBubble__message_select:disabled {
+.ConversationBubble__message_select:disabled {
+  
 }
 
 .expanded {
   display: flex;
   flex-direction: column;
   min-height: 55vh;
-  width: 75vw;
+  width: 98vw;
   background-color: rgba(255, 255, 255, 1);
   position: absolute;
   border-radius: 5px;
@@ -33,19 +34,6 @@
   transition: all 0.25s cubic-bezier(0, 0.56, 0.69, 0.49); /*make it smooth*/
   z-index: 3;
 }
-/* What does this do?? */
-.expanded.show {
-  visibility: visible;
-  z-index: 200;
-  opacity: 1;
-  top: 50%; /*slide it down smoothly*/
-}
-
-/* .expanded.show .overlay {
-  opacity: 1;
-  visibility: visible;
-  z-index: 100;
-} */
 .conversationBubble__message_wrapper {
   position: relative;
   display: flex;
@@ -69,6 +57,7 @@
 
 .ConversationBubble__nav {
   text-align: left;
+  margin-bottom: 4px;
   padding: 5px;
   background-color: rgba(15, 55, 202, 0.8);
 }
@@ -92,16 +81,15 @@
   background-color: white;
   flex: 3;
 }
+
 .ConversationBubble__content::-webkit-scrollbar {
   display: none;
-}
-
-.ConversationBubble__message_text > hr {
 }
 
 .transparent {
   background: none;
 }
+
 @media all and (max-width: 500px) {
   .expanded {
     min-height: calc(100vh - 116px);
@@ -119,7 +107,6 @@
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 116px - 31px);
-    /*overflow: unset; */
   }
   .ConversationBubble__content {
     width: 98%;
