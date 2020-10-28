@@ -44,6 +44,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 //add them to library here to be used wherever
 import './App.css'
+import Footer from '../Footer/Footer'
 
 library.add(
   faUserCircle, 
@@ -120,6 +121,9 @@ class App extends Component {
             />
           </Switch>
         </main>
+        <footer className='App_footer'>
+          <Footer/>
+        </footer>
       </div>
     )
   }
