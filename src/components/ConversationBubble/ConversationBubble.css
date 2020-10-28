@@ -18,14 +18,15 @@
   margin-bottom: 4px;
 }
 
-.ConersationBubble__message_select:disabled {
+.ConversationBubble__message_select:disabled {
+  
 }
 
 .expanded {
   display: flex;
   flex-direction: column;
   min-height: 55vh;
-  width: 75vw;
+  width: 98vw;
   background-color: rgba(255, 255, 255, 1);
   position: absolute;
   border-radius: 5px;
@@ -43,7 +44,7 @@
   display: flex;
   padding: 5px;
   flex: 1;
-  background-color: rgb(15, 55, 202);
+  background-color: rgb(15, 55, 202, 0.8);
   flex-direction: column;
   max-height: 64vh;
   overflow-y: scroll;
@@ -56,9 +57,9 @@
 
 .ConversationBubble__nav {
   text-align: left;
-  margin-bottom: 0;
+  margin-bottom: 4px;
   padding: 5px;
-  background-color: rgb(15, 55, 202);
+  background-color: rgba(15, 55, 202, 0.8);
 }
 
 .ConversationBubble__nav button {
@@ -84,9 +85,6 @@
   display: none;
 }
 
-.ConversationBubble__message_text > hr {
-}
-
 .transparent {
   background: none;
 }
@@ -107,7 +105,6 @@
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 116px - 31px);
-    /*overflow: unset; */
   }
   .ConversationBubble__content {
     width: 98%;
