@@ -235,7 +235,7 @@ export default class ConversationBubble extends Component {
           <button onClick={this.toggleBubble}>
             <FontAwesomeIcon className='ConversationBubble__window_close' icon="window-close" />
           </button>
-          {selectedMessage ? <button onClick={this.clearSelectedMessage}>Go back</button> : ''}
+          {selectedMessage ? <button onClick={this.clearSelectedMessage}>Close Message</button> : ''}
           <button className="ConversationBubble__end_convo_btn" onClick={this.confirmEndConvo}>
             End Conversation
         </button>
