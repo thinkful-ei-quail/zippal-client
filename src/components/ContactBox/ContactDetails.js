@@ -77,7 +77,7 @@ export function MathewDetails () {
     <div className="ContactDetails">
     <h4>Mathew Murray</h4>
     <div className="contact_img">
-      <img alt="matthew profile"src={mathewProfileImg}/>
+      <img src={mathewProfileImg} alt='Mathew Murray'/>
     </div>
     <p>
     <a 
@@ -98,10 +98,8 @@ export function MathewDetails () {
     </a>
     </p>
     <p className="personal_bio">
-      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis 
-      praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias 
-      excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui 
-      officia deserunt mollitia animi, id est laborum et dolorum fuga. 
+      I'm a pretty relaxed guy, hailing from the sunny state of Florida. I spend my free time with my family or friends, mostly watching movies
+      or playing table top games. I'm always looking for more projects and Magic players. Feel free to contact me!  
     </p>
   </div>
   )
