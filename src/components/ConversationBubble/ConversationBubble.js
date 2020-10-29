@@ -145,14 +145,16 @@ export default class ConversationBubble extends Component {
   // confirm user actually wants to delete conversation
   confirmEndConvo = () => {
     this.setState({
-      confirmEndConvoPanel: true
+      confirmEndConvoPanel: true,
+      selectedMessage: {content: ' '}
     })
   }
 
   // cancel the end conversation panel
   cancelEndConvo = () => {
     this.setState({
-      confirmEndConvoPanel: false
+      confirmEndConvoPanel: false,
+      selectedMessage: null
     })
   }
 
@@ -246,7 +248,7 @@ export default class ConversationBubble extends Component {
           {/* Display currently selected message and action buttons */}
           <div className={`ConversationBubble__content ${selectedMessage ? " " : "transparent"}`}>
             {confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
-            {selectedMessage ? <button className='form_button' type='button' onClick={() => this.setState({ hideMessage: !this.state.hideMessage })}>{hideMessage ? 'Show message' : 'Hide message'}</button> : ''}
+            {selectedMessage && selectedMessage.content !== ' ' ? <button className='form_button' type='button' onClick={() => this.setState({ hideMessage: !this.state.hideMessage })}>{hideMessage ? 'Show message' : 'Hide message'}</button> : ''}
             {selectedMessage && !hideMessage
               ? (
                 <>
