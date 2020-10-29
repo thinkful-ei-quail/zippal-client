@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactBox Component takes a snapshot of component 1`] = `
+Array [
+  <div
+    className="contact_card_box"
+  >
+    <button
+      className="contact_card"
+      onClick={[Function]}
+    >
+      <h3>
+        John
+      </h3>
+    </button>
+    <button
+      className="contact_card"
+      onClick={[Function]}
+    >
+      <h3>
+        Phillip
+      </h3>
+    </button>
+    <button
+      className="contact_card"
+      onClick={[Function]}
+    >
+      <h3>
+        Mathew
+      </h3>
+    </button>
+    <button
+      className="contact_card"
+      onClick={[Function]}
+    >
+      <h3>
+        Ryan
+      </h3>
+    </button>
+  </div>,
+  "",
+]
+`;
