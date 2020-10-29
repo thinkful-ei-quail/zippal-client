@@ -107,7 +107,7 @@ export default class ConversationBubble extends Component {
             className='ConersationBubble__message_select'
             disabled={this.state.selectedMessage}
           >
-            <p>{message.sender_id === this.context.user.id ? 'Outgoing' : 'Incoming'}</p>
+            <p className='ConversationBubble__message_desc'>{message.sender_id === this.context.user.id ? 'Outgoing' : 'Incoming'}</p>
             {message.date_sent ? <p>Date sent: {this.formatDate(message.date_sent)}</p> : ''}
             <p>Content: {message.content.substring(0, 30)}...</p>
           </button>

@@ -42,6 +42,7 @@ class RegistrationForm extends Component {
     })
     .catch(res => {
       this.setState({error: res.error})
+      this.props.toggleLoading()
     })
   }
 

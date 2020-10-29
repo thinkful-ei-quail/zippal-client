@@ -35,6 +35,7 @@ class LoginForm extends Component {
     })
     .catch(res => {
       this.setState({ error: res.error})
+      this.props.toggleLoading()
     })
   }
 
@@ -47,7 +48,7 @@ class LoginForm extends Component {
       >
        <legend>
         <div role='alert'>
-          {error && <p>{error}</p>}
+          {error && <p className='error'>{error}</p>}
         </div>
         <label htmlFor='login-username-input'>
           Username

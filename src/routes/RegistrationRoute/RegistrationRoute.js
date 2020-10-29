@@ -30,10 +30,11 @@ class RegistrationRoute extends Component {
     return (
       <section className='registration_section'>
         <h2>Sign up</h2>
-        { this.state.loading === false ? <RegistrationForm
+        {this.state.loading && <Loading />}
+        <RegistrationForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
           toggleLoading={this.toggleLoading}
-        /> : <Loading />}
+        />
       </section>
     );
   }
