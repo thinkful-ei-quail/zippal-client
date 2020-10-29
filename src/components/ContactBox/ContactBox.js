@@ -1,12 +1,12 @@
 /* eslint-disable default-case */
 import React, {Component} from 'react'
-import {RyanDetails} from './ContactDetails'
+import {JohnDetails, PhillipDetails, MathewDetails, RyanDetails} from './ContactDetails'
 import './ContactBox.css'
 
  export default class ContactBox extends Component {
   state = {
     johnToggled: false,
-    philipToggled: false,
+    phillipToggled: false,
     MathewToggled: false,
     ryanToggled: false
   }
@@ -14,15 +14,15 @@ import './ContactBox.css'
   toggleJohn = () => {
     this.setState({
       johnToggled: !this.state.johnToggled,
-      philipToggled: false,
+      phillipToggled: false,
       MathewToggled: false,
       ryanToggled: false
     })
   }
-  togglePhilip = () => {
+  togglePhillip = () => {
     this.setState({
       johnToggled: false,
-      philipToggled: !this.state.philipToggled,
+      phillipToggled: !this.state.phillipToggled,
       MathewToggled: false,
       ryanToggled: false
     })
@@ -30,7 +30,7 @@ import './ContactBox.css'
   toggleMathew = () => {
     this.setState({
       johnToggled: false,
-      philipToggled: false,
+      phillipToggled: false,
       MathewToggled: !this.state.MathewToggled,
       ryanToggled: false
     })
@@ -38,7 +38,7 @@ import './ContactBox.css'
   toggleRyan = () => {
     this.setState({
       johnToggled: false,
-      philipToggled: false,
+      phillipToggled: false,
       MathewToggled: false,
       ryanToggled: !this.state.ryanToggled
     })
@@ -59,25 +59,13 @@ import './ContactBox.css'
 
     switch(nameToggled) {
       case 'johnToggled':
-        nameDetails = (
-        <div>
-          Hello John
-        </div>
-        )
+        nameDetails = <JohnDetails />
         break
-      case 'philipToggled':
-        nameDetails = (
-        <div>
-          Hello Philip
-        </div>
-        )
+      case 'phillipToggled':
+        nameDetails = <PhillipDetails />
         break
       case 'MathewToggled':
-        nameDetails = (
-        <div>
-          Hello Mathew
-        </div>
-        )
+        nameDetails = <MathewDetails />
         break
       case 'ryanToggled':
         nameDetails = <RyanDetails />
@@ -96,8 +84,8 @@ import './ContactBox.css'
       <button className="contact_card" onClick={this.toggleJohn}>
         <h3>John</h3>
       </button>
-      <button className="contact_card" onClick={this.togglePhilip}>
-        <h3>Philip</h3>
+      <button className="contact_card" onClick={this.togglePhillip}>
+        <h3>Phillip</h3>
       </button>
       <button className="contact_card" onClick={this.toggleMathew}>
         <h3>Mathew</h3>
@@ -106,9 +94,9 @@ import './ContactBox.css'
         <h3>Ryan</h3>
       </button>
     </div>
-    <div className="contact_details">
+ 
     {this.renderDetails()}
-    </div>
+    
     </>
      )
    }
