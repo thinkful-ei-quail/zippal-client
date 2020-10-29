@@ -91,7 +91,7 @@ export class UserProvider extends Component {
       display_name: jwtPayload.display_name,
       username: jwtPayload.sub,
     })
-    this.getProfile()
+    this.setProfile()
     IdleService.registerIdleTimerResets()
     TokenService.queueCallbackBeforeExpiry(() => {
       this.fetchRefreshToken()

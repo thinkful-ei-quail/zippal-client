@@ -1,3 +1,8 @@
+.dashboard {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
 .welcome_text {
   margin: 10px 4px;
   color: black;

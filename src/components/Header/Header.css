@@ -1,11 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Romanesco&family=The+Girl+Next+Door&display=swap');
 header {
   background-color: rgba(255, 255, 255, 0.5);
+  align-items: center;
+  padding:0;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+}
+
+#header_container {
+  display: flex;
+  width: 90vw;
+  min-width: 250px;
+  max-width: 1240px;
   align-items: center;
   justify-content: space-between;
-  padding: 4px;
 }
 
 .header {
@@ -33,14 +41,14 @@ img.quill {
   align-self: center;
 }
 
-nav, nav div {
+#nav_no_token, #nav_logged_in {
   display: flex;
-  flex-direction: row;
-  padding: 3px;
-  justify-content: space-between;
-  align-content: space-between;
+  align-items: flex-end;
 }
 
+#nav_no_token a:first-child, #nav_logged_in a:first-child {
+  padding: 0 1vh 0 0;
+}
 
 nav a {
   justify-content: space-between;
@@ -48,7 +56,6 @@ nav a {
   text-decoration: none;
   font-size: 3vh;
   color: black;
-  padding: 0 1vw;
 }
 
 nav a:hover {

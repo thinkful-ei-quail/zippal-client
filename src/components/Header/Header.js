@@ -46,30 +46,33 @@ class Header extends Component {
     let aToken = TokenService.hasAuthToken();
     return (
       <>
-         <div className="header">
-            <div className='header_image'>
-              {aToken
-              ? <Link className='header_link' to='/dashboard'><img className='quill' alt='zip pal' src={quill}/></Link>
-              : <Link className='header_link' to='/'><img className='quill'  alt='zip pal' src={quill}/></Link> }
+      <div id='header_container'>
+        <div className="header">
+              <div className='header_image'>
+                {aToken
+                ? <Link className='header_link' to='/dashboard'><img className='quill' alt='zip pal' src={quill}/></Link>
+                : <Link className='header_link' to='/'><img className='quill'  alt='zip pal' src={quill}/></Link> }
+              </div>
+              <div className='header_title'>
+                <h1 >
+                  <Link 
+                    to={aToken ? '/' : '/register'}
+                  >
+                    Zip Pal
+                  </Link>
+                </h1>
+              </div>
             </div>
-            <div className='header_title'>
-              <h1 >
-                <Link 
-                  to={aToken ? '/' : '/register'}
-                >
-                  Zip Pal
-                </Link>
-              </h1>
-            </div>
-          </div>
-        <nav className='nav_container'>
-          {
-            aToken
-            ? this.renderLogoutLink()
-            : this.renderLoginLink()
-          }
-        </nav>
-      
+        <div className='nav_container'>
+          <nav>
+              {
+                aToken
+                ? this.renderLogoutLink()
+                : this.renderLoginLink()
+              }
+          </nav>
+        </div>
+      </div>
       </>
     );
   }
