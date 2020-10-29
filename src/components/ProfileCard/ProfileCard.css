@@ -11,7 +11,7 @@
 }
 
 .ProfileCard__icon_container {
-  width: 50%;
+  /* width: 50%; -- makes icon offset in mobile view */
   margin: auto 0;
 }
 

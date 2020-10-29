@@ -123,7 +123,7 @@ class App extends Component {
               component={LoginRoute}
             />
             <PublicRoute
-              path={'/registration'}
+              path={'/register'}
               component={RegistrationRoute}
             />
               <Route

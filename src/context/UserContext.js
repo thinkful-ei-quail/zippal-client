@@ -11,8 +11,7 @@ const UserContext = React.createContext({
   setError:() => { },
   clearError: () => { },
   setUser: () => { },
-  getProfile: () => { },
-  updateProfile: () => { },
+  setProfile: () => { },
   processLogin: () => { },
   processLogout: () => { },
 })
@@ -28,7 +27,7 @@ export class UserProvider extends Component {
     
 
     if(jwtPayload){
-      const profileData = this.getProfile()
+      const profileData = this.setProfile()
 
       state.user = {
         id: jwtPayload.id,
@@ -38,6 +37,7 @@ export class UserProvider extends Component {
 
       if(profileData)
         state.profileInfo = {
+          username: profileData.username,
           bio: profileData.bio,
           display_name: profileData.display_name,
           fa_icon: profileData.fa_icon,
@@ -77,12 +77,8 @@ export class UserProvider extends Component {
     this.setState({user})
   }
 
-  getProfile = async () => {
+  setProfile = async () => {
     const profileInfo = await UserService.getUserProfile()
-    this.setState({profileInfo})
-  }
-
-  updateProfile = (profileInfo) => {
     this.setState({profileInfo})
   }
 
@@ -138,8 +134,7 @@ export class UserProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       setUser: this.setUser,
-      getProfile: this.getProfile,
-      updateProfile: this.updateProfile,
+      setProfile: this.setProfile,
       processLogin: this.processLogin,
       processLogout: this.processLogout
     }

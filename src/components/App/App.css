@@ -1,25 +1,23 @@
 .App {
-  position: relative;
-  text-align: center;
-  width: 100vw;
-  margin: 0 auto;
-  padding-bottom: 30px;
+  display: grid;
   min-height: 100vh;
+  grid-template-rows: 10vh auto minmax(auto, 6vh);
 }
 
-main {
-  max-width: 1240px;
-  margin: 0 auto;
+.App_main {
+  height: auto;
+  align-content: center;
+  text-align: center;
 }
 
-footer {
-  width: 100%;
-  position:absolute;
-  bottom: 0;
-}
+@media all and (max-width: 360px) {
+  .App{
+    width: auto;
+    grid-template-rows: 10vh auto 15vh;
+  }
 
-@media all and (max-width: 380px) {
-  .App {
-    padding-bottom:125px;
+  nav {
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 }

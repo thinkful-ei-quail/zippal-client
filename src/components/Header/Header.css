@@ -1,57 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Romanesco&family=The+Girl+Next+Door&display=swap');
 header {
   background-color: rgba(255, 255, 255, 0.5);
-  text-align: center;
   display: flex;
-  width: 100%;
-  align-items: center;
   flex-direction: row;
-  justify-content: space-between;
-  min-height: 10vmax;
-}
-.header_text,
-h1 {
-  display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header_title, .header_image {
+  display: flex;
 }
 
 img.quill {
-  width: 80px;
+  width: auto;
+  max-height: 8vh;
+  min-width: 30px;
 }
-.header_link {
-  display: flex;
-}
-.nav_container {
-  display: flex;
-  flex-direction: column-reverse;
-}
-header a {
-  font-size: 10vmin;
+
+.header_title h1 a {
+  max-height: 8vh;
+  font-size: 6vh;
   font-family: 'Romanesco', cursive;
   color: black;
   text-decoration: none;
-  
+  align-self: center;
 }
 
-nav {
+nav, nav div {
   display: flex;
+  flex-direction: row;
+  padding: 3px;
+  justify-content: space-between;
+  align-content: space-between;
 }
+
 
 nav a {
-  margin: 0 20px;
+  justify-content: space-between;
   font-family: 'The Girl Next Door', cursive;
   text-decoration: none;
   font-size: 3vh;
   color: black;
+  padding: 0 1vw;
 }
 
 nav a:hover {
   color: #9c27ca;
 }
 
-@media all and (max-width: 360px) {
-  nav {
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-}
