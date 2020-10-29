@@ -129,8 +129,13 @@ export default class Dashboard extends Component{
       let activeConversations = this.state.activeConversations
       let updatedActiveConvos = activeConversations.filter((c) => {
         return c.id !== convoId})
+      let messages = this.state.messages
+      let updatedMessages = messages.filter(messageArr => {
+        return messageArr[0].conversation_id !== convoId
+      })
       this.setState({
-        activeConversations: updatedActiveConvos
+        activeConversations: updatedActiveConvos,
+        messages: updatedMessages
       })
     })
   }

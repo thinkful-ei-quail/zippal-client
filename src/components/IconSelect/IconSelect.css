@@ -38,3 +38,7 @@
   background: black;
   color: greenyellow;
 }
+
+.hidden_button_text {
+  display: none;
+}
