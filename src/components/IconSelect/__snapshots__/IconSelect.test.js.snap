@@ -9,11 +9,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
     className="IconSelect"
   >
     <button
+      alt="theater-masks"
+      aria-label="theater-masks"
       className="IconSelect__button"
       id="theater-masks"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        theater-masks
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-theater-masks fa-w-20 "
@@ -33,11 +40,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="university"
+      aria-label="university"
       className="IconSelect__button"
       id="university"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        university
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-university fa-w-16 "
@@ -57,11 +71,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="snowboarding"
+      aria-label="snowboarding"
       className="IconSelect__button"
       id="snowboarding"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        snowboarding
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-snowboarding fa-w-16 "
@@ -81,11 +102,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="paw"
+      aria-label="paw"
       className="IconSelect__button"
       id="paw"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        paw
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-paw fa-w-16 "
@@ -105,11 +133,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="palette"
+      aria-label="palette"
       className="IconSelect__button"
       id="palette"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        palette
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-palette fa-w-16 "
@@ -129,11 +164,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="mountain"
+      aria-label="mountain"
       className="IconSelect__button"
       id="mountain"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        mountain
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-mountain fa-w-20 "
@@ -153,11 +195,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="music"
+      aria-label="music"
       className="IconSelect__button"
       id="music"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        music
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-music fa-w-16 "
@@ -177,11 +226,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="motorcycle"
+      aria-label="motorcycle"
       className="IconSelect__button"
       id="motorcycle"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        motorcycle
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-motorcycle fa-w-20 "
@@ -201,11 +257,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="laptop-code"
+      aria-label="laptop-code"
       className="IconSelect__button"
       id="laptop-code"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        laptop-code
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-laptop-code fa-w-20 "
@@ -225,11 +288,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="gamepad"
+      aria-label="gamepad"
       className="IconSelect__button"
       id="gamepad"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        gamepad
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-gamepad fa-w-20 "
@@ -249,11 +319,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="futbol"
+      aria-label="futbol"
       className="IconSelect__button"
       id="futbol"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        futbol
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-futbol fa-w-16 "
@@ -273,11 +350,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="dumbbell"
+      aria-label="dumbbell"
       className="IconSelect__button"
       id="dumbbell"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        dumbbell
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-dumbbell fa-w-20 "
@@ -297,11 +381,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="dog"
+      aria-label="dog"
       className="IconSelect__button"
       id="dog"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        dog
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-dog fa-w-18 "
@@ -321,11 +412,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="chess"
+      aria-label="chess"
       className="IconSelect__button"
       id="chess"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        chess
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-chess fa-w-16 "
@@ -345,11 +443,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="cat"
+      aria-label="cat"
       className="IconSelect__button"
       id="cat"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        cat
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-cat fa-w-16 "
@@ -369,11 +474,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="caravan"
+      aria-label="caravan"
       className="IconSelect__button"
       id="caravan"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        caravan
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-caravan fa-w-20 "
@@ -393,11 +505,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="camera-retro"
+      aria-label="camera-retro"
       className="IconSelect__button"
       id="camera-retro"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        camera-retro
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-camera-retro fa-w-16 "
@@ -417,11 +536,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="bowling-ball"
+      aria-label="bowling-ball"
       className="IconSelect__button"
       id="bowling-ball"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        bowling-ball
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-bowling-ball fa-w-16 "
@@ -441,11 +567,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="user-circle"
+      aria-label="user-circle"
       className="IconSelect__button"
       id="user-circle"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        user-circle
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-user-circle fa-w-16 "
@@ -465,11 +598,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="anchor"
+      aria-label="anchor"
       className="IconSelect__button"
       id="anchor"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        anchor
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-anchor fa-w-18 "
@@ -489,11 +629,18 @@ exports[`IconSelect takes snapshot of IconSelect componenet 1`] = `
       </svg>
     </button>
     <button
+      alt="biking"
+      aria-label="biking"
       className="IconSelect__button"
       id="biking"
       onClick={[Function]}
       type="button"
     >
+      <span
+        className="hidden_button_text"
+      >
+        biking
+      </span>
       <svg
         aria-hidden="true"
         className="svg-inline--fa fa-biking fa-w-20 "

@@ -42,7 +42,7 @@ export function PhillipDetails () {
     <div className="ContactDetails">
     <h4>Phillip Cowan</h4>
     <div className="contact_img">
-      <img src={phillipProfileImg}/>
+      <img alt="phillip profile" src={phillipProfileImg}/>
     </div>
     <p>
     <a 
@@ -110,7 +110,7 @@ export function RyanDetails () {
     <div className="ContactDetails">
       <h4>Ryan Whtimore</h4>
       <div className="contact_img">
-        <img src={ryanProfileImg}/>
+        <img alt="ryan profile"src={ryanProfileImg}/>
       </div>
       <p>
       <a 
