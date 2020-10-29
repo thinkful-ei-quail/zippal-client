@@ -10,14 +10,14 @@ export function JohnDetails () {
     <div className="ContactDetails">
     <h4>John Bowser</h4>
     <div className="contact_img">
-      <img src={johnProfilImg}/>
+      <img alt='John Bowser sitting among large boulders in a Utah canyon' src={johnProfilImg}/>
     </div>
     <p>
     <a 
       href='https://github.com/jgbowser' 
       target='_blank' 
       rel='external noopener noreferrer' 
-      alt='link to johns github repo'>
+      alt="link to John's GitHub">
        <FontAwesomeIcon icon={['fab','github']} /> <span>Github</span>
     </a>
     </p>
@@ -26,15 +26,12 @@ export function JohnDetails () {
       href='https://www.linkedin.com/in/john-g-bowser/' 
       target='_blank' 
       rel='external noopener noreferrer' 
-      alt='link to client github repo'>
+      alt="link to John's LinkedIn">
       <FontAwesomeIcon icon={['fab','linkedin']} /> <span>LinkedIn</span>
     </a>
     </p>
     <p className="personal_bio">
-      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis 
-      praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias 
-      excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui 
-      officia deserunt mollitia animi, id est laborum et dolorum fuga. 
+      I love learning new things. If I'm not outside exploring with my camera you can probably find me digging through coding tutorials, reading a book, or listening to my favorite tech and videogame podcasts. I love working on challenging projects that allow me to learn new concepts. If you would like to work with me or just chat hit me up on either LinkedIn or GitHub. 
     </p>
   </div>
   )
@@ -52,7 +49,7 @@ export function PhillipDetails () {
       href='https://github.com/lipcowan' 
       target='_blank' 
       rel='external noopener noreferrer' 
-      alt='link to johns github repo'>
+      alt="link to Phillip's github">
        <FontAwesomeIcon icon={['fab','github']} /> <span>Github</span>
     </a>
     </p>
@@ -61,7 +58,7 @@ export function PhillipDetails () {
       href='https://www.linkedin.com/in/lip-cowan/' 
       target='_blank' 
       rel='external noopener noreferrer' 
-      alt='link to client github repo'>
+      alt="link to Phillip's LinkedIn">
       <FontAwesomeIcon icon={['fab','linkedin']} /> <span>LinkedIn</span>
     </a>
     </p>
@@ -87,7 +84,7 @@ export function MathewDetails () {
       href='https://github.com/MathewMurray' 
       target='_blank' 
       rel='external noopener noreferrer' 
-      alt='link to johns github repo'>
+      alt="link to Mathew's GitHub">
        <FontAwesomeIcon icon={['fab','github']} /> <span>Github</span>
     </a>
     </p>
@@ -96,7 +93,7 @@ export function MathewDetails () {
       href='https://www.linkedin.com/in/mathewmurray/' 
       target='_blank' 
       rel='external noopener noreferrer' 
-      alt='link to client github repo'>
+      alt="link to Mathew's LinkedIn">
       <FontAwesomeIcon icon={['fab','linkedin']} /> <span>LinkedIn</span>
     </a>
     </p>
@@ -131,7 +128,7 @@ export function RyanDetails () {
         href='https://www.linkedin.com/in/whitmorespaceindustries/' 
         target='_blank' 
         rel='external noopener noreferrer' 
-        alt='link to client github repo'>
+        alt="link to Ryan's LinkedIn">
         <FontAwesomeIcon icon={['fab','linkedin']} /> <span>LinkedIn</span>
       </a>
       </p>
