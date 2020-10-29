@@ -8,38 +8,32 @@ exports[`Footer Component renders ConversationBubble component 1`] = `
     className="Footer_Nav_Container"
   >
     <a
-      href="/"
-      onClick={[Function]}
-    >
-      Homepage
-    </a>
-    <a
-      href="/"
+      href="/about"
       onClick={[Function]}
     >
       About
     </a>
     <a
-      href="/"
+      href="/contact"
       onClick={[Function]}
     >
       Contact
     </a>
     <a
-      href="/"
+      href="/policy"
       onClick={[Function]}
     >
       Policy
     </a>
     <a
+      alt="link to client github repo"
       href="https://github.com/thinkful-ei-quail/zippal-client"
       rel="external noopener noreferrer"
       target="_blank"
     >
       <svg
-        alt="link to client github repo"
         aria-hidden="true"
-        className="svg-inline--fa fa-github fa-w-16 Footer__github"
+        className="svg-inline--fa fa-github fa-w-16 "
         data-icon="github"
         data-prefix="fab"
         focusable="false"
@@ -54,6 +48,7 @@ exports[`Footer Component renders ConversationBubble component 1`] = `
           style={Object {}}
         />
       </svg>
+      GitHub
     </a>
   </nav>
 </div>

@@ -17,7 +17,7 @@ class LoginForm extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
-    this.props.startLoading()
+    this.props.toggleLoading()
     const {username, password} = ev.target
 
     this.setState({error:null})
@@ -30,10 +30,12 @@ class LoginForm extends Component {
       username.value = ''
       password.value = ''
       this.context.processLogin(res.authToken)
+      this.props.toggleLoading()
       this.props.onLoginSuccess()
     })
     .catch(res => {
       this.setState({ error: res.error})
+      this.props.toggleLoading()
     })
   }
 
@@ -46,7 +48,7 @@ class LoginForm extends Component {
       >
        <legend>
         <div role='alert'>
-          {error && <p>{error}</p>}
+          {error && <p className='error'>{error}</p>}
         </div>
         <label htmlFor='login-username-input'>
           Username

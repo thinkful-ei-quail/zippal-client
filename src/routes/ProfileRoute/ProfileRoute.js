@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import ProfileView from '../../components/ProfileView/ProfileView'
+import UserContext from '../../context/UserContext'
 
 
 
@@ -11,7 +12,14 @@ export default class Profile extends Component {
     },
   }
 
-  handleProfileUpdateSuccess = () => {
+  static contextType = UserContext
+
+  handleProfileUpdateSuccess = async() => {
+    await this.context.setProfile()
+    this.handleReroute()
+  }
+
+  handleReroute = () => {
     const {location, history} = this.props
     const destination = (location.state || {}).from || '/dashboard'
     history.push(destination)
@@ -20,7 +28,7 @@ export default class Profile extends Component {
   render(){
     return (
       <section>
-        <ProfileView updateSuccess={this.handleProfileUpdateSuccess}/>
+        <ProfileView cancelUpdate={this.handleReroute} updateSuccess={this.handleProfileUpdateSuccess}/>
       </section>
     )
   }

@@ -13,13 +13,22 @@
   cursor: pointer;
 }
 .ConersationBubble__message_select {
+  background-color: rgb(255, 255, 255);
+  color: rgb(15, 55, 202);
+  border-left: none;
+  border-right: none;
   width: 100%;
   margin-top: -4px;
-  margin-bottom: 4px;
+  margin-bottom: 9px;
+  border-radius: 5px;
 }
 
-.ConversationBubble__message_select:disabled {
-  
+.disabled {
+  background-color: rgba(221, 221, 221, 0.904);
+}
+
+.ConversationBubble__message_desc {
+  font-weight: 600;
 }
 
 .expanded {
@@ -27,6 +36,7 @@
   flex-direction: column;
   min-height: 55vh;
   width: 98vw;
+  max-width: 1240px;
   background-color: rgba(255, 255, 255, 1);
   position: absolute;
   border-radius: 5px;
@@ -57,14 +67,19 @@
 
 .ConversationBubble__nav {
   text-align: left;
-  margin-bottom: 4px;
   padding: 5px;
   background-color: rgba(15, 55, 202, 0.8);
 }
 
 .ConversationBubble__nav button {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 5px;
   margin-right: 10px;
   margin-top: 0px;
+  color: rgb(15, 55, 202);
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .ConversationBubble__pal_icon {
@@ -74,7 +89,7 @@
 .ConversationBubble__content {
   display: flex;
   flex-direction: column;
-  max-height: 64vh;
+  max-height: 70vh;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;

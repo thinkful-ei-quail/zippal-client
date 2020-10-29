@@ -20,9 +20,9 @@ class RegistrationRoute extends Component {
     history.push('/profile')
   }
 
-  startLoading = () => {
+  toggleLoading = () => {
     this.setState({
-      loading: true
+      loading: !this.state.loading
     })
   }
 
@@ -30,10 +30,11 @@ class RegistrationRoute extends Component {
     return (
       <section className='registration_section'>
         <h2>Sign up</h2>
-        { this.state.loading === false ? <RegistrationForm
+        {this.state.loading && <Loading />}
+        <RegistrationForm
           onRegistrationSuccess={this.handleRegistrationSuccess}
-          startLoading={this.startLoading}
-        /> : <Loading />}
+          toggleLoading={this.toggleLoading}
+        />
       </section>
     );
   }
