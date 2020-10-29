@@ -68,7 +68,7 @@
 .ConversationBubble__nav {
   text-align: left;
   padding: 5px;
-  background-color: rgba(15, 55, 202, 0.8);
+  background-color: rgb(15, 55, 202, 0.8);
 }
 
 .ConversationBubble__nav button {

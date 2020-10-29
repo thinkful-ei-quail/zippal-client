@@ -1,0 +1,86 @@
+.contact_card_box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact_card {
+  width: 15vw;
+  background-color: burlywood;
+  min-width: 200px;
+}
+.ContactDetails {
+  width: 70%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  margin-bottom: 70px;
+  background-image: linear-gradient(360deg, white, darkkhaki);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ContactDetails h4 {
+  font-size: 28px;
+}
+
+.ContactDetails span {
+  margin-left: 10px;
+}
+
+.ContactDetails a {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.ContactDetails a:hover {
+  color: blue;
+  background-color: darkkhaki;
+}
+
+.contact_img {
+  width: 150px;
+  margin: 0 auto;
+}
+
+.contact_img img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.personal_bio {
+  padding: 0 40px;
+}
+
+.contact_card_box button {
+  margin: 0;
+  padding: 5px;
+  width: 22%;
+  background-color: darkkhaki;
+  box-shadow: 0px transparent;
+  border: 1px solid #6c683e;
+  box-shadow: 0px 0px 0px transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+.contact_card_box button:hover {
+  background: #6c683e;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+  color: #d6d8e3;
+  cursor: pointer;
+}
+
+.contact_card_box button:active {
+  outline: none;
+  border: none;
+}
+
+.contact_card_box button:focus {
+  outline: 0;
+  background: #beb442;
+  color: #223187;
+}

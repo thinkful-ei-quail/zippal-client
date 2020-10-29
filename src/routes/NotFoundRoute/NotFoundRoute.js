@@ -6,7 +6,7 @@ class NotFoundRoute extends Component {
     return (
       <section className='notFound'>
         <h2>404 - Page not found</h2>
-        <img alt='404 not found' src={Notfound}/>
+        <img width="50%" alt='404 not found' src={Notfound}/>
       </section>
     );
   }
