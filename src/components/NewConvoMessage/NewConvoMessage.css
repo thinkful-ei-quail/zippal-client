@@ -1,6 +1,7 @@
 .NewConvoMessage__container {
   border: 1px solid black;
   width: 85vw;
+  max-width: 800px;
   margin: 0 auto;
   background: linear-gradient(360deg, white, darkkhaki);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
