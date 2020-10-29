@@ -1,0 +1,11 @@
+.contact_card_box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact_card {
+  width: 15vw;
+  border: 1px solid red;
+  min-width: 200px;
+}
