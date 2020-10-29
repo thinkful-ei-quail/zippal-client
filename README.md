@@ -17,7 +17,6 @@ Demo Users:
 - Username: Test_user1 || Password: Passw0rd! || Display name: Plini
 - Username: Test_user1 || Password: Passw0rd! || Display name: Morpheus
 
-
 [API repo](https://github.com/thinkful-ei-quail/zippal-api)
 
 ## Description
@@ -138,6 +137,13 @@ Instead, it will copy all the configuration files and the transitive dependencie
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Credits
+
+### Zip Pal is brought to you by
+
+- [John Bowser](https://github.com/jgbowser)
+- [Phillip 'Lip' Cowan](https://github.com/lipcowan)
+- [Mathew Murray](https://github.com/MathewMurray)
+- [Ryan Whitmore](https://github.com/warptrail)
 
 Thank you to Icongeek26 from flaticon.com for the design of our logo
 [flaticon.com/authors/icongeek26](https://www.flaticon.com/authors/icongeek26)
