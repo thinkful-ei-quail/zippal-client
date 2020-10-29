@@ -56,7 +56,7 @@ class Header extends Component {
               <div className='header_title'>
                 <h1 >
                   <Link 
-                    to={aToken ? '/' : '/register'}
+                    to={aToken ? '/dashboard' : '/'}
                   >
                     Zip Pal
                   </Link>
