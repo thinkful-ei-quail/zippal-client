@@ -150,6 +150,7 @@ export default class Dashboard extends Component{
             setNewMessage={this.setNewMessage}
             handleEndConvo={this.handleEndConvo}
             updateConvoTurns={this.updateConvoTurns}
+            newConvoStarted={!!this.state.newConversation}
           />
         )
       } else {

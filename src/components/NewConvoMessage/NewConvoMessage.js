@@ -1,12 +1,13 @@
 import React from 'react'
 import Message from '../Message/Message'
+import './NewConvoMessage.css'
 
 export default class NewConvoMessage extends React.Component {
 
   render() {
     return (
       <div className='NewConvoMessage__container'>
-      <button type='button' onClick={this.props.closeNewConvoMessage}>Close</button>
+      {/* <button type='button' onClick={this.props.closeNewConvoMessage}>Close</button> */}
        <Message 
         convoData={this.props.newConvoData} 
         message={this.props.newMessage} 
