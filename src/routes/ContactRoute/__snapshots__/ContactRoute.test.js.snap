@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactRoute Component takes snapshot of ContactRoute component 1`] = `
+<div
+  className="contact"
+>
+  <h2>
+    Contact Us
+  </h2>
+  <br />
+  <h3>
+    Team Zip Pal
+  </h3>
+  <div
+    className="contact_card_box"
+  >
+    <button
+      className="contact_card"
+      onClick={[Function]}
+    >
+      <h3>
+        John
+      </h3>
+    </button>
+    <button
+      className="contact_card"
+      onClick={[Function]}
+    >
+      <h3>
+        Phillip
+      </h3>
+    </button>
+    <button
+      className="contact_card"
+      onClick={[Function]}
+    >
+      <h3>
+        Mathew
+      </h3>
+    </button>
+    <button
+      className="contact_card"
+      onClick={[Function]}
+    >
+      <h3>
+        Ryan
+      </h3>
+    </button>
+  </div>
+  
+</div>
+`;
