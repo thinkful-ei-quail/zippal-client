@@ -104,10 +104,10 @@ export default class ConversationBubble extends Component {
           <button
             onClick={() => this.selectMessageHandler(i)}
             key={message.id}
-            className='ConersationBubble__message_select'
+            className={`ConersationBubble__message_select ${this.state.selectedMessage ? 'disabled' : '' }`}
             disabled={this.state.selectedMessage}
           >
-            <p>{message.sender_id === this.context.user.id ? 'Outgoing' : 'Incoming'}</p>
+            <p className='ConversationBubble__message_desc'>{message.sender_id === this.context.user.id ? 'Outgoing' : 'Incoming'}</p>
             {message.date_sent ? <p>Date sent: {this.formatDate(message.date_sent)}</p> : ''}
             <p>Content: {message.content.substring(0, 30)}...</p>
           </button>
@@ -235,7 +235,7 @@ export default class ConversationBubble extends Component {
           <button onClick={this.toggleBubble}>
             <FontAwesomeIcon className='ConversationBubble__window_close' icon="window-close" />
           </button>
-          {selectedMessage ? <button onClick={this.clearSelectedMessage}>Go back</button> : ''}
+          {selectedMessage ? <button onClick={this.clearSelectedMessage}>Close Message</button> : ''}
           <button className="ConversationBubble__end_convo_btn" onClick={this.confirmEndConvo}>
             End Conversation
         </button>
@@ -246,7 +246,7 @@ export default class ConversationBubble extends Component {
           {/* Display currently selected message and action buttons */}
           <div className={`ConversationBubble__content ${selectedMessage ? " " : "transparent"}`}>
             {confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
-            {selectedMessage ? <button type='button' onClick={() => this.setState({ hideMessage: !this.state.hideMessage })}>{hideMessage ? 'Show message' : 'Hide message'}</button> : ''}
+            {selectedMessage ? <button className='form_button' type='button' onClick={() => this.setState({ hideMessage: !this.state.hideMessage })}>{hideMessage ? 'Show message' : 'Hide message'}</button> : ''}
             {selectedMessage && !hideMessage
               ? (
                 <>
