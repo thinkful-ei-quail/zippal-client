@@ -78,7 +78,7 @@ export default class ConversationBubble extends Component {
 
   renderSmallView = () => {
     return (
-      <button className='ConversationBubble__convo_card small' onClick={this.toggleBubble}>
+      <button className='ConversationBubble__convo_card small' onClick={this.toggleBubble} disabled={this.props.newConvoStarted}>
         {this.props.messageData.length !== 0 ? <ConversationNotification messageData={this.props.messageData} /> : ''}
         <h2>{this.props.convoData.pal_name}</h2>
         <div className='ConversationBubble__pal_icon'><FontAwesomeIcon icon={this.props.convoData.fa_icon} /></div>

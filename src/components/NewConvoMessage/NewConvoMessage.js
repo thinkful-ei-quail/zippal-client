@@ -1,5 +1,6 @@
 import React from 'react'
 import Message from '../Message/Message'
+import './NewConvoMessage.css'
 
 export default class NewConvoMessage extends React.Component {
 
