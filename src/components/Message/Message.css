@@ -9,5 +9,6 @@
 
 .Message__textarea {
   width: 100%;
+  max-width: 400px;
   min-height: 100px;
 }
