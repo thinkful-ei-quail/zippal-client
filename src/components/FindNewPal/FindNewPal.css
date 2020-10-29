@@ -1,6 +1,12 @@
 .find_new_pal {
-  border: 1px solid red;
-  margin: 17px;
+  border: 1px solid black;
+  margin: 17px auto;
   background-image: linear-gradient(360deg, white, darkkhaki);
   padding: 15px;
+  width: 85vw;
+  max-width: 800px;
+}
+
+.FindNewPal__icon {
+  font-size: 40px;
 }
