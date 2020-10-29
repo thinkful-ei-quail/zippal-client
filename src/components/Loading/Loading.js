@@ -5,8 +5,10 @@ import './Loading.css'
 function Loading() {
   return (
     <div className='Loading'>
-      <FontAwesomeIcon className='Loading__spinner' icon='spinner' spin />
-      <p>Loading...</p>
+      <div className='Loading__content'>
+        <FontAwesomeIcon className='Loading__spinner' icon='spinner' spin />
+        <p>Loading...</p>
+      </div>
     </div>
   )
 }
