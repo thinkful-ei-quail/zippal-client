@@ -6,7 +6,7 @@ exports[`FindNewPal Component takes a snapshot of the findNewPal component 1`] =
 >
   <svg
     aria-hidden="true"
-    className="svg-inline--fa fa-user-circle fa-w-16 "
+    className="svg-inline--fa fa-user-circle fa-w-16 FindNewPal__icon"
     data-icon="user-circle"
     data-prefix="fas"
     focusable="false"
@@ -33,11 +33,15 @@ exports[`FindNewPal Component takes a snapshot of the findNewPal component 1`] =
     bio: 
     Test bio
   </p>
-  <button>
-    Start New Conversation
+  <button
+    className="form_button"
+  >
+    Start a Conversation
   </button>
-  <button>
-    Find a different pal
+  <button
+    className="form_button"
+  >
+    Find a Different Pal
   </button>
 </div>
 `;

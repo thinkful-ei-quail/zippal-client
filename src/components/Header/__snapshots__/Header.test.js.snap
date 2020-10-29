@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header Component takes a snapshot of the header component 1`] = `
-Array [
+<div
+  id="header_container"
+>
   <div
-    className="header_text"
+    className="header"
   >
     <div
       className="header_image"
@@ -20,37 +22,44 @@ Array [
         />
       </a>
     </div>
-    <h1
-      className="title"
+    <div
+      className="header_title"
     >
-      <a
-        href="/"
-        onClick={[Function]}
-      >
-        Zip Pal
-      </a>
-    </h1>
-  </div>,
+      <h1>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Zip Pal
+        </a>
+      </h1>
+    </div>
+  </div>
   <div
     className="nav_container"
   >
-    <nav
-      className="nav"
-    >
-      <a
-        href="/login"
-        onClick={[Function]}
+    <nav>
+      <div
+        id="nav_no_token"
       >
-        Login
-      </a>
-       
-      <a
-        href="/register"
-        onClick={[Function]}
-      >
-        Sign up
-      </a>
+        <div>
+          <a
+            href="/login"
+            onClick={[Function]}
+          >
+            Login
+          </a>
+        </div>
+        <div>
+          <a
+            href="/register"
+            onClick={[Function]}
+          >
+            Sign-up
+          </a>
+        </div>
+      </div>
     </nav>
-  </div>,
-]
+  </div>
+</div>
 `;

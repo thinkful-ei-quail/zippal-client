@@ -8,12 +8,14 @@ exports[`Message Component takes a snapshot of Message componenet 1`] = `
     className="Message_Container"
   >
     <label
+      className="Message__header"
       htmlFor="Message_Content"
     >
       Create a new message for 
       Test User
     </label>
     <textarea
+      className="Message__textarea"
       id="Message_Content"
       name="Message_Content_Area"
       onChange={[Function]}
@@ -25,14 +27,14 @@ exports[`Message Component takes a snapshot of Message componenet 1`] = `
     className="Message_Buttons_Container"
   >
     <button
-      className="Message_Save_Btn"
+      className="Message_Save_Btn form_button"
       onClick={[Function]}
       type="button"
     >
       Save Message
     </button>
     <button
-      className="Message_Send_Btn"
+      className="Message_Send_Btn form_button"
       onClick={[Function]}
       type="button"
     >
