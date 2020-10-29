@@ -17,7 +17,7 @@ export function JohnDetails () {
       href='https://github.com/jgbowser' 
       target='_blank' 
       rel='external noopener noreferrer' 
-      alt='link to johns github repo'>
+      alt="link to John's GitHub">
        <FontAwesomeIcon icon={['fab','github']} /> <span>Github</span>
     </a>
     </p>
@@ -26,7 +26,7 @@ export function JohnDetails () {
       href='https://www.linkedin.com/in/john-g-bowser/' 
       target='_blank' 
       rel='external noopener noreferrer' 
-      alt='link to client github repo'>
+      alt="link to John's LinkedIn">
       <FontAwesomeIcon icon={['fab','linkedin']} /> <span>LinkedIn</span>
     </a>
     </p>
@@ -49,7 +49,7 @@ export function PhillipDetails () {
       href='https://github.com/lipcowan' 
       target='_blank' 
       rel='external noopener noreferrer' 
-      alt='link to johns github repo'>
+      alt="link to Phillip's github">
        <FontAwesomeIcon icon={['fab','github']} /> <span>Github</span>
     </a>
     </p>
@@ -58,7 +58,7 @@ export function PhillipDetails () {
       href='https://www.linkedin.com/in/lip-cowan/' 
       target='_blank' 
       rel='external noopener noreferrer' 
-      alt='link to client github repo'>
+      alt="link to Phillip's LinkedIn">
       <FontAwesomeIcon icon={['fab','linkedin']} /> <span>LinkedIn</span>
     </a>
     </p>
@@ -84,7 +84,7 @@ export function MathewDetails () {
       href='https://github.com/MathewMurray' 
       target='_blank' 
       rel='external noopener noreferrer' 
-      alt='link to johns github repo'>
+      alt="link to Mathew's GitHub">
        <FontAwesomeIcon icon={['fab','github']} /> <span>Github</span>
     </a>
     </p>
@@ -93,7 +93,7 @@ export function MathewDetails () {
       href='https://www.linkedin.com/in/mathewmurray/' 
       target='_blank' 
       rel='external noopener noreferrer' 
-      alt='link to client github repo'>
+      alt="link to Mathew's LinkedIn">
       <FontAwesomeIcon icon={['fab','linkedin']} /> <span>LinkedIn</span>
     </a>
     </p>
@@ -128,7 +128,7 @@ export function RyanDetails () {
         href='https://www.linkedin.com/in/whitmorespaceindustries/' 
         target='_blank' 
         rel='external noopener noreferrer' 
-        alt='link to client github repo'>
+        alt="link to Ryan's LinkedIn">
         <FontAwesomeIcon icon={['fab','linkedin']} /> <span>LinkedIn</span>
       </a>
       </p>

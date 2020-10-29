@@ -6,11 +6,17 @@
 
 [Hosted Live on Vercel](https://zippal.vercel.app/)
 
-Demo User:
+Demo Users:
 
-username: demo
+- Username: Test_user1 || Password: Passw0rd! || Display name: Mark
+- Username: Test_user1 || Password: Passw0rd! || Display name: Tom
+- Username: Test_user1 || Password: Passw0rd! || Display name: Travis
+- Username: Test_user1 || Password: Passw0rd! || Display name: Hayley
+- Username: Test_user1 || Password: Passw0rd! || Display name: Kasie
+- Username: Test_user1 || Password: Passw0rd! || Display name: Anon
+- Username: Test_user1 || Password: Passw0rd! || Display name: Plini
+- Username: Test_user1 || Password: Passw0rd! || Display name: Morpheus
 
-password: Password0!
 
 [API repo](https://github.com/thinkful-ei-quail/zippal-api)
 
