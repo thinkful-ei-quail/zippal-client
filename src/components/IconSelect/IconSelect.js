@@ -41,7 +41,7 @@ export default class IconSelect extends Component {
   renderButtons = () => {
     return this.iconArray.map((icon, index) => {
       return (
-        <button type="image" key={icon + index} alt={icon} aria-label={icon} id={icon} className="IconSelect__button" type="button" onClick={() => this.selectIcon(index)}>
+        <button key={icon + index} alt={icon} aria-label={icon} id={icon} className="IconSelect__button" type="button" onClick={() => this.selectIcon(index)}>
          <span className="hidden_button_text">{icon}</span>
          <FontAwesomeIcon icon={icon}  aria-hidden="true"/>
         </button>
