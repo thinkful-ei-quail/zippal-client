@@ -553,7 +553,6 @@ exports[`ProfileForm Component takes a snapshot of ProfileForm Component 1`] = `
       id="about"
       name="bioArea"
       onChange={[Function]}
-      placeholder="Test Bio"
     />
     <div
       className="ProfileForm__button_box"
@@ -562,13 +561,13 @@ exports[`ProfileForm Component takes a snapshot of ProfileForm Component 1`] = `
         className="form_button"
         type="submit"
       >
-        Submit
+        Update
       </button>
       <button
         className="form_button"
         type="button"
       >
-        Cancel
+        Back
       </button>
     </div>
   </form>

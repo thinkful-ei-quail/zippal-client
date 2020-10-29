@@ -65,7 +65,7 @@ exports[`ProfileCard Component takes a snapshot of the ProfileCard component 1`]
       onClick={[Function]}
       type="button"
     >
-      Edit your Profile
+      Update Profile
     </button>
   </div>
 </section>
