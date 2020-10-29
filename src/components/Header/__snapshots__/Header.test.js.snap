@@ -45,7 +45,7 @@ Array [
       </a>
        
       <a
-        href="/registration"
+        href="/register"
         onClick={[Function]}
       >
         Sign up

@@ -5,18 +5,17 @@ import './ProfileCard.css'
 
 
 export default class ProfileCard extends Component {
-
-
   static contextType = UserContext
 
   renderEditButton() {
+    const {bio, location} = this.context.profileInfo
     return (
       <button
         className='form_button'
         onClick={e => this.props.editProfile(e)}
         type="button"
       >
-        Edit your Profile
+        {!bio || !location ? 'Tell us more about yourself' : 'Update Profile'}
       </button>
     )
   }
