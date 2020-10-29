@@ -10,7 +10,7 @@ export function JohnDetails () {
     <div className="ContactDetails">
     <h4>John Bowser</h4>
     <div className="contact_img">
-      <img src={johnProfilImg}/>
+      <img alt='John Bowser sitting among large boulders in a Utah canyon' src={johnProfilImg}/>
     </div>
     <p>
     <a 
@@ -31,10 +31,7 @@ export function JohnDetails () {
     </a>
     </p>
     <p className="personal_bio">
-      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis 
-      praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias 
-      excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui 
-      officia deserunt mollitia animi, id est laborum et dolorum fuga. 
+      I love learning new things. If I'm not outside exploring with my camera you can probably find me digging through coding tutorials, reading a book, or listening to my favorite tech and videogame podcasts. I love working on challenging projects that allow me to learn new concepts. If you would like to work with me or just chat hit me up on either LinkedIn or GitHub. 
     </p>
   </div>
   )
