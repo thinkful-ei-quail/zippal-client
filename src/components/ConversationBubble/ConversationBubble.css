@@ -34,19 +34,6 @@
   transition: all 0.25s cubic-bezier(0, 0.56, 0.69, 0.49); /*make it smooth*/
   z-index: 3;
 }
-/* What does this do?? */
-.expanded.show {
-  visibility: visible;
-  z-index: 200;
-  opacity: 1;
-  top: 50%; /*slide it down smoothly*/
-}
-
-/* .expanded.show .overlay {
-  opacity: 1;
-  visibility: visible;
-  z-index: 100;
-} */
 .conversationBubble__message_wrapper {
   position: relative;
   display: flex;
@@ -70,6 +57,7 @@
 
 .ConversationBubble__nav {
   text-align: left;
+  margin-bottom: 4px;
   padding: 5px;
   background-color: rgba(15, 55, 202, 0.8);
 }
@@ -93,6 +81,7 @@
   background-color: white;
   flex: 3;
 }
+
 .ConversationBubble__content::-webkit-scrollbar {
   display: none;
 }
@@ -100,6 +89,7 @@
 .transparent {
   background: none;
 }
+
 @media all and (max-width: 500px) {
   .expanded {
     min-height: calc(100vh - 116px);
