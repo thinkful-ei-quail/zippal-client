@@ -78,7 +78,7 @@ export default class ConversationBubble extends Component {
 
   renderSmallView = () => {
     return (
-      <button className='ConversationBubble__convo_card small' onClick={this.toggleBubble}>
+      <button className='ConversationBubble__convo_card small' onClick={this.toggleBubble} disabled={this.props.newConvoStarted}>
         {this.props.messageData.length !== 0 ? <ConversationNotification messageData={this.props.messageData} /> : ''}
         <h2>{this.props.convoData.pal_name}</h2>
         <div className='ConversationBubble__pal_icon'><FontAwesomeIcon icon={this.props.convoData.fa_icon} /></div>
@@ -145,14 +145,16 @@ export default class ConversationBubble extends Component {
   // confirm user actually wants to delete conversation
   confirmEndConvo = () => {
     this.setState({
-      confirmEndConvoPanel: true
+      confirmEndConvoPanel: true,
+      selectedMessage: {content: ' '}
     })
   }
 
   // cancel the end conversation panel
   cancelEndConvo = () => {
     this.setState({
-      confirmEndConvoPanel: false
+      confirmEndConvoPanel: false,
+      selectedMessage: null
     })
   }
 
@@ -246,7 +248,7 @@ export default class ConversationBubble extends Component {
           {/* Display currently selected message and action buttons */}
           <div className={`ConversationBubble__content ${selectedMessage ? " " : "transparent"}`}>
             {confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
-            {selectedMessage ? <button className='form_button' type='button' onClick={() => this.setState({ hideMessage: !this.state.hideMessage })}>{hideMessage ? 'Show message' : 'Hide message'}</button> : ''}
+            {selectedMessage && selectedMessage.content !== ' ' ? <button className='form_button' type='button' onClick={() => this.setState({ hideMessage: !this.state.hideMessage })}>{hideMessage ? 'Show message' : 'Hide message'}</button> : ''}
             {selectedMessage && !hideMessage
               ? (
                 <>
