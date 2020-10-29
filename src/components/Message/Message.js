@@ -52,11 +52,12 @@ class Message extends Component {
         return (
         <form className='Message_Form'>
             <div className='Message_Container'>
-            <label htmlFor='Message_Content'>
+            <label className='Message__header' htmlFor='Message_Content'>
                 Create a new message for {this.props.convoData.pal_name}
             </label>
             <textarea
                 name='Message_Content_Area'
+                className='Message__textarea'
                 type='text'
                 id='Message_Content'
                 value={this.state.pending_content}
@@ -66,14 +67,14 @@ class Message extends Component {
             <div className='Message_Buttons_Container'>
             <button
                 type='button'
-                className='Message_Save_Btn'
+                className='Message_Save_Btn form_button'
                 onClick={this.saveMessageHandler}
             >
                 Save Message
                     </button>
             <button
                 type='button'
-                className='Message_Send_Btn'
+                className='Message_Send_Btn form_button'
                 onClick={this.sendMessageHandler}
             >
                 Send Message to {this.props.convoData.pal_name}

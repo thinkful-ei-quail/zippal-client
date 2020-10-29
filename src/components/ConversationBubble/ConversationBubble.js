@@ -246,7 +246,7 @@ export default class ConversationBubble extends Component {
           {/* Display currently selected message and action buttons */}
           <div className={`ConversationBubble__content ${selectedMessage ? " " : "transparent"}`}>
             {confirmEndConvoPanel ? this.renderConfirmEndConvoPanel() : ''}
-            {selectedMessage ? <button type='button' onClick={() => this.setState({ hideMessage: !this.state.hideMessage })}>{hideMessage ? 'Show message' : 'Hide message'}</button> : ''}
+            {selectedMessage ? <button className='form_button' type='button' onClick={() => this.setState({ hideMessage: !this.state.hideMessage })}>{hideMessage ? 'Show message' : 'Hide message'}</button> : ''}
             {selectedMessage && !hideMessage
               ? (
                 <>

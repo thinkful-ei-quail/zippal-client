@@ -1,0 +1,13 @@
+.Message_Form {
+  margin-top: 15px;
+  padding: 5px;
+}
+
+.Message__header {
+  margin-bottom: 20px;
+}
+
+.Message__textarea {
+  width: 100%;
+  min-height: 100px;
+}

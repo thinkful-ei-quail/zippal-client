@@ -13,12 +13,14 @@
   cursor: pointer;
 }
 .ConersationBubble__message_select {
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(255, 255, 255);
+  color: rgb(15, 55, 202);
   border-left: none;
   border-right: none;
   width: 100%;
   margin-top: -4px;
   margin-bottom: 9px;
+  border-radius: 5px;
 }
 
 .ConversationBubble__message_desc {
@@ -86,7 +88,7 @@
 .ConversationBubble__content {
   display: flex;
   flex-direction: column;
-  max-height: 64vh;
+  max-height: 70vh;
   overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
