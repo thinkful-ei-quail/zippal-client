@@ -104,7 +104,7 @@ export default class ConversationBubble extends Component {
           <button
             onClick={() => this.selectMessageHandler(i)}
             key={message.id}
-            className='ConersationBubble__message_select'
+            className={`ConersationBubble__message_select ${this.state.selectedMessage ? 'disabled' : '' }`}
             disabled={this.state.selectedMessage}
           >
             <p className='ConversationBubble__message_desc'>{message.sender_id === this.context.user.id ? 'Outgoing' : 'Incoming'}</p>

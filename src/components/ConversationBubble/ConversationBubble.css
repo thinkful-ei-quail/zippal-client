@@ -23,12 +23,12 @@
   border-radius: 5px;
 }
 
-.ConversationBubble__message_desc {
-  font-weight: 600;
+.disabled {
+  background-color: rgba(221, 221, 221, 0.904);
 }
 
-.ConversationBubble__message_select:disabled {
-  
+.ConversationBubble__message_desc {
+  font-weight: 600;
 }
 
 .expanded {
