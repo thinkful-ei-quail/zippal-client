@@ -14,52 +14,65 @@ class Header extends Component {
 
   renderLogoutLink(){
     return (
-      <div className='logged_in'>
-      <div className='nav_container'>
-        <nav className='nav'>
-          <Link 
-          onClick={this.handleLogoutClick} 
-          to='/login'>
-          Logout
-          </Link>
-          {' ' }
+        <div id="nav_logged_in">
+          <div>
           <Link to='/profile'>Profile</Link>
-        </nav>
-      </div>
-      </div>
+          </div>
+          <div>
+            <Link 
+            onClick={this.handleLogoutClick} 
+            to='/login'>
+            Logout
+            </Link>
+          </div>
+        </div>
     )
   }
 
   renderLoginLink(){
     return (
-      <div className='nav_container'>
-      <nav className='nav'>
-        <Link to='/login'>Login</Link>
-        {' ' }
-        <Link to='/registration'>Sign up</Link>
-      </nav>
+      <div id="nav_no_token">
+        <div>
+          <Link to='/login'>Login</Link>
+        </div>
+        <div>
+          <Link to='/register'>Sign-up</Link>
+        </div>
       </div>
     )
   }
 
   render() {
+    let aToken = TokenService.hasAuthToken();
     return (
       <>
-         <div className="header_text">
-            <div className='header_image'>
-              {TokenService.hasAuthToken()
-              ? <Link className='header_link' to='/dashboard'><img className='quill' alt='zip pal' src={quill}/></Link>
-              : <Link className='header_link' to='/'><img className='quill'  alt='zip pal' src={quill}/></Link> }
+      <div id='header_container'>
+        <div className="header">
+              <div className='header_image'>
+                {aToken
+                ? <Link className='header_link' to='/dashboard'><img className='quill' alt='zip pal' src={quill}/></Link>
+                : <Link className='header_link' to='/'><img className='quill'  alt='zip pal' src={quill}/></Link> }
+              </div>
+              <div className='header_title'>
+                <h1 >
+                  <Link 
+                    to={aToken ? '/' : '/register'}
+                  >
+                    Zip Pal
+                  </Link>
+                </h1>
+              </div>
             </div>
-            <h1 className='title'>
-              {TokenService.hasAuthToken()
-              ?<Link to='/dashboard'>Zip Pal</Link>
-              :<Link to='/'>Zip Pal</Link>}
-            </h1>
-          </div>
-        {TokenService.hasAuthToken()
-        ? this.renderLogoutLink()
-        : this.renderLoginLink()}
+        <div className='nav_container'>
+          <nav>
+              {
+                aToken
+                ? this.renderLogoutLink()
+                : this.renderLoginLink()
+              }
+          </nav>
+        </div>
+      </div>
       </>
     );
   }

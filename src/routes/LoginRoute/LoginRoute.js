@@ -17,9 +17,9 @@ class LoginRoute extends Component {
     },
   }
 
-  startLoading = () => {
+  toggleLoading = () => {
     this.setState({
-      loading: true
+      loading: !this.state.loading
     })
   }
 
@@ -34,10 +34,11 @@ class LoginRoute extends Component {
     return (
       <section className='LoginSection'>
         <h2>Login</h2>
-        {this.state.loading === false ? <LoginForm
+        {this.state.loading && <Loading />}
+        <LoginForm
           onLoginSuccess={this.handleLoginSuccess}
-          startLoading={this.startLoading}
-        /> : <Loading />}
+          toggleLoading={this.toggleLoading}
+        />
       </section>
     );
   }
