@@ -102,7 +102,7 @@ export default class ConversationBubble extends Component {
       if ((message.receiver_id === user.id && message.date_sent && MessageService.calculateMessageDeliveryTime(message.date_sent) >= 6) || (message.sender_id === user.id)) {
         return (
           <button
-            onClick={() => this.selectMessageHandler(i)}
+            onClick={() => this.selectMessageHandler(i, message)}
             key={message.id}
             className={`ConersationBubble__message_select ${this.state.selectedMessage ? 'disabled' : '' }`}
             disabled={this.state.selectedMessage}
@@ -120,13 +120,15 @@ export default class ConversationBubble extends Component {
   }
 
   //on click handler that sets clicked on message to be passed to the message component
-  selectMessageHandler = (index) => {
+  selectMessageHandler = async (index) => {
     const selected = this.props.messageData[index]
-    this.setState({
+    await this.setState({
       selectedMessage: selected,
     })
     if (!selected.is_read && selected.receiver_id === this.context.user.id) {
-      MessageService.readMessage(selected)
+      await MessageService.readMessage(selected)
+      this.props.handleReadMessage(selected)
+
     }
   }
 
