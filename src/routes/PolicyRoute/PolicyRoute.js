@@ -5,14 +5,14 @@ import TermsConditions from '../../components/Policy/Terms'
 class PrivacyRoute extends Component {
   render(){
     return (
-      <>
-        <div className='Privacy_Policy'>
+      <main id='Policy_Container'>
+        <article id='Privacy_Policy'>
           <PrivacyPolicy/>
-        </div>
-        <div className='Terms_and_Conditions'>
+        </article>
+        <article id='Terms_and_Conditions'>
           <TermsConditions/>
-        </div>
-      </>
+        </article>
+      </main>
     );
   }
 }
