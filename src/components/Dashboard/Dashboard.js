@@ -156,6 +156,7 @@ export default class Dashboard extends Component{
             handleEndConvo={this.handleEndConvo}
             updateConvoTurns={this.updateConvoTurns}
             newConvoStarted={!!this.state.newConversation}
+            handleReadMessage={this.handleReadMessage}
           />
         )
       } else {
@@ -167,6 +168,23 @@ export default class Dashboard extends Component{
 
   newMessageHandler = async (convo) => {
     return await MessageService.createNewMessage(convo)
+  }
+
+  handleReadMessage = (message) => {
+    const messages = this.state.messages
+    for(let i = 0; i < messages.length; i++) {
+      if(messages[i][0].conversation_id === message.conversation_id) {
+        for(let j = 0; j < messages[i].length; j++) {
+          if(messages[i][j].id === message.id) {
+            messages[i][j].is_read = true
+          }
+        }
+      }
+      continue
+    }
+    this.setState({
+      messages
+    })
   }
 
   setNewMessage = (newMessage) => {
