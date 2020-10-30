@@ -1,9 +1,15 @@
 #terms, #privacy {
-  max-width: 1240px;
-  margin: 12px auto;
-  padding: 20px 50px 20px 50px;
+  margin: 2vw auto;
+  padding: 1vh 3vw;
   border: 1px solid bisque;
+  background-color: rgba(135, 97, 32, 0.536);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#Policy_Container{
+  max-width: 1240px;
+  width: 80vw;
+  margin: 0 auto;
 }
 
 #terms p, #privacy p {
