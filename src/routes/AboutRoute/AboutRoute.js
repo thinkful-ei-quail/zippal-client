@@ -46,6 +46,7 @@ export default class AboutRoute extends Component {
             <li><a href='https://www.apa.org/monitor/2019/05/ce-corner-isolation' target='blank'>American Psychological Association</a></li>
             <li><a href='https://www.verywellfamily.com/benefits-of-having-a-pen-pal-3288504' target='blank'>Benefits of having a Pen Pal</a></li>
             <li><a href='https://www.abeka.com/blog/the-perks-of-pen-pals/' target='blank'>The perks of pen pals</a></li>
+            <li><a href='https://www.rush.edu/news/combating-effects-social-isolation' target='blank'>Rush University's isolation research</a></li>
           </ul>
         </div>
       </>
