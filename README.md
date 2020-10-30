@@ -4,7 +4,7 @@
 
 ## A pen pal app (client side)
 
-[Hosted Live on Vercel](https://zippal.vercel.app/)
+[Hosted Live on Vercel](https://zippals.vercel.app/)
 
 Demo Users:
 
