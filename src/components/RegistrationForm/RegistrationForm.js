@@ -62,7 +62,7 @@ class RegistrationForm extends Component {
             Display Name<Required />
           </label>
           <input
-            id='registraion-name-input'
+            id='registration-name-input'
             name='name'
             required
           />
