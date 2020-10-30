@@ -133,7 +133,7 @@ export function MathewDetails() {
 export function RyanDetails() {
   return (
     <div className="ContactDetails">
-      <h4>Ryan Whtimore</h4>
+      <h4>Ryan Whitmore</h4>
       <div className="contact_img">
         <img alt="ryan profile" src={ryanProfileImg} />
       </div>
