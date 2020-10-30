@@ -64,10 +64,7 @@ class ConversationNotification extends Component {
     }
 
 
-  }
-
-  // FreeSolidSvgIcons from font awesome - added to library in app
-  // --- in a message log should we use envelope-open for read messages 
+  } 
 
   render() {
     return (

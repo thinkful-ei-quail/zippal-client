@@ -13,8 +13,6 @@ class LoginForm extends Component {
 
   state = {error: null}
 
-  firstInput = React.createRef()
-
   handleSubmit = ev => {
     ev.preventDefault()
     this.props.toggleLoading()
@@ -30,7 +28,6 @@ class LoginForm extends Component {
       username.value = ''
       password.value = ''
       this.context.processLogin(res.authToken)
-      this.props.toggleLoading()
       this.props.onLoginSuccess()
     })
     .catch(res => {
@@ -54,7 +51,6 @@ class LoginForm extends Component {
           Username
         </label>
         <input
-          // ref={this.firstInput}
           id='login-username-input'
           name='username'
           required
