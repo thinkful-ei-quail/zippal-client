@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import ContactBox from '../../components/ContactBox/ContactBox'
 
-import './ContactRoute.css'
 
 export default class ContactPage extends Component {
   render(){
