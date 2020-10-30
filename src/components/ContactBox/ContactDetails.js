@@ -158,12 +158,12 @@ export function RyanDetails() {
         </a>
       </p>
       <p className="personal_bio">
-        At vero eos et accusamus et iusto odio dignissimos ducimus qui
-        blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
-        et quas molestias excepturi sint occaecati cupiditate non provident,
-        similique sunt in culpa qui officia deserunt mollitia animi, id est
-        laborum et dolorum fuga.
-      </p>
+      I am a human living in the Bay Area of California and enjoying life. 
+      A huge fan of Bob Ross. Also, technology, gadgets, inventions and 
+      thinking about the future. Always in creative mode, whether it be coding, 
+      writing music or making art.  Feel free to get in touch on 
+      LinkedIn or wherever. 
+    </p>
     </div>
   );
 }
