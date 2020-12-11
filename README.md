@@ -9,13 +9,13 @@
 Demo Users:
 
 - Username: Test_user1 || Password: Passw0rd! || Display name: Mark
-- Username: Test_user1 || Password: Passw0rd! || Display name: Tom
-- Username: Test_user1 || Password: Passw0rd! || Display name: Travis
-- Username: Test_user1 || Password: Passw0rd! || Display name: Hayley
-- Username: Test_user1 || Password: Passw0rd! || Display name: Kasie
-- Username: Test_user1 || Password: Passw0rd! || Display name: Anon
-- Username: Test_user1 || Password: Passw0rd! || Display name: Plini
-- Username: Test_user1 || Password: Passw0rd! || Display name: Morpheus
+- Username: Test_user2 || Password: Passw0rd! || Display name: Tom
+- Username: Test_user3 || Password: Passw0rd! || Display name: Travis
+- Username: Test_user4 || Password: Passw0rd! || Display name: Hayley
+- Username: Test_user5 || Password: Passw0rd! || Display name: Kasie
+- Username: Test_user6 || Password: Passw0rd! || Display name: Anon
+- Username: Test_user7 || Password: Passw0rd! || Display name: Plini
+- Username: Test_user8 || Password: Passw0rd! || Display name: Morpheus
 
 [API repo](https://github.com/thinkful-ei-quail/zippal-api)
 
